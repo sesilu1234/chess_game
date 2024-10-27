@@ -1,0 +1,750 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --background-color_1: rgba(12, 38, 41, 0.25);
+    --background-color_2: rgba(132, 93, 93, 0.5);
+    --background-color_3: rgba(121, 101, 101, 0.5);
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --background-color: #b0a8a8;
+    --text-color: #333;
+  }
+  
+  html{text-align: center;}
+  
+  body {
+    background-color: black;
+    
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set body height to 100% of the viewport */
+    margin: 0; /* Remove default margin */
+  }
+  
+  
+  
+  
+  
+  
+  /* Responsive screen_1 settings */
+  .screen_1 {
+  
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+   
+    width: 971px;
+    height: 600px;
+  
+    position: relative;}
+  
+    
+    
+  
+  
+  .grid_container {
+    display: none;
+    position:absolute;
+    
+    
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    gap: 0px;
+    border:10px solid #770e367b;
+    border-radius: 15px;
+    
+    
+  
+    }
+  
+   
+    
+   
+    
+  
+  
+    .grid-item {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000000;
+    
+    }
+  
+   
+  
+  /* Centering the content in the left_column */
+  .left_column {
+    border: 1px dashed #AC8740;
+    background-color: #3B312D;
+    flex: 1 1 35%;
+    
+   
+    padding : 2%;
+    
+  }
+  
+  .left_column h1 {
+    font-family: 'Dangrek';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5em;
+    line-height: 100px;
+    color: #F39F5A;
+    transform: translate(-2%, 10%);
+  }
+  
+  .red_pawn{
+  
+  
+  width:70%;
+  
+  }
+  
+  
+  .github_icon {
+    display: inline-block; 
+    position:absolute;
+    bottom : 3%;
+    left:3%;/* Makes the container fit the size of the icon */
+    font-size: 1.5em; /* Sets the size of the icon */
+    margin: 0; /* Remove margin if it exists */
+    padding: 8px 10px; /* Add padding for a nicer click area */
+    border-radius: 15px; /* Optional: round corners */
+    transition: background-color 0.4s ease, opacity 0.4s ease; /* Smooth transition for background and transform */
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .github_icon:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Lighten background on hover */
+    opacity: 1; /* Set to 1 for full opacity on hover */
+   /* Slightly scale the icon up */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  }
+  
+  
+  
+  
+  
+  
+  
+  .right_column {
+    border: 1px dashed #AC8740;
+    background-color: #434141;
+    flex: 1 1 65%;
+    
+    height: 100%;
+  
+    position :relative;
+  }
+  
+  /* Adjusting the columns for smaller screens */
+  
+  
+  
+  .presented_1{
+    display:flex;
+    justify-content: flex-end;
+  
+    
+    
+  
+  }
+  
+  .presented_2{
+  
+    display:flex;
+  
+  
+  }
+  
+  .presented_3{
+  
+  
+    padding:10px 5px 10px 10px;
+  
+  }
+  
+  .presented_3 h1 {
+  
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1em;
+    line-height: 20px;
+    opacity:0.8;
+   
+    
+    color: rgb(214, 29, 161);
+  
+  }
+  
+  .presented_3 h2 {
+  
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 50;
+    opacity:0.7;
+    font-size: 1em;
+    line-height: 20px;
+   
+    
+    color: #da29a7;
+    text-align: center;
+  
+  }
+  
+  .linkedin_icon {
+  
+        color: rgb(32, 160, 168,0.7);
+       display: flex;
+       justify-content: center;
+       align-items: center;
+      
+        font-size: 1.3em; /* Sets the size of the icon */
+        margin: 5px 10px 5px 0px; /* Remove margin if it exists */
+       
+        border-radius: 15px; /* Optional: round corners */
+        transition: background-color 0.4s ease, opacity 0.4s ease; /* Smooth transition for background and transform */
+        cursor: pointer;
+       
+    
+    }   
+    
+    
+    .fa-brands.fa-linkedin:hover {
+        color: rgb(13, 41, 101,0.7); /* Change to a deeper blue on hover */
+        opacity: 1; /* Full opacity on hover */
+        transform: scale(1.1); /* Slightly scale the icon up */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a glowing effect */
+    }
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    .input {
+  
+        margin-top: 15%;
+  
+        display:flex;
+  
+        justify-content: center;
+  
+  
+    }
+  
+    .input_1{
+        
+        
+        
+  
+        display:block;
+        justify-content: center;
+  
+    }
+  
+  
+    .input_1 h1 {       
+        display: block;
+  
+        font-family: "Saira Condensed", sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        font-family: 'Saira Condensed';
+       
+        font-size: 2.3em;
+        line-height: 20px;
+            /* or 175% */
+        text-align: center;
+        
+        color: #AE445A;
+  
+    }
+  
+  
+    .create_inputs{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       
+        margin-top: 20px;
+    }
+  
+    .row_1 {
+        position:relative;
+        display:inline-flex;
+        
+        margin-top: 5%;
+        padding: 0px;
+    }
+  
+    .row_2 {
+        position:relative;
+        display:inline-flex;
+        margin-top : 0%;
+    }
+  
+    .row_3 {
+  
+        display:inline-flex;
+        margin-top : 3%;
+    }
+  
+    .simple-input-join {
+      text-align: center;
+    }
+
+
+
+    .simple-input, .simple-input_timer, .simple-input-join {
+        width: 120px; /* Set the desired width */
+        padding: 5px 8px; /* Optional: Add some padding */
+        font-size: 14px; /* Optional: Set the font size */
+        border: 1px solid #ccc; /* Optional: Customize the border */
+        border-radius: 1px; 
+        
+        margin:7px;/* Optional: Rounded corners */
+    }
+    .simple-input2 {
+        
+        width: 100px; /* Set the desired width */
+        padding: 5px 8px; /* Optional: Add some padding */
+        font-size: 14px; /* Optional: Set the font size */
+        border: 1px solid #ccc; /* Optional: Customize the border */
+        border-radius: 1px; 
+        
+        margin:7px;/* Optional: Rounded corners */
+    }
+  
+    #drop_icon {
+  
+  
+        position: absolute;
+        right: 20px;
+        top:30%;
+    }
+  
+    .row_3 .simple-input_timer {
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+  
+        width: 70px; /* Set the desired width */
+        /* Optional: Add some padding */
+        font-size: 15px; /* Optional: Set the font size */
+        font-weight: 800;
+        border: 1px solid #ccc; /* Optional: Customize the border */
+        border-radius: 5%;
+        background-color: #F39F5A;
+        
+        margin:7px;/* Optional: Rounded corners */
+        
+    }
+  
+  
+    .input_2 .row_2 .simple-input {
+        
+        text-align: center;
+  
+        width: 150px; /* Set the desired width */
+        /* Optional: Add some padding */
+        font-size: 15px; /* Optional: Set the font size */
+        
+        border: 1px solid #ccc; /* Optional: Customize the border */
+        border-radius: 5%;
+        
+        
+        margin:7px;/* Optional: Rounded corners */
+        
+    }
+  
+    .create-button {
+  
+  
+        margin-top: 5%;
+        background-color: #F6B93B; /* Bright yellow */
+        color: black; /* White text */
+        border: none; /* No border */
+        border-radius: 1px; /* Rounded corners */
+        padding: 8px 17px; /* Top/bottom and left/right padding */
+        font-size: 16px; /* Font size */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s; /* Smooth transition */
+  
+        font-family: 'Lato'; /* Fallback to sans-serif if Lato is unavailable */
+    font-weight: 400; /* Regular weight */
+    }
+    
+    .create-button:hover {
+        background-color: #FFC300; /* Darker yellow on hover */
+    }
+  
+    .join-button {
+  
+  
+        margin-top: 5%;
+        background-color: #F6B93B; /* Bright yellow */
+        color: black; /* White text */
+        border: none; /* No border */
+        border-radius: 1px; /* Rounded corners */
+        padding: 8px 17px; /* Top/bottom and left/right padding */
+        font-size: 16px; /* Font size */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s; /* Smooth transition */
+  
+        font-family: 'Lato'; /* Fallback to sans-serif if Lato is unavailable */
+    font-weight: 400; /* Regular weight */
+    }
+    
+    .join-button:hover {
+        background-color: #FFC300; /* Darker yellow on hover */
+    }
+    
+    
+    .separator{
+  
+        width:2px;
+        background-color: black;
+        transform: translateX(15px);
+    }
+  
+    .input_2{
+  
+       
+  
+        display:block;
+        justify-content: center;
+        transform: translateY(1px);
+       
+      
+    }
+  
+  
+  .input_2 h1 {
+  
+    display: block;
+  
+    font-family: "Saira Condensed", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-family: 'Saira Condensed';
+   
+    font-size: 2.3em;
+    line-height: 20px;
+        /* or 175% */
+    text-align: center;
+    
+    color: #AE445A;
+  
+    }
+  
+  
+  
+  .input_2 .row_1{
+  
+  
+  margin:0%;
+  margin-bottom: 5%;
+  
+    
+  }
+  
+    .yellow_pawn{
+  
+  
+        width:35%;
+        transform: translate(90%, 0%);
+        
+        
+        }
+  
+  
+  
+  
+  
+  .form{
+  
+    position:absolute;
+    width : 320px;
+    height: 320px;
+    background-color: #ECE6F0;
+    opacity: 0.97;
+    border-radius: 10%;
+    z-index: 1;
+    display: none;
+   
+  
+  }
+  
+  .game_created {
+  
+    color: #7c6b6b;
+    font-size: 0.8em;
+    padding: 5%;
+    margin-top: 5%;
+  
+  }
+  
+  
+  
+  .waiting_2nd {
+  
+    color: #111010;
+    font-size: 0.85em;
+    padding: 2%;
+    
+  
+  
+  }
+  
+  .ID_copy{
+  
+    display:flex;
+    margin : 10%;
+    align-items: center;
+    margin-bottom: 5%;
+  
+  
+  }
+  
+  
+  .ID_symbol{
+    display: flex;
+   
+    justify-content: center; /* Centers the text horizontally */
+    align-items: center;
+    background-color: #9581b4;
+    padding: 5%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    margin-right: 5%;
+  
+  
+  
+  
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.3em;
+        font-weight: 100;
+        font-style: normal;
+      
+      
+  
+  }
+  
+  .ID_letters {
+    color : rgb(42, 40, 40) ;
+    font-size: 1.5em;
+    font-family: "EB Garamond", sans-serif;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* This centers horizontally as well */
+   padding: 5%;
+  }
+  
+  
+  .copy_symbol {
+  
+  
+  
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    padding: 5%;
+    cursor: pointer;
+    
+  }
+
+
+
+.copy_symbol:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(200, 200, 200, 0.5); /* Soft grey background */
+    border-radius: 25%;
+}
+.copy_symbol.clicked {
+  background-color: rgba(163, 72, 72, 0.7); /* Change to your desired clicked color */
+}
+
+  
+  
+  .separator_2 {
+    height: 0.1em; /* Adjust the height as needed */
+    background-color: #000000af; /* Change color as desired */
+    width: 80%; 
+    position: relative;
+  
+    left:10%;
+   
+   }
+
+  
+  
+  .exclamation {
+    font-family: "Danfo", serif;
+    margin-top:12% ;
+    display: inline-block;
+    font-size: 2em;
+    animation: jumpBounce 1.2s infinite;
+}
+
+@keyframes jumpBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  @media (max-width: 768px) {
+    .screen_1 {
+        flex-direction: column;
+        
+        width: 85vw;
+    }
+  
+    .input{
+  
+        margin-bottom: 25%;
+    }
+  
+    .github_icon {
+  
+        display: none;
+  
+    }
+  
+    .red_pawn{
+  
+        display: none;
+  
+  
+    }
+  
+    .presented_1{
+  
+        position:absolute;
+  
+        bottom : 0px;
+  
+        padding : 1%;
+  
+  
+    }
+    .left_column {
+        border: 1px dashed #AC8740;
+        background-color: #3B312D;
+        flex: 1 1 35%;
+        
+       
+        padding : 2%;
+        display:flex;
+        flex-direction: column;
+       justify-content: center;
+       align-items: center;
+    }
+  
+    
+  }
+  
+  @media (max-width: 620px) {
+  
+  
+    .create_inputs {
+        transform: translateY(-10%) scale(0.8);
+    }
+    .screen_1{
+  
+        width: 100vw;
+        height: 100vh;
+  
+    }
+  
+  
+  }
+  
+  
+  
+  @media (max-width: 620px) {
+  
+  
+   .input{
+  
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  
+   }
+  
+  
+   .left_column h1 {
+    font-size: 3em;
+    line-height: 70px;
+    margin: auto auto;
+  
+   }
+  
+   .screen_1 {
+    border: 20px solid #000; /* Dark black border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Optional shadow for extra depth */
+  }
+  
+    .grid_container {
+  
+    
+    transform: scale(0.9);
+  
+  }
+  
+  }
+  
+  @media (max-width: 480px) {
+
+    .form{
+
+      transform: scale(0.8);
+    }
+    
+    .grid_container {
+  
+    
+        transform: scale(0.7);
+    
+    }
+  
+  }
