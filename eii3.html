@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class = "root_1">
 <head>
     <meta charset="UTF-8">
-    <title>Stock Price Updates</title>
+    <title>ChessBySesilu</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -39,10 +39,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Danfo&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 
+<link rel="icon" href="pieces_drawings/yellow_pawn1_3.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Danfo:ELSH@100&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Press+Start+2P&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+
+
+
 </head>
 <body>
 
-
+    
     
 <div class = "form">
 
@@ -51,7 +61,7 @@
     <div class = "ID_copy">      
         <div class = "ID_symbol">  ID  </div>  
         <div class = "ID_letters">  <h5>F6H-ghfy-am83</h5> </div>  
-        <div class  = "copy_symbol"><i class="fa-solid fa-copy"></i></div>               
+        <div class  = "copy_symbol"><i class="fa-solid fa-copy"></i>  <div class = "copied_alert" >Copied!</div>  </div>               
 
 
 
@@ -63,19 +73,97 @@
 
     <div class = "separator_2"></div>  
 
-    <div class = "exclamation">Share</div>  
+    <div class = "exclamation">Invite</div>  
 
-
+   
 
 
 </div>    
+
+<div class = "end_form">
+
+    <div class = "game_created">  <h1>END OF GAME</h1> </div>
+    <div class = "waiting_2nd">  <h3>The winner is</h3> </div>
+    <div class = "ID_copy">      
+         
+        <div class = "ID_letters">  <h5>BBBBBBB</h5> </div>  
+                    
+
+
+
+
+
+
+
+    </div>
+
+    <div class = "separator_2"></div>  
+
+    <div class = "exclamation">new game</div>  
+
+    <div class = "x_close"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+        class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> </div>
+
+
+</div>    
+
+<div class = "time_form">
+
+    <div class = "game_created">  <h1>OUT OF TIME</h1> </div>
+    <div class = "waiting_2nd">  <h3>The winner is</h3> </div>
+    <div class = "ID_copy">      
+         
+        <div class = "ID_letters">  <h5>BBBBBBB</h5> </div>  
+                    
+
+
+
+
+
+
+
+    </div>
+
+    <div class = "separator_2"></div>  
+
+    <div class = "exclamation">new game</div>  
+
+    <div class = "x_close"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+    class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> </div>
+
+
+</div> 
     
 
 <div class="screen_1" id = "screen_1">
 
+    
+    
 
-    <div class = "grid_container" id ="grid_container">  </div>
+    <div class = "grid_container" id ="grid_container">  
 
+        <div class = "PawnPromotion">    
+
+
+            <div class = "Queen">Queen</div>
+
+            <div class = "Knight">Knight</div>
+
+
+
+    </div>
+
+
+    <div class = "user1">    <i class="fa-solid fa-user"></i>  <h5>User1</h5> <h6>CHECKED</h6> </div>
+
+    <div class = "user2">    <i class="fa-solid fa-user"></i>  <h5>User1</h5> <h6>CHECKED</h6> </div>
+
+    <div class = "timer">     <div class = "minutes"> 00</div>     <div class = "seconds">59</div>             </div>
+
+
+    </div>
+    
+    
     <div class = "left_column" >
         
         <h1>QUICK CHESS</h1>
@@ -86,7 +174,9 @@
 
        
         <div class="github_icon">
+            <a href="https://github.com/sesilu1234" target="_blank">
                 <i class="fa-brands fa-github"></i>
+            </a>
         </div>
         
         
@@ -100,7 +190,28 @@
 
     <div class = "right_column" >
 
+
+
+        <div class = "theme">
+
+            <i class="fa-solid fa-sun"></i>
+            <i class="fa-solid fa-moon"></i>
+    
+        </div>
+        <div class = "info_box">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+    class="feather feather-help-circle info"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+
+        </div>
+        
+    
+
+        <div class = "info_div">  <div class = "number_ob">  <div class = "nu"> 1 </div>     <h5>Create a Game:</h5>  </div>    <p>Pick a color, name, time per round and click Start to get a Game Code.</p>
+        <div class = "number_ob">  <div class = "nu"> 2 </div>      <h5>Invite Your Friend: </h5>     </div>  <p>Share the code with them; they can enter it and click Join.  </p>       </div>
+
         <div class="presented_1"> 
+
 
 
             <div class="presented_2">  
@@ -112,9 +223,9 @@
 
                 </div>
                 <div class = "linkedin_icon">
-
+                    <a href="https://www.linkedin.com/in/ulises-pla-rocher-942804236" target="_blank">
                     <i class="fa-brands fa-linkedin"></i>
-
+                    </a>
 
 
                 </div>
@@ -148,10 +259,33 @@
 
                         
                         
-                       
+                            <div class = "dropdown_1">
+
+                            <div class = "drop_1"> <div class = "drop_11">white<img src="pieces_drawings/alfil_1.png" alt="Chess piece pawn" width="24" height="24" class = "refpiece1"> </div> <i class="fa-solid fa-check d11"></i></div>    
+
+                            <div class = "drop_2"> <div class = "drop_21">black<img src="pieces_drawings/alfil_2.png" alt="Chess piece pawn" width="20" height="20" class = "refpiece2"> </div> <i class="fa-solid fa-check d12"></i></div>    
+
+                            <div class = "drop_3"> <div class = "drop_31">green<img src="pieces_drawings/alfil_3.png" alt="Chess piece pawn" width="20" height="20" class = "refpiece3"> </div> <i class="fa-solid fa-check d13"></i> </div>    
 
 
-                            <input type="text" class="simple-input2" value="white">
+
+                            </div>
+
+
+                            <div class = "dropdown_2">
+
+                                <div class = "drop_1"> <div class = "drop_11">white<img src="pieces_drawings/alfil_1.png" alt="Chess piece pawn" width="24" height="24" class = "refpiece1"> </div> <i class="fa-solid fa-check d21"></i></div>    
+    
+                                <div class = "drop_2"> <div class = "drop_21">black<img src="pieces_drawings/alfil_2.png" alt="Chess piece pawn" width="20" height="20" class = "refpiece2"> </div> <i class="fa-solid fa-check d22"></i></div>    
+    
+                                <div class = "drop_3"> <div class = "drop_31">green<img src="pieces_drawings/alfil_3.png" alt="Chess piece pawn" width="20" height="20" class = "refpiece3"> </div> <i class="fa-solid fa-check d23"></i> </div>    
+    
+    
+    
+                                </div>
+
+
+                            <input type="text" class="simple-input2" value="white" readonly>
                             <i id = "drop_icon" class="fa-solid fa-caret-down"></i>
                         </div>
                         
@@ -167,13 +301,14 @@
                        
 
 
-                            <input type="text" class="simple-input2" value="black">
+                            <input type="text" class="simple-input2" value="black" readonly>
                             <i id = "drop_icon" class="fa-solid fa-caret-down"></i>
 
                     </div>
                     <div class = "row_3" >
 
-                        <input type="text" class="simple-input_timer" value="00">
+                        <input type="text" class="simple-input_timer hour" value="00" readonly>
+
 
 
                         
@@ -181,7 +316,7 @@
                        
 
 
-                            <input type="text" class="simple-input_timer" value="59">
+                            <input type="text" class="simple-input_timer minute" value="59" readonly>
                     
 
 

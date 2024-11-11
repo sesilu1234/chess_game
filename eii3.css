@@ -4,20 +4,44 @@
     box-sizing: border-box;
   }
   
-  :root {
-    --background-color_1: rgba(12, 38, 41, 0.25);
-    --background-color_2: rgba(132, 93, 93, 0.5);
-    --background-color_3: rgba(121, 101, 101, 0.5);
-    --secondary-color: #2ecc71;
-    --accent-color: #e74c3c;
-    --background-color: #b0a8a8;
-    --text-color: #333;
-  }
+
+
+
+.root_1 {
+    --body-back_color: #13141e;
+    --left_column-back_color: #3B312D;
+    --right_column-back_color: #222222;
+
+
+    --border-color: #7B9ACC;
+    --left_column-color: #F39F5A;
+    --theme_back-color: rgba(200, 200, 200, 0.276);
+    --presented-color: #29da7a;
+
+    --upr-color: #da29a7;
+    --info_color: rgb(94, 45, 150);
+}
+
+.root_2 {
+  --body-back_color: #bebebe;
+  --left_column-back_color: #58453d;
+  --right_column-back_color: #806e7b;
+
+
+  --border-color: #7B9ACC;
+  --left_column-color: #060504;
+  --theme_back-color: rgba(200, 200, 200, 0.276);
+  --presented-color: #111a15;
+
+  --upr-color: #7a0859;
+  --info_color: rgb(30, 165, 135);
+}
+
   
   html{text-align: center;}
   
   body {
-    background-color: black;
+    background-color: var(--body-back_color);
     
     
     display: flex;
@@ -39,14 +63,128 @@
     box-sizing: border-box;
     display: flex;
    
-    width: 971px;
-    height: 600px;
+    width: 840px;
+    height: 440px;
   
     position: relative;}
   
     
-    
+    .user1{
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      position : absolute;
+      right: -22%;
+      top : 0%;
+      width : 15%;
+      height: 15%;
+      border-radius: 50%;
+      padding: 5%;
+      color:#a62d92;
+
+      background-color: rgba(104, 93, 93, 0.567);
+      
+      font-size: 2em;
+
+    }
   
+    .user2{
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      position : absolute;
+      right: -22%;
+      bottom : 0%;
+      width : 15%;
+      height: 15%;
+      border-radius: 50%;
+
+      color:#b3953a;
+      padding: 5%;
+      background-color: rgba(104, 93, 93, 0.567);
+      
+      font-size: 2em;
+    }
+
+    /* Glow effect when it's the user's turn */
+.user1.active-turn {
+  animation: soft-glow 1.8s infinite alternate;
+}
+
+.user2.active-turn {
+  animation: soft-glow 1.8s infinite alternate;
+}
+
+/* Keyframes for a softer, more organic glow */
+@keyframes soft-glow {
+  0% {
+      box-shadow: 0 0 6px #ffad5c, 0 0 12px #ffad5c;
+  }
+  100% {
+      box-shadow: 0 0 16px #ffad5c, 0 0 24px #ffad5c;
+  }
+}
+
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: -37%;
+      bottom: 42%;
+      gap: 5%;
+      border-radius: 5%;
+      background-color: rgba(104, 93, 93, 0.567);
+      padding: 2%;
+  }
+  
+  .minutes, .seconds {
+    display: flex;
+    align-items: center;
+    height: 1.2em;
+      color: #4f0e0e;
+      font-size: 1.9em;
+      font-family: "Saira Condensed", serif;
+      font-weight: 600;
+      background-color: #504d4a;
+      padding: 0.1em 0.3em; /* Minimal padding to reduce height */
+      margin: 0; /* Ensures no extra spacing */
+      text-align: center;
+  }
+  
+
+    .user1 h5, .user2 h5 {
+
+      font-size:0.5em;
+      font-weight: 300;
+
+      position: absolute;
+      top:-10%;
+      left:105%;
+
+
+
+
+    }
+
+    .user1 h6, .user2 h6 {
+
+      display: none;
+      color: rgb(116, 116, 175);
+      font-size:0.5em;
+      font-weight: 300;
+
+      position: absolute;
+      bottom:0%;
+      left: 105%;
+
+
+
+
+    }
   
   .grid_container {
     display: none;
@@ -80,8 +218,8 @@
   
   /* Centering the content in the left_column */
   .left_column {
-    border: 1px dashed #AC8740;
-    background-color: #3B312D;
+    border: 1px dashed var(--border-color);
+    background-color: var(--left_column-back_color);
     flex: 1 1 35%;
     
    
@@ -95,7 +233,7 @@
     font-weight: 400;
     font-size: 5em;
     line-height: 100px;
-    color: #F39F5A;
+    color: var(--left_column-color);
     transform: translate(-2%, 10%);
   }
   
@@ -110,16 +248,19 @@
   .github_icon {
     display: inline-block; 
     position:absolute;
-    bottom : 3%;
-    left:3%;/* Makes the container fit the size of the icon */
+    bottom : 2%;
+    left:1.5%;/* Makes the container fit the size of the icon */
     font-size: 1.5em; /* Sets the size of the icon */
     margin: 0; /* Remove margin if it exists */
-    padding: 8px 10px; /* Add padding for a nicer click area */
+    padding: 5px 7px; /* Add padding for a nicer click area */
     border-radius: 15px; /* Optional: round corners */
     transition: background-color 0.4s ease, opacity 0.4s ease; /* Smooth transition for background and transform */
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.4);
+    
   }
+
+  .fa-github{color:#21201ed8;}
   
   .github_icon:hover {
     background-color: rgba(255, 255, 255, 0.8); /* Lighten background on hover */
@@ -135,8 +276,8 @@
   
   
   .right_column {
-    border: 1px dashed #AC8740;
-    background-color: #434141;
+    border: 1px dashed var(--border-color);
+    background-color: var(--right_column-back_color);
     flex: 1 1 65%;
     
     height: 100%;
@@ -146,7 +287,33 @@
   
   /* Adjusting the columns for smaller screens */
   
+  .theme {
+    position : absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center icons vertically */
+    font-size: 1.3em;
+    right: 1.4%;
+    top: 15%;
+    background-color: var(--theme_back-color);
+    border-radius: 15%;
+    padding: 1% 0%; /* Add padding to create spacing */
+    cursor: pointer;
+}
+
+.fa-sun, .fa-moon {
+    margin: 0 0.3em; 
+
+    opacity: 1;
+    
+    
   
+}
+
+.fa-sun{color:white; opacity: 0.2;}
+
+.fa-moon{color:black; opacity: 1;}
+
   
   .presented_1{
     display:flex;
@@ -181,7 +348,7 @@
     opacity:0.8;
    
     
-    color: rgb(214, 29, 161);
+    color: var(--presented-color);
   
   }
   
@@ -195,31 +362,35 @@
     line-height: 20px;
    
     
-    color: #da29a7;
+    color: var(--upr-color );
     text-align: center;
   
   }
   
   .linkedin_icon {
   
-        color: rgb(32, 160, 168,0.7);
+        
        display: flex;
        justify-content: center;
        align-items: center;
       
         font-size: 1.3em; /* Sets the size of the icon */
-        margin: 5px 10px 5px 0px; /* Remove margin if it exists */
+        margin: 5px 10px 5px 3px; /* Remove margin if it exists */
        
         border-radius: 15px; /* Optional: round corners */
         transition: background-color 0.4s ease, opacity 0.4s ease; /* Smooth transition for background and transform */
-        cursor: pointer;
+        
        
     
     }   
+    .fa-linkedin{
+      cursor: pointer;
+      color: rgb(32, 160, 168,0.7);
+    }
     
     
-    .fa-brands.fa-linkedin:hover {
-        color: rgb(13, 41, 101,0.7); /* Change to a deeper blue on hover */
+    .fa-brands.fa-linkedin.fa-linkedin:hover {
+        color: rgba(69, 88, 132, 0.7); /* Change to a deeper blue on hover */
         opacity: 1; /* Full opacity on hover */
         transform: scale(1.1); /* Slightly scale the icon up */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a glowing effect */
@@ -283,6 +454,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        
        
         margin-top: 20px;
     }
@@ -316,7 +488,7 @@
     .simple-input, .simple-input_timer, .simple-input-join {
         width: 120px; /* Set the desired width */
         padding: 5px 8px; /* Optional: Add some padding */
-        font-size: 14px; /* Optional: Set the font size */
+        font-size: 0.8em; /* Optional: Set the font size */
         border: 1px solid #ccc; /* Optional: Customize the border */
         border-radius: 1px; 
         
@@ -331,6 +503,9 @@
         border-radius: 1px; 
         
         margin:7px;/* Optional: Rounded corners */
+        cursor: pointer;
+        /* Prevent text selection */
+      
     }
   
     #drop_icon {
@@ -354,6 +529,7 @@
         background-color: #F39F5A;
         
         margin:7px;/* Optional: Rounded corners */
+        cursor: move;
         
     }
   
@@ -371,14 +547,17 @@
         
         
         margin:7px;/* Optional: Rounded corners */
+
+        
         
     }
+   
   
     .create-button {
   
   
         margin-top: 5%;
-        background-color: #F6B93B; /* Bright yellow */
+        background-color: #D3D3D3; /* Bright yellow */
         color: black; /* White text */
         border: none; /* No border */
         border-radius: 1px; /* Rounded corners */
@@ -391,15 +570,13 @@
     font-weight: 400; /* Regular weight */
     }
     
-    .create-button:hover {
-        background-color: #FFC300; /* Darker yellow on hover */
-    }
+   
   
     .join-button {
   
   
         margin-top: 5%;
-        background-color: #F6B93B; /* Bright yellow */
+        background-color: #D3D3D3; /* Bright yellow */
         color: black; /* White text */
         border: none; /* No border */
         border-radius: 1px; /* Rounded corners */
@@ -464,6 +641,133 @@
   
     
   }
+
+  .dropdown_1{
+
+
+    width: 100px;
+    display: none;
+    flex-direction: column;
+   
+    position : absolute;
+    text-align: start;
+    background-color: rgba(221, 221, 221, 0.9);
+
+    right: 0px;
+    top:-100px;
+    gap: 0px;
+    
+    padding:1%;
+    border-radius: 5%;
+
+  }
+  .dropdown_2{
+
+
+    width: 100px;
+    display: none;
+    flex-direction: column;
+   
+    position : absolute;
+    text-align: start;
+    background-color: rgba(221, 221, 221, 0.9);
+
+    right: 0px;
+    bottom:-140px;
+    gap: 0px;
+    
+    padding:1%;
+    border-radius: 5%;
+
+  }
+  .fa-check.d11{
+    
+    transform: translate(6px,8px);
+
+
+  }
+
+  .fa-check.d12{
+    display: none;
+    transform: translate(11px,5px);
+
+
+  }
+
+  .fa-check.d13{
+    display: none;
+    transform: translate(11px,5px);
+
+
+  }
+
+
+
+  .fa-check.d21{
+    display: none;
+    transform: translate(6px,8px);
+
+
+  }
+
+  .fa-check.d22{
+    
+    transform: translate(11px,5px);
+
+
+  }
+
+  .fa-check.d23{
+    display: none;
+    transform: translate(11px,5px);
+
+
+  }
+
+
+
+
+  .drop_1{
+    display: flex;
+    padding: 0% 5% 5% 5%;
+    
+
+  }
+
+  .drop_2{
+    display: flex;
+    padding: 0% 5% 5% 5%;
+    
+
+  }
+
+
+  .drop_3{
+    display: flex;
+    padding: 0% 5% 5% 5%;
+  
+
+  }
+
+
+  .refpiece1{
+
+
+transform: translate(0px,6px);
+
+  }
+  .refpiece2{
+
+
+    transform: translate(3px,4px);
+    
+      }
+      .refpiece3{
+
+
+        transform:translate(3px,3px);
+        
+          }
   
     .yellow_pawn{
   
@@ -491,6 +795,33 @@
    
   
   }
+  .end_form{
+  
+    position:absolute;
+    width : 320px;
+    height: 320px;
+    background-color: #ECE6F0;
+    opacity: 0.9;
+    border-radius: 10%;
+    z-index: 1;
+    display: none;
+   
+  
+  }
+
+  .time_form{
+  
+    position:absolute;
+    width : 320px;
+    height: 320px;
+    background-color: #ECE6F0;
+    opacity: 0.9;
+    border-radius: 10%;
+    z-index: 1;
+    display: none;
+   
+  
+  }
   
   .game_created {
   
@@ -498,6 +829,15 @@
     font-size: 0.8em;
     padding: 5%;
     margin-top: 5%;
+  
+  }
+
+  .end_form .game_created, .time_form .game_created {
+  
+    color: #1a1517;
+    font-size: 0.8em;
+    padding: 5%;
+    margin-top: 10%;
   
   }
   
@@ -517,6 +857,17 @@
   
     display:flex;
     margin : 10%;
+    align-items: center;
+    margin-bottom: 5%;
+  
+  
+  }
+
+  .end_form .ID_copy, .time_form .ID_copy{
+  
+    display:flex;
+    justify-content: center;
+    margin : 3%;
     align-items: center;
     margin-bottom: 5%;
   
@@ -562,7 +913,7 @@
   
   .copy_symbol {
   
-  
+    position:relative;
   
     display: flex;
     align-items: center;
@@ -572,6 +923,26 @@
     
   }
 
+  .copied_alert {
+    position: absolute;
+    top: -75%;
+    font-size: 0.9em;
+    padding: 20%;
+    color: black;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(-20px); /* Initial position */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.show {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Move to original position */
+}
+
+.fade-out {
+    opacity: 0; /* Fade to transparent */
+    transform: translateY(-40px); /* Move up a bit more */
+}
 
 
 .copy_symbol:hover {
@@ -590,11 +961,42 @@
     background-color: #000000af; /* Change color as desired */
     width: 80%; 
     position: relative;
-  
+    
     left:10%;
    
    }
 
+    .PawnPromotion {
+
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      gap: 1px;
+      padding: 2%;
+      padding-left: 3%;
+      padding-right: 3%;
+      
+      bottom : -20%;
+
+      background-color: #7976762b;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .Queen{
+      cursor: pointer;
+      padding: 10%;
+      background-color: #906888;
+      border-radius: 20% 0 0 20%;
+
+    }
+
+    .Knight{
+      cursor: pointer;
+      padding: 10%;
+      background-color: #bb2c2c;
+      border-radius: 0% 20% 20% 0%;
+    }
   
   
   .exclamation {
@@ -605,6 +1007,121 @@
     animation: jumpBounce 1.2s infinite;
 }
 
+.end_form .exclamation, .time_form .exclamation {
+  font-family: "Danfo", serif;
+  margin-top:15% ;
+  display: inline-block;
+  font-size: 1.9em;
+  animation: jumpBounce 1.2s infinite;
+}
+
+
+.x_close{
+
+  position:absolute;
+  top:1%;
+  right:3%;
+  margin:5%;
+  cursor: pointer;
+
+
+}
+
+.feather-x-square:hover{
+
+
+  color: rgb(72, 85, 99);
+
+}
+
+.info_box {
+  position: absolute;
+  right: 14%;
+  top: 12.5%;
+  
+  /* Use flexbox to center the SVG inside the box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  transform: scale(0.6);
+ 
+}
+
+.info {
+  color: var(--info_color);
+  cursor: pointer;
+
+}
+
+
+
+/* Initial hidden state for .info_div */
+.info_div {
+  position: absolute;
+  width: 60%;
+  padding: 3%;
+  color: rgb(255, 255, 255);
+  background-color: rgb(72, 69, 69);
+  opacity: 0; /* Start fully transparent */
+  z-index: 5;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+  border-radius: 10%; /* Rounded corners */
+  transform: translate(40%, -40%); /* Initial position from top-right */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  pointer-events: none; /* Prevent interaction when hidden */
+}
+
+/* Trigger animation on hover of .info */
+.info_box:hover + .info_div {
+  opacity: 0.9;
+  pointer-events: auto;
+  transform: translate(20%, -20%); /* Target position closer to center */
+}
+
+
+
+/* Optional hover effect for interactivity */
+
+
+.number_ob{
+
+display:flex;
+align-items: center;
+justify-content: center;
+
+}
+
+.number_ob .nu {
+background-color: #929995;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 200;
+  margin-right: 3%;
+  border-radius: 50%;
+  width:25px;
+  height:25px;
+  font-size: 0.9em;
+  
+}
+
+.number_ob h5 {
+
+  font-weight: 800;
+  
+}
+
+.info_div p{
+  
+padding : 3%;
+  font-size: 0.9em;
+  
+  
+  
+  
+  }
 @keyframes jumpBounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
@@ -631,11 +1148,16 @@
   
   
   
-  @media (max-width: 768px) {
+  @media (max-width: 930px) {
+
+    .theme{
+      top:2%;
+    }
+    
     .screen_1 {
         flex-direction: column;
-        
-        width: 85vw;
+        height : auto;
+        width: 65vw;
     }
   
     .input{
@@ -681,26 +1203,22 @@
   
     
   }
+  @media (max-width: 820px) {.left_column h1 {font-size : 3.5em}} 
+
   
-  @media (max-width: 620px) {
   
   
+  @media (max-width: 700px) {
+    .theme{top:92%;right:4%;}
     .create_inputs {
-        transform: translateY(-10%) scale(0.8);
-    }
-    .screen_1{
-  
-        width: 100vw;
-        height: 100vh;
-  
-    }
-  
-  
+      transform: translateY(-10%) scale(0.8);
   }
-  
-  
-  
-  @media (max-width: 620px) {
+  .screen_1{
+
+      width: 430px;
+      height: auto;
+
+  }
   
   
    .input{
@@ -719,14 +1237,11 @@
   
    }
   
-   .screen_1 {
-    border: 20px solid #000; /* Dark black border */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Optional shadow for extra depth */
-  }
+  
   
     .grid_container {
   
-    
+    position: relative;
     transform: scale(0.9);
   
   }
@@ -748,3 +1263,5 @@
     }
   
   }
+ 
+  @media (max-width: 480px) {.left_column h1 {font-size : 2.5em}} 

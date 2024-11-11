@@ -1,8 +1,5 @@
 
 
-
-
-
 const container = document.getElementById('grid_container');
 
 for (let row = 1; row <= 8; row++) {
@@ -39,13 +36,7 @@ function handleDivClick2(event) {
     hiddenBox2.style.display = 'block';
 }
 
-// Loop through all dropdown elements and add event listener to each
-/*myDivs[0].addEventListener('click', handleDivClick1);
-myDivs[1].addEventListener('click', handleDivClick2);
 
-        
-document.addEventListener('click', handleClickOutside1);
-document.addEventListener('click', handleClickOutside2);*/
 
 
 function handleClickOutside1(event) {
@@ -144,17 +135,114 @@ function handleDivClick4(event) {
 const createbutton = document.querySelector('.create-button');
 const joinbutton = document.querySelector('.join-button');
 
-// Check if the create button exists
-
-    let primerant = document.getElementById("primerant");
-    let orsection = document.getElementById("orsection");
-    let segunant = document.getElementById("segunant");
-
-    let shouldRun = true;
-
-    const socket = new WebSocket('wss://chessbysesilu.duckdns.org:8080/');
 
 
+const theme = document.querySelector('.theme'); 
+const sun = document.querySelector('.fa-sun'); 
+const moon = document.querySelector('.fa-moon'); 
+
+let sun_on = 0;
+
+theme.addEventListener('click', function() {
+
+    
+    
+    
+
+    if (sun_on === 0) { 
+        document.documentElement.classList.remove('root_1');
+        document.documentElement.classList.toggle('root_2');
+        
+        sun.style.opacity = '0.8';
+        moon.style.opacity = '0.3';
+
+        sun_on = 1;
+    }
+        
+    else {
+        document.documentElement.classList.remove('root_2');
+        document.documentElement.classList.toggle('root_1');
+
+        sun.style.opacity = '0.2';
+        moon.style.opacity = '1';
+
+        sun_on = 0;
+
+    }
+
+})
+
+/* const socket = new WebSocket('wss://chessbysesilu.duckdns.org:8080/') */
+
+const socket = new WebSocket('wss://chessbysesilu.duckdns.org:8080/')
+ 
+   
+
+const element = document.querySelector('.simple-input_timer.hour');
+const element_min = document.querySelector('.simple-input_timer.minute');
+
+let mouseY;
+let baseY;
+
+function moveTimer(event) {
+    mouseY = event.clientY;
+
+    if ((baseY - mouseY) > 10) {
+        if (element.value < 9) {
+            element.value = "0" + (parseInt(element.value) + 1);
+        } else {
+            element.value = (parseInt(element.value) + 1).toString();
+        }
+        baseY = event.clientY;
+    } else if ((baseY - mouseY) < -10 && element.value > 0) {
+        if (element.value < 11) {
+            element.value = "0" + (parseInt(element.value) - 1);
+        } else {
+            element.value = (parseInt(element.value) - 1).toString();
+        }
+        baseY = event.clientY;
+    }
+}
+
+function moveTimer_min(event) {
+    mouseY = event.clientY;
+
+    if ((baseY - mouseY) > 10 && element_min.value < 59) {
+        if (element_min.value < 9) {
+            element_min.value = "0" + (parseInt(element_min.value) + 1);
+        } else {
+            element_min.value = (parseInt(element_min.value) + 1).toString();
+        }
+        baseY = event.clientY;
+    } else if ((baseY - mouseY) < -10 && element_min.value > 0) {
+        if (element_min.value < 11) {
+            element_min.value = "0" + (parseInt(element_min.value) - 1);
+        } else {
+            element_min.value = (parseInt(element_min.value) - 1).toString();
+        }
+        baseY = event.clientY;
+    }
+}
+
+element.addEventListener('mousedown', (event) => {
+    baseY = event.clientY;
+    document.addEventListener('mousemove', moveTimer);
+
+    // Stop tracking on mouseup
+    document.addEventListener('mouseup', () => {
+        document.removeEventListener('mousemove', moveTimer);
+    });
+});
+
+element_min.addEventListener('mousedown', (event) => {
+    baseY = event.clientY;
+    document.addEventListener('mousemove', moveTimer_min);
+
+    // Stop tracking on mouseup
+    document.addEventListener('mouseup', () => {
+        document.removeEventListener('mousemove', moveTimer_min);
+    });
+});
 
 
 
@@ -171,7 +259,14 @@ const joinbutton = document.querySelector('.join-button');
 
 
 
+  
 
+document.querySelector('.x_close').addEventListener('click', function() {
+
+    console.log("eiii13");
+    document.querySelector('.time_form').style.display = 'none';
+    document.querySelector('.end_form').style.display = 'none';
+});
 
 
 
@@ -180,9 +275,34 @@ const joinbutton = document.querySelector('.join-button');
 
 socket.onopen = function() {
     console.log('WebSocket connection established');
+    
+    setTimeout(() => {
+        createbutton.addEventListener('click', handleClickCreate);
+        joinbutton.addEventListener('click', handleClickJoin);
+
+
+        createbutton.addEventListener('mouseover', () => {
+            createbutton.style.backgroundColor = '#FFC300'; // Darker yellow on hover
+        });
+        
+        createbutton.addEventListener('mouseout', () => {
+            createbutton.style.backgroundColor = '#F6B93B'; // Reset to original color on mouse out
+        });
+
+
+
+    }, 500); // Delay of 200ms before event listeners are added
+    
+    
+
+    createbutton.style.backgroundColor = '#F6B93B';
+    joinbutton.style.backgroundColor = '#F6B93B';
+    
+
 };
 
-
+let p1 = undefined;
+let p2 = undefined;
 
 // Handle messages from the server
 socket.onmessage = function(event) {
@@ -194,7 +314,16 @@ socket.onmessage = function(event) {
 
         document.querySelector('.form').style.display = "none";
 
-        chess_game(payload.id, payload.player, payload.color1, payload.color2, payload.round) 
+        p1 = payload.player1;
+        p2 = payload.player2;
+
+        document.querySelector('.user1 h5').textContent = payload.player2;
+        document.querySelector('.user2 h5').textContent = payload.player1;
+
+
+        console.log(payload);
+
+        chess_game(payload.id, payload.player, payload.color1, payload.color2, payload.round, payload.countdown_time) 
 
     }
 
@@ -220,7 +349,7 @@ socket.onclose = function(event) {
 
 
 
-
+let id = undefined;
 
 
 
@@ -244,7 +373,7 @@ socket.onclose = function(event) {
             return letters.charAt(Math.floor(Math.random() * letters.length));
         }
         
-        let id = getRandomLetter() + getRandomInt() + "-" +
+        id = getRandomLetter() + getRandomInt() + "-" +
                  getRandomLetter() + getRandomLetter() + getRandomInt() + getRandomLetter() + "-" +
                  getRandomLetter() + getRandomLetter() + getRandomInt() + getRandomInt();
        
@@ -264,7 +393,13 @@ socket.onclose = function(event) {
      // Replace with actual player 1 info
         const color1 = colorTexts[0].value;
         const color2 = colorTexts[1].value;
- 
+
+
+        const countdown = document.querySelectorAll('.simple-input_timer');
+        const countdown_time = (parseInt(countdown[0].value) * 60 + parseInt(countdown[1].value)) * 1000;
+
+       
+
         
 
         const gameData = {
@@ -274,7 +409,12 @@ socket.onclose = function(event) {
                 player1,
                 color1,
                 player2,
-                color2} 
+                color2,
+                countdown_time
+            
+            
+            
+            } 
             
         };
 
@@ -291,25 +431,54 @@ socket.onclose = function(event) {
 
 
 
-        const copySymbol = document.querySelector('.copy_symbol');
+        
 
 
+
+const copySymbol = document.querySelector('.copy_symbol');
+const warningBox = document.querySelector('.copied_alert');
 
 copySymbol.addEventListener('mousedown', function() {
+    // Get the text to be copied
     const copyText = document.querySelector('.ID_letters h5').innerText; 
 
-    
+    // Show the warning box
+    warningBox.classList.add('show');
+    warningBox.classList.add('show_1');
+
+    // Change background color of the copy symbol
     copySymbol.style.backgroundColor = '#d3d3d3'; 
     navigator.clipboard.writeText(copyText)
         .then(() => {
-            
-            /*document.querySelector('.alert_copy').style.display = "block";*/
+            console.log('Text copied to clipboard successfully!');
         })
         .catch(err => {
             console.error('Could not copy text: ', err);
         });
-  
+
+    // Start fading out the warning box after 1 second
+    setTimeout(() => {
+        warningBox.classList.add('fade-out');
+    }, 1000); 
+
+    // Reset the warning box after the fade-out animation completes
+    setTimeout(() => {
+        warningBox.classList.remove('show', 'fade-out');
+        copySymbol.style.backgroundColor = ''; // Reset background color
+    }, 1500); 
+
+    // Copy text to clipboard
+    
 });
+
+
+
+
+
+
+
+
+
 
 
 copySymbol.addEventListener('mouseup', function() {
@@ -352,7 +521,7 @@ copySymbol.addEventListener('mouseleave', function() {
 
         const join = document.querySelectorAll('.simple-input-join');
         const id1 = join[0].value;
-        console.log(id1);
+      
 
 
         joinGame = {
@@ -372,18 +541,107 @@ copySymbol.addEventListener('mouseleave', function() {
     
 
 
+    const dropgen1 = document.querySelector('.dropdown_1');
 
+    const dropdowns1 = document.querySelectorAll('.simple-input2')[0]; 
     
-    // Add event listener to the button
-
-    createbutton.addEventListener('click', handleClickCreate);
-    joinbutton.addEventListener('click', handleClickJoin);
     
 
+    const drop1 = document.querySelector('.dropdown_1 > .drop_1');
+    
+    const drop2 = document.querySelector('.dropdown_1 > .drop_2');
+    const drop3 = document.querySelector('.dropdown_1 > .drop_3');
+    
+    const drop11 = document.querySelector('.dropdown_1 > .drop_1 > .drop_11');
+    const drop21 = document.querySelector('.dropdown_1 > .drop_2 > .drop_21');
+    const drop31 = document.querySelector('.dropdown_1 > .drop_3 > .drop_31');
+    
+    const check1 = document.querySelector('.dropdown_1 > .drop_1 > .fa-check.d11');
+    const check2 = document.querySelector('.dropdown_1 > .drop_2 > .fa-check.d12');
+    const check3 = document.querySelector('.dropdown_1 > .drop_3 > .fa-check.d13');
+    
+
+
+    
+
+    const drops = [drop1, drop2, drop3];
+
+    const checks = [check1, check2, check3];
+
+    
+    // Event listener for 'click' on dropdowns1
+   
+
+    
+    let dropgen1_1 = true;
+
+ 
+    let opendrop = false;
+
+
+    dropdowns1.addEventListener('click', function() {
+
+        if (dropgen1_1 === false) {return;}
+
+        else {dropgen1.style.display = 'flex';
+       
+
+        // Define the function `selectColour` to handle the color change
+        function selectColour(drop) {
+            // Clear background color for all options
+            drops.forEach(d => d.style.backgroundColor = '');
+            checks.forEach(d => d.style.display = 'none');
+    
+            // Set background color for the selected dropdown
+            drop.style.backgroundColor = '#b9b9b9';
+            
+            
+            if (drop == drop1) {check1.style.display = 'block';dropdowns1.value = drop11.innerText;}
+            else if (drop == drop2) {check2.style.display = 'block';dropdowns1.value = drop21.innerText;}
+            else if (drop == drop3) {check3.style.display = 'block';dropdowns1.value = drop31.innerText;}
+    
+            // Remove event listeners after selection (if desired)
+            
+        }
+    
+        // Define a handler function to wrap `selectColour` with the element as an argument
+        function handler(event) {
+            selectColour(event.currentTarget);
+            
+        }
+    
+        // Add event listeners for each dropdown option, passing `handler` as the callback
+        drops.forEach(drop => {
+            drop.addEventListener('click', handler);
+        });
+        
+    }
+
+    opendrop = true;
+
+    });
+    
    
 
 
+    document.addEventListener('click', function(event) {
 
+        if (dropgen1_1 === true && opendrop === true) {dropgen1_1 = false; }
+
+        else  {
+
+        const isClickInside = dropgen1.contains(event.target) ;
+    
+        if (!isClickInside) {
+            // Hide dropdown if clicked outside
+            dropgen1.style.display = 'none';
+            dropgen1_1 = true;
+            opendrop = false;
+           
+        }
+        
+        }
+    });
 
 
 
@@ -410,6 +668,106 @@ copySymbol.addEventListener('mouseleave', function() {
 
 
 
+    const dropgen2 = document.querySelector('.dropdown_2');
+    
+    const dropdowns2 = document.querySelectorAll('.simple-input2')[1];
+    
+
+    const drop1_2 = document.querySelector('.dropdown_2 > .drop_1');
+    
+    const drop2_2 = document.querySelector('.dropdown_2 > .drop_2');
+    const drop3_2 = document.querySelector('.dropdown_2 > .drop_3');
+    
+    const drop11_2 = document.querySelector('.dropdown_2 > .drop_1 > .drop_11');
+    const drop21_2 = document.querySelector('.dropdown_2 > .drop_2 > .drop_21');
+    const drop31_2 = document.querySelector('.dropdown_2 > .drop_3 > .drop_31');
+    
+    const check1_2 = document.querySelector('.dropdown_2 > .drop_1 > .fa-check.d21');
+    const check2_2 = document.querySelector('.dropdown_2 > .drop_2 > .fa-check.d22');
+    const check3_2 = document.querySelector('.dropdown_2 > .drop_3 > .fa-check.d23');
+
+
+
+    
+
+    const drops_2 = [drop1_2, drop2_2, drop3_2];
+
+    const checks_2 = [check1_2, check2_2, check3_2];
+
+    
+    // Event listener for 'click' on dropdowns1
+   
+
+    
+    let dropgen1_2 = true;
+
+ 
+    let opendrop_2 = false;
+
+
+    dropdowns2.addEventListener('click', function() {
+
+        if (dropgen1_2 === false) {return;}
+
+        else {dropgen2.style.display = 'flex';
+       
+
+        
+        function selectColour(drop) {
+            // Clear background color for all options
+            drops_2.forEach(d => d.style.backgroundColor = '');
+            checks_2.forEach(d => d.style.display = 'none');
+    
+            drop.style.backgroundColor = '#b9b9b9';
+            
+            
+            if (drop == drop1_2) {check1_2.style.display = 'block';dropdowns2.value = drop11_2.innerText;}
+            else if (drop == drop2_2) {check2_2.style.display = 'block';dropdowns2.value = drop21_2.innerText;}
+            else if (drop == drop3_2) {check3_2.style.display = 'block';dropdowns2.value = drop31_2.innerText;}
+    
+            // Remove event listeners after selection (if desired)
+            
+        }
+    
+        // Define a handler function to wrap `selectColour` with the element as an argument
+        function handler(event) {
+           
+            selectColour(event.currentTarget);
+            
+        }
+    
+        // Add event listeners for each dropdown option, passing `handler` as the callback
+        drops_2.forEach(drop => {
+            drop.addEventListener('click', handler);
+        });
+        
+    }
+
+    opendrop_2 = true;
+
+    });
+    
+   
+
+
+    document.addEventListener('click', function(event) {
+
+        if (dropgen1_2 === true && opendrop_2 === true) {dropgen1_2 = false; }
+
+        else  {
+
+        const isClickInside = dropgen2.contains(event.target) ;
+    
+        if (!isClickInside) {
+            // Hide dropdown if clicked outside
+            dropgen2.style.display = 'none';
+            dropgen1_2 = true;
+            opendrop_2 = false;
+           
+        }
+        
+        }
+    });
 
 
 
@@ -420,7 +778,8 @@ copySymbol.addEventListener('mouseleave', function() {
 
 
 
-    function chess_game(id, player,color1, color2, ronda) {
+
+    function chess_game(id, player,color1, color2, ronda, countime) {
 
         document.querySelector('.left_column').style.display = 'none';
         document.querySelector('.right_column').style.display = 'none';
@@ -436,20 +795,24 @@ copySymbol.addEventListener('mouseleave', function() {
 
 
 
-    
-
         
+        
+        
+
         let turn = ronda;
     let turno; // Declare turno here
 
     if (ronda === 1) {
         turno = true; // Assign value inside the block
+        document.querySelector('.user2').classList.add('active-turn');
+
     } else {
         turno = false; // Assign value inside the block
+        document.querySelector('.user1').classList.add('active-turn');
     }
 
  
-
+    timer_update(countime, turno);
 
    
 
@@ -488,13 +851,40 @@ copySymbol.addEventListener('mouseleave', function() {
     
        if (message.type === 'move') {
     
+        
+
+            if (payload.moveA === 101) {
+                
+                
+                document.querySelector('.user1 h6').style.display = 'block'; return;
             
-    
+            }
+            if (payload.moveA === 201) {
+                
+                container.removeEventListener('mousedown', EventHear);
+                document.querySelector('.end_form .ID_letters h5').innerText = p1;
+                document.querySelector('.end_form').style.display = 'block'; return;
+            
+            }
+            if (payload.moveA === 301) {
+                
+                container.removeEventListener('mousedown', EventHear);
+                document.querySelector('.time_form .ID_letters h5').innerText = p1;
+                document.querySelector('.time_form').style.display = 'block'; return;
+            
+            
+            }
+
+
+
+
+            
+            clearInterval(timerId);
     
             if (payload.castling === "Yes") {
     
-                if (payload.moveA < payload.moveB) {if (ronda === 1){moveBlack(88,86)} else {moveBlack(88,85)}}
-                else {if (ronda === 1){{moveBlack(81,84)}} else {moveBlack(81,83)}}
+                if (payload.moveA < payload.moveB) {if (ronda === 2){moveBlack(88,86)} else {moveBlack(88,85)}}
+                else {if (ronda === 2){{moveBlack(81,84)}} else {moveBlack(81,83)}}
     
     
             }
@@ -532,7 +922,37 @@ copySymbol.addEventListener('mouseleave', function() {
             
                 turno = true;
     
-    
+                timer_update(countime,turno); 
+
+
+                document.querySelector('.user2').classList.add('active-turn');
+
+                // Remove glow after the turn
+                document.querySelector('.user1').classList.remove('active-turn');
+
+
+                if (ChessPiece.check(whitePieces.filter(piece => piece instanceof King)[0].position)) {  
+
+                    console.log(ChessPiece.mate());
+
+                    if (ChessPiece.mate()) {
+
+                        socket.send(JSON.stringify({type: 'move', payload : {id, player, moveA: 201, moveB: 201, turn, pawn_promotion, castle}}));
+
+                        container.removeEventListener('mousedown', EventHear);
+                        document.querySelector('.end_form .ID_letters h5').innerText = p2;
+                        document.querySelector('.end_form').style.display = 'block';
+
+                    }
+                    
+                    else {
+                    document.querySelector('.user2 h6').style.display = 'block'; 
+                    socket.send(JSON.stringify({type: 'move', payload : {id, player, moveA: 101, moveB: 101, turn, pawn_promotion, castle}}));
+
+                    }
+                 }
+
+
         }
     };
                     
@@ -549,6 +969,8 @@ copySymbol.addEventListener('mouseleave', function() {
     
             const element = document.getElementById(`${perspectiveA}`);
             const element1 = document.getElementById(`${perspectiveB}`);
+
+            console.log(perspectiveA,perspectiveA);
             
     
             if (whitePieces.map(i => i.position).includes(perspectiveB)) {
@@ -583,13 +1005,72 @@ copySymbol.addEventListener('mouseleave', function() {
 
 
 
+       
 
 
 
 
 
 
-
+        function timer_update(countdownDuration, turno) {
+            const startTime = Date.now();
+            const minutes_timer = document.querySelector('.minutes'); 
+            const seconds_timer = document.querySelector('.seconds'); 
+        
+            window.timerId = setInterval(() => {
+                const elapsed = Date.now() - startTime;
+                const timeLeft = Math.floor((countdownDuration - elapsed) / 1000);
+        
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60; 
+                
+                let st_minutes = '';
+                let st_seconds = '';
+        
+                if (minutes < 10) {
+                    st_minutes = '0' + String(minutes);
+                } else {
+                    st_minutes = String(minutes);
+                }
+        
+                if (seconds < 10) {
+                    st_seconds = '0' + String(seconds);
+                } else {
+                    st_seconds = String(seconds);
+                }
+        
+                minutes_timer.innerHTML = st_minutes;
+                seconds_timer.innerHTML = st_seconds;
+        
+        
+                if (timeLeft <= 0) {
+        
+                    
+        
+                    clearInterval(timerId);
+                    console.log("Countdown finished!");
+                
+                    if (turno === true) {console.log("Se te ha acabado el tiempo");
+        
+                        container.removeEventListener('mousedown', EventHear);
+        
+                        socket.send(JSON.stringify({type: 'move', payload : {id, player: p1, moveA: 301, moveB: 301, turn: null, pawn_promotion: null, castle: null}}));
+                        document.querySelector('.time_form .ID_letters h5').innerText = p2;
+                    document.querySelector('.time_form').style.display = 'block'; return;
+                    }
+        
+                    
+        
+                        
+            
+        
+                    
+        
+                }
+        
+            }, 1000);
+        }
+        
 
 
 
@@ -771,7 +1252,14 @@ copySymbol.addEventListener('mouseleave', function() {
                             break;
                         }
         
-                        if (ChessPiece.isOccupied(newPosition)) { const piece = blackPieces.filter(i => i.position == newPosition)[0];
+                        if (ChessPiece.isOccupied(newPosition)) { 
+                            
+                            if (whitePieces.filter(i => i.position === newPosition).length > 0) {
+                                return false;
+                            }
+                            
+                            
+                            const piece = blackPieces.filter(i => i.position == newPosition)[0];
 
 
                              
@@ -809,7 +1297,12 @@ copySymbol.addEventListener('mouseleave', function() {
                             break;
                         }
         
-                        if (ChessPiece.isOccupied(newPosition)) { const piece = blackPieces.filter(i => i.position == newPosition)[0];
+                        if (ChessPiece.isOccupied(newPosition)) { 
+                            
+                            if (whitePieces.filter(i => i.position === newPosition).length > 0) {
+                                return false;
+                            }
+                            const piece = blackPieces.filter(i => i.position == newPosition)[0];
 
 
                              
@@ -843,7 +1336,14 @@ copySymbol.addEventListener('mouseleave', function() {
                             break;
                         }
         
-                        if (ChessPiece.isOccupied(newPosition)) { const piece = blackPieces.filter(i => i.position == newPosition)[0];
+                        if (ChessPiece.isOccupied(newPosition)) { 
+                            
+                            
+                            if (whitePieces.filter(i => i.position === newPosition).length > 0) {
+                                return false;
+                            }
+                            
+                            const piece = blackPieces.filter(i => i.position == newPosition)[0];
 
                            
                              
@@ -880,7 +1380,12 @@ copySymbol.addEventListener('mouseleave', function() {
                             break;
                         }
         
-                        if (ChessPiece.isOccupied(newPosition)) { const piece = blackPieces.filter(i => i.position == newPosition)[0];
+                        if (ChessPiece.isOccupied(newPosition)) { 
+                            if (whitePieces.filter(i => i.position === newPosition).length > 0) {
+                                return false;
+                            }
+                            
+                            const piece = blackPieces.filter(i => i.position == newPosition)[0];
 
 
                              
@@ -925,6 +1430,51 @@ copySymbol.addEventListener('mouseleave', function() {
             
 
         }
+        
+
+        static mate(place) {
+
+
+
+            
+
+            for (let piece of whitePieces) {
+                
+                for (let j of piece.canMoveTo()) {
+                    
+                    const originalPosition = piece.position;
+                    
+                    piece.position = j;
+                    const king_position = whitePieces.filter(piece => piece instanceof King)[0].position
+                    
+                    let capturedPiece = blackPieces.find(b => b.position === j);
+                    if (capturedPiece) {
+                        blackPieces = blackPieces.filter(b => b.position !== j);
+                    }
+                    
+                    if (!ChessPiece.check(king_position)) {
+                        
+                        piece.position = originalPosition;
+                        if (capturedPiece) {
+                            blackPieces.push(capturedPiece);
+                        }
+                        
+                        return false;
+                    }
+                    
+                    piece.position = originalPosition;
+                    if (capturedPiece) {
+                        blackPieces.push(capturedPiece);
+                    }
+                }
+            }
+            
+            return true;
+        }
+        
+
+
+
     }
 
     window.ChessPiece = ChessPiece;
@@ -935,6 +1485,8 @@ copySymbol.addEventListener('mouseleave', function() {
                 {return "pieces_drawings/pawn_1.png";}
             else if (this.color === 'black')
                 {return "pieces_drawings/pawn_2.png"}
+            else if (this.color === 'green')
+                {return "pieces_drawings/pawn_3.png"}
         }
     
         canMoveTo() {
@@ -980,6 +1532,8 @@ copySymbol.addEventListener('mouseleave', function() {
                 {return "pieces_drawings/tower_1.png";}
             else if (this.color === 'black')
                 {return "pieces_drawings/tower_2.png"}
+            else if (this.color === 'green')
+                {return "pieces_drawings/tower_3.png"}
         }
     
         canMoveTo() {
@@ -994,6 +1548,8 @@ copySymbol.addEventListener('mouseleave', function() {
                 {return "pieces_drawings/alfil_1.png";}
             else if (this.color === 'black')
                 {return "pieces_drawings/alfil_2.png"}
+            else if (this.color === 'green')
+                {return "pieces_drawings/alfil_3.png"}
         }
     
         canMoveTo() {
@@ -1008,7 +1564,10 @@ copySymbol.addEventListener('mouseleave', function() {
                 {return "pieces_drawings/horse_1.png";}
             else if (this.color === 'black')
                 {return "pieces_drawings/horse_2.png"}
+            else if (this.color === 'green')
+                {return "pieces_drawings/horse_3.png"}
         }
+        
     
         canMoveTo() {
             const knightMoves = [21, 19, 12, 8, -8, -12, -19, -21];
@@ -1032,6 +1591,8 @@ copySymbol.addEventListener('mouseleave', function() {
                 {return "pieces_drawings/queen_1.png";}
             else if (this.color === 'black')
                 {return "pieces_drawings/queen_2.png"}
+            else if (this.color === 'green')
+                {return "pieces_drawings/queen_3.png"}
         }
     
         canMoveTo() {
@@ -1055,6 +1616,8 @@ copySymbol.addEventListener('mouseleave', function() {
                 {return "pieces_drawings/king_1.png";}
             else if (this.color === 'black')
                 {return "pieces_drawings/king_2.png"}
+            else if (this.color === 'green')
+                {return "pieces_drawings/king_3.png"}
         }
     
         canMoveTo() {
@@ -1233,9 +1796,6 @@ copySymbol.addEventListener('mouseleave', function() {
             const gridItem = document.getElementById(piece.position); // Use the appropriate id
             const image = document.createElement('img');
     
-            console.log("eiii9977");
-            console.log(piece);
-            console.log(piece.getImage());
             
             image.src = piece.getImage(); // Set the path to your imag
             image.dataset.row = piece.position[0];
@@ -1372,14 +1932,15 @@ copySymbol.addEventListener('mouseleave', function() {
                 if (blackPieces.map(i => i.position).includes(pos)) {
 
 
-                    recover_if_check = blackPieces.filter(piece => piece.position == pos);
+                    let recover_if_check = blackPieces.filter(piece => piece.position == pos);
 
                     blackPieces = blackPieces.filter(piece => piece.position !== pos);
 
 
                     if (ChessPiece.check(whitePieces.filter(piece => piece instanceof King)[0].position)) {
                         
-                        blackPieces + recover_if_check;currentPiece.position=posSelected;
+                        blackPieces = blackPieces.concat(recover_if_check);
+                        currentPiece.position=posSelected;
                         console.log("Your King is in danger!");
                         return;}
 
@@ -1507,19 +2068,27 @@ copySymbol.addEventListener('mouseleave', function() {
                 
                 
                 await upgradePawn();
-                console.log("ajsdjf");
-                console.log(pawn_promotion);
+                
 
                 socket.send(JSON.stringify({type: 'move', payload : {id, player, moveA, moveB, turn, pawn_promotion, castle}}));
+                clearInterval(timerId);
+                
 
                 pawn_promotion = null;
                 
                 castle = null;
 
                 turno = false;
+                timer_update(countime,turno); 
+
+                document.querySelector('.user1').classList.add('active-turn');
+
+                // Remove glow after the turn
+                document.querySelector('.user2').classList.remove('active-turn');
                 turn += 2;
                 hay_que_mover = true;
                 selected = 0;
+                
     
                 
                 
