@@ -179,7 +179,7 @@ theme.addEventListener('click', function() {
 
 
 
-const socket = new WebSocket(process.env.WS_URL);
+let socket = new WebSocket(process.env.WS_URL);
  
    
 
