@@ -1,4 +1,8 @@
 
+const dotenv = require('dotenv')
+dotenv.config(); 
+
+
 
 const container = document.getElementById('grid_container');
 
@@ -172,9 +176,10 @@ theme.addEventListener('click', function() {
 
 })
 
-/* const socket = new WebSocket('wss://chessbysesilu.duckdns.org:8080/') */
 
-const socket = new WebSocket('wss://chessbysesilu.duckdns.org:8080/')
+
+
+const socket = new WebSocket(process.env.WS_URL);
  
    
 
