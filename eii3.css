@@ -499,11 +499,74 @@
         margin-top : 3%;
     }
   
+
+    .time_per_round, .timer_total {
+
+      position: relative;
+
+      display:flex;
+      align-items: center;
+
+      font-size: 0.5em;
+
+      padding: 5px;
+
+      color: white;
+
+    }
+
+
+    .time_per_round h3 {
+
+      margin-right: 5px;
+
+
+    }
+
+   
+
+   
+
     .simple-input-join {
       text-align: center;
     }
 
 
+
+    .timer_check1{
+
+
+      position: absolute;
+      right:-12px;
+      display : none;
+      cursor: pointer;
+    }
+
+    .timer_check2 {
+
+      position: absolute;
+      right:-12px;
+
+      cursor: pointer;
+    }
+
+
+    .timer_check21{
+
+      right:-16.5px;
+      position: absolute;
+
+      
+    }
+
+    .timer_check22 {
+
+      position: absolute;
+      right:-16.5px;
+  
+      display : none;
+
+    }
 
     .simple-input, .simple-input_timer, .simple-input-join {
         width: 120px; /* Set the desired width */
@@ -537,10 +600,10 @@
     }
   
     .row_3 .simple-input_timer {
-        font-family: 'Orbitron', sans-serif;
+        font-family: '', sans-serif;
         text-align: center;
   
-        width: 70px; /* Set the desired width */
+        width: 50px; /* Set the desired width */
         /* Optional: Add some padding */
         font-size: 15px; /* Optional: Set the font size */
         font-weight: 800;
@@ -548,9 +611,19 @@
         border-radius: 5%;
         background-color: #F39F5A;
         
-        margin:7px;/* Optional: Rounded corners */
+        margin: 7px 0px 7px 7px ;/* Optional: Rounded corners */
         cursor: move;
         
+    }
+
+    .clock_modality {
+
+      margin-left: 3px;
+      padding: 5px;
+
+      transform: translate(0px,-3px);
+
+
     }
   
   

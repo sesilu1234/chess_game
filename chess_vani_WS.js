@@ -1,6 +1,4 @@
 
-const dotenv = require('dotenv')
-dotenv.config(); 
 
 
 
@@ -115,7 +113,30 @@ function handleDivClick4(event) {
 
 
 
+// Select elements by class name
+const timerChecks_empty = document.querySelectorAll('.timer_check1, .timer_check2');
 
+const timerChecks_checked = document.querySelectorAll('.timer_check21, .timer_check22');
+
+
+
+
+timerChecks_empty[0].addEventListener('click', () => {
+    timerChecks_empty[0].style.display = 'none'; // Hide timer_check1
+    timerChecks_checked[0].style.display = 'block'; // Show timer_check2
+
+    timerChecks_empty[1].style.display = 'block'; // Hide timer_check1
+    timerChecks_checked[1].style.display = 'none'; // Show timer_check2
+});
+
+
+timerChecks_empty[1].addEventListener('click', () => {
+    timerChecks_empty[1].style.display = 'none'; // Hide timer_check1
+    timerChecks_checked[1].style.display = 'block'; // Show timer_check2
+
+    timerChecks_empty[0].style.display = 'block'; // Hide timer_check1
+    timerChecks_checked[0].style.display = 'none'; // Show timer_check2
+});
 
 
 
@@ -179,7 +200,8 @@ theme.addEventListener('click', function() {
 
 
 
-let socket = new WebSocket(process.env.WS_URL);
+let socket = new WebSocket("wss://chessbysesilu.com:8080");
+
  
    
 
@@ -347,9 +369,7 @@ socket.onerror = function(error) {
 
 
 // Optional: Handle WebSocket close event
-socket.onclose = function(event) {
-    console.log('WebSocket connection closed:', event);
-};
+
 
 
 
@@ -369,19 +389,6 @@ let id = undefined;
         
 
 
-        function getRandomInt() {
-            return Math.floor(Math.random() * 10);
-        }
-        
-        function getRandomLetter() {
-            const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-            return letters.charAt(Math.floor(Math.random() * letters.length));
-        }
-        
-        id = getRandomLetter() + getRandomInt() + "-" +
-                 getRandomLetter() + getRandomLetter() + getRandomInt() + getRandomLetter() + "-" +
-                 getRandomLetter() + getRandomLetter() + getRandomInt() + getRandomInt();
-       
         
 
 
@@ -410,13 +417,13 @@ let id = undefined;
         const gameData = {
             type: 'create_game',
             payload : {
-                id,
+                
                 player1,
                 color1,
                 player2,
                 color2,
-                countdown_time
-            
+                countdown_time,
+                time_modality
             
             
             } 
@@ -427,76 +434,94 @@ let id = undefined;
 
         socket.send(JSON.stringify(gameData));
 
-        console.log("id",id);
-
-        document.querySelector('.ID_letters h5').textContent = `${id}`;
-
-        document.querySelector('.form').style.display = "block";
-
-
-
-
         
 
+        socket.onmessage = function(event) {
+            const message = JSON.parse(event.data);
+            const payload = message.payload;
+        
+            // Handle specific message types
+            if (message.type === 'ID') {
+        
+                id = payload.id
 
+                document.querySelector('.ID_letters h5').textContent = `${id}`;
 
-const copySymbol = document.querySelector('.copy_symbol');
-const warningBox = document.querySelector('.copied_alert');
-
-copySymbol.addEventListener('mousedown', function() {
-    // Get the text to be copied
-    const copyText = document.querySelector('.ID_letters h5').innerText; 
-
-    // Show the warning box
-    warningBox.classList.add('show');
-    warningBox.classList.add('show_1');
-
-    // Change background color of the copy symbol
-    copySymbol.style.backgroundColor = '#d3d3d3'; 
-    navigator.clipboard.writeText(copyText)
-        .then(() => {
-            console.log('Text copied to clipboard successfully!');
-        })
-        .catch(err => {
-            console.error('Could not copy text: ', err);
+                document.querySelector('.form').style.display = "block";
+        
+        
+        
+        
+                
+        
+        
+        
+        const copySymbol = document.querySelector('.copy_symbol');
+        const warningBox = document.querySelector('.copied_alert');
+        
+        copySymbol.addEventListener('mousedown', function() {
+            // Get the text to be copied
+            const copyText = document.querySelector('.ID_letters h5').innerText; 
+        
+            // Show the warning box
+            warningBox.classList.add('show');
+            warningBox.classList.add('show_1');
+        
+            // Change background color of the copy symbol
+            copySymbol.style.backgroundColor = '#d3d3d3'; 
+            navigator.clipboard.writeText(copyText)
+                .then(() => {
+                    console.log('Text copied to clipboard successfully!');
+                })
+                .catch(err => {
+                    console.error('Could not copy text: ', err);
+                });
+        
+            // Start fading out the warning box after 1 second
+            setTimeout(() => {
+                warningBox.classList.add('fade-out');
+            }, 1000); 
+        
+            // Reset the warning box after the fade-out animation completes
+            setTimeout(() => {
+                warningBox.classList.remove('show', 'fade-out');
+                copySymbol.style.backgroundColor = ''; // Reset background color
+            }, 1500); 
+        
+            // Copy text to clipboard
+            
         });
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        copySymbol.addEventListener('mouseup', function() {
+            // Revert background color when the mouse leaves
+            copySymbol.style.backgroundColor = ''; // Reset to original color
+        });
+        copySymbol.addEventListener('mouseleave', function() {
+            // Revert background color when the mouse leaves
+            copySymbol.style.backgroundColor = ''; // Reset to original color
+        });
+             
+        
+         
+        
+            }
+        
+        };
 
-    // Start fading out the warning box after 1 second
-    setTimeout(() => {
-        warningBox.classList.add('fade-out');
-    }, 1000); 
-
-    // Reset the warning box after the fade-out animation completes
-    setTimeout(() => {
-        warningBox.classList.remove('show', 'fade-out');
-        copySymbol.style.backgroundColor = ''; // Reset background color
-    }, 1500); 
-
-    // Copy text to clipboard
-    
-});
 
 
 
-
-
-
-
-
-
-
-
-copySymbol.addEventListener('mouseup', function() {
-    // Revert background color when the mouse leaves
-    copySymbol.style.backgroundColor = ''; // Reset to original color
-});
-copySymbol.addEventListener('mouseleave', function() {
-    // Revert background color when the mouse leaves
-    copySymbol.style.backgroundColor = ''; // Reset to original color
-});
-     
-
- 
+       
         
 
         
@@ -840,7 +865,6 @@ copySymbol.addEventListener('mouseleave', function() {
 
 
 
-
             
 
 
@@ -1073,7 +1097,7 @@ copySymbol.addEventListener('mouseleave', function() {
         
                 }
         
-            }, 1000);
+            }, 100);
         }
         
 
