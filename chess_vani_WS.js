@@ -110,7 +110,7 @@ function handleDivClick4(event) {
 
 
 
-
+let time_modality = "perRound";
 
 
 // Select elements by class name
@@ -127,6 +127,11 @@ timerChecks_empty[0].addEventListener('click', () => {
 
     timerChecks_empty[1].style.display = 'block'; // Hide timer_check1
     timerChecks_checked[1].style.display = 'none'; // Show timer_check2
+
+    time_modality = "perRound";
+
+    console.log(time_modality);
+
 });
 
 
@@ -136,6 +141,10 @@ timerChecks_empty[1].addEventListener('click', () => {
 
     timerChecks_empty[0].style.display = 'block'; // Hide timer_check1
     timerChecks_checked[0].style.display = 'none'; // Show timer_check2
+
+    time_modality = "perPlayer";
+
+    console.log(time_modality);
 });
 
 
@@ -326,6 +335,7 @@ socket.onopen = function() {
     joinbutton.style.backgroundColor = '#F6B93B';
     
 
+
 };
 
 let p1 = undefined;
@@ -335,6 +345,85 @@ let p2 = undefined;
 socket.onmessage = function(event) {
     const message = JSON.parse(event.data);
     const payload = message.payload;
+
+    if (message.type === "ID") {
+
+                
+
+
+        
+        id = message.payload
+
+        document.querySelector('.ID_letters h5').textContent = `${id}`;
+
+        document.querySelector('.form').style.display = "block";
+
+
+
+
+        
+
+
+
+const copySymbol = document.querySelector('.copy_symbol');
+const warningBox = document.querySelector('.copied_alert');
+
+copySymbol.addEventListener('mousedown', function() {
+    // Get the text to be copied
+    const copyText = document.querySelector('.ID_letters h5').innerText; 
+
+    // Show the warning box
+    warningBox.classList.add('show');
+    warningBox.classList.add('show_1');
+
+    // Change background color of the copy symbol
+    copySymbol.style.backgroundColor = '#d3d3d3'; 
+    navigator.clipboard.writeText(copyText)
+        .then(() => {
+            console.log('Text copied to clipboard successfully!');
+        })
+        .catch(err => {
+            console.error('Could not copy text: ', err);
+        });
+
+    // Start fading out the warning box after 1 second
+    setTimeout(() => {
+        warningBox.classList.add('fade-out');
+    }, 1000); 
+
+    // Reset the warning box after the fade-out animation completes
+    setTimeout(() => {
+        warningBox.classList.remove('show', 'fade-out');
+        copySymbol.style.backgroundColor = ''; // Reset background color
+    }, 1500); 
+
+    // Copy text to clipboard
+    
+});
+
+
+
+
+
+
+
+
+
+
+
+copySymbol.addEventListener('mouseup', function() {
+    // Revert background color when the mouse leaves
+    copySymbol.style.backgroundColor = ''; // Reset to original color
+});
+copySymbol.addEventListener('mouseleave', function() {
+    // Revert background color when the mouse leaves
+    copySymbol.style.backgroundColor = ''; // Reset to original color
+});
+     
+
+ 
+
+    }
 
     // Handle specific message types
     if (message.type === 'start_game') {
@@ -350,7 +439,7 @@ socket.onmessage = function(event) {
 
         console.log(payload);
 
-        chess_game(payload.id, payload.player, payload.color1, payload.color2, payload.round, payload.countdown_time) 
+        chess_game(payload.id, payload.player, payload.color1, payload.color2, payload.round, payload.countdown_time, payload.time_modality) 
 
     }
 
@@ -436,87 +525,7 @@ let id = undefined;
 
         
 
-        socket.onmessage = function(event) {
-            const message = JSON.parse(event.data);
-            const payload = message.payload;
-        
-            // Handle specific message types
-            if (message.type === 'ID') {
-        
-                id = payload.id
-
-                document.querySelector('.ID_letters h5').textContent = `${id}`;
-
-                document.querySelector('.form').style.display = "block";
-        
-        
-        
-        
-                
-        
-        
-        
-        const copySymbol = document.querySelector('.copy_symbol');
-        const warningBox = document.querySelector('.copied_alert');
-        
-        copySymbol.addEventListener('mousedown', function() {
-            // Get the text to be copied
-            const copyText = document.querySelector('.ID_letters h5').innerText; 
-        
-            // Show the warning box
-            warningBox.classList.add('show');
-            warningBox.classList.add('show_1');
-        
-            // Change background color of the copy symbol
-            copySymbol.style.backgroundColor = '#d3d3d3'; 
-            navigator.clipboard.writeText(copyText)
-                .then(() => {
-                    console.log('Text copied to clipboard successfully!');
-                })
-                .catch(err => {
-                    console.error('Could not copy text: ', err);
-                });
-        
-            // Start fading out the warning box after 1 second
-            setTimeout(() => {
-                warningBox.classList.add('fade-out');
-            }, 1000); 
-        
-            // Reset the warning box after the fade-out animation completes
-            setTimeout(() => {
-                warningBox.classList.remove('show', 'fade-out');
-                copySymbol.style.backgroundColor = ''; // Reset background color
-            }, 1500); 
-        
-            // Copy text to clipboard
-            
-        });
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        copySymbol.addEventListener('mouseup', function() {
-            // Revert background color when the mouse leaves
-            copySymbol.style.backgroundColor = ''; // Reset to original color
-        });
-        copySymbol.addEventListener('mouseleave', function() {
-            // Revert background color when the mouse leaves
-            copySymbol.style.backgroundColor = ''; // Reset to original color
-        });
-             
-        
-         
-        
-            }
-        
-        };
+       
 
 
 
@@ -809,7 +818,24 @@ let id = undefined;
 
 
 
-    function chess_game(id, player,color1, color2, ronda, countime) {
+    function chess_game(id, player,color1, color2, ronda, countime, time_modality) {
+
+
+        console.log(time_modality, "eiei");
+
+        if (time_modality == "perRound") {
+            
+            document.querySelector('.timer_1').style.display = 'none';
+            document.querySelector('.timer_2').style.display = 'none';
+        
+        }
+
+        if (time_modality == "perPlayer") {
+            document.querySelector('.timer').style.display = 'none';
+        
+        
+        }
+
 
         document.querySelector('.left_column').style.display = 'none';
         document.querySelector('.right_column').style.display = 'none';
@@ -842,7 +868,14 @@ let id = undefined;
     }
 
  
-    timer_update(countime, turno);
+    if (turno === true) {timer_update(countime, 1);
+    }
+
+    else {timer_update(countime, 0);
+    }
+
+
+
 
    
 
@@ -895,15 +928,7 @@ let id = undefined;
                 document.querySelector('.end_form').style.display = 'block'; return;
             
             }
-            if (payload.moveA === 301) {
-                
-                container.removeEventListener('mousedown', EventHear);
-                document.querySelector('.time_form .ID_letters h5').innerText = p1;
-                document.querySelector('.time_form').style.display = 'block'; return;
             
-            
-            }
-
 
 
 
@@ -951,7 +976,7 @@ let id = undefined;
             
                 turno = true;
     
-                timer_update(countime,turno); 
+                timer_update(payload.time_left,1); 
 
 
                 document.querySelector('.user2').classList.add('active-turn');
@@ -983,6 +1008,42 @@ let id = undefined;
 
 
         }
+
+
+        if (message.type === 'time_left') {
+
+        
+            console.log(payload);
+
+            timer_update(payload,0); 
+        
+        
+        
+        }
+
+
+        if (message.type === 'end_game') {
+
+            console.log(payload);
+
+        
+            container.removeEventListener('mousedown', EventHear);
+            document.querySelector('.time_form .ID_letters h5').innerText = payload.currentplayer;
+            document.querySelector('.time_form').style.display = 'block'; return;
+
+        
+        
+        
+        }
+
+
+
+
+        
+
+
+
+
     };
                     
         
@@ -1041,10 +1102,35 @@ let id = undefined;
 
 
 
-        function timer_update(countdownDuration, turno) {
+        function timer_update(countdownDuration, i = 0) {
+
             const startTime = Date.now();
-            const minutes_timer = document.querySelector('.minutes'); 
-            const seconds_timer = document.querySelector('.seconds'); 
+
+            let minutes_timer;
+            let seconds_timer;
+
+            if (time_modality == "perRound"){
+            minutes_timer = document.querySelector('.minutes'); 
+            seconds_timer = document.querySelector('.seconds'); 
+            }
+            if (time_modality == "perPlayer"){
+
+                if (i === 0) {
+
+                minutes_timer = document.querySelector('.timer_1 .minutes'); 
+                seconds_timer = document.querySelector('.timer_1 .seconds'); 
+                }
+
+                else {
+
+                    minutes_timer = document.querySelector('.timer_2 .minutes'); 
+                    seconds_timer = document.querySelector('.timer_2 .seconds'); 
+
+
+                }
+            }
+
+
         
             window.timerId = setInterval(() => {
                 const elapsed = Date.now() - startTime;
@@ -1077,16 +1163,9 @@ let id = undefined;
                     
         
                     clearInterval(timerId);
-                    console.log("Countdown finished!");
+                    
                 
-                    if (turno === true) {console.log("Se te ha acabado el tiempo");
-        
-                        container.removeEventListener('mousedown', EventHear);
-        
-                        socket.send(JSON.stringify({type: 'move', payload : {id, player: p1, moveA: 301, moveB: 301, turn: null, pawn_promotion: null, castle: null}}));
-                        document.querySelector('.time_form .ID_letters h5').innerText = p2;
-                    document.querySelector('.time_form').style.display = 'block'; return;
-                    }
+                    
         
                     
         
@@ -1097,7 +1176,7 @@ let id = undefined;
         
                 }
         
-            }, 100);
+            }, 500);
         }
         
 
@@ -2108,7 +2187,7 @@ let id = undefined;
                 castle = null;
 
                 turno = false;
-                timer_update(countime,turno); 
+                
 
                 document.querySelector('.user1').classList.add('active-turn');
 

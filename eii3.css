@@ -128,7 +128,7 @@
 }
 
 
-    .timer {
+    .timer, .timer_1, .timer_2 {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -140,6 +140,19 @@
       background-color: rgba(104, 93, 93, 0.567);
       padding: 2%;
   }
+
+  .timer_1{
+
+    bottom:62%;
+
+  }
+
+  .timer_2{
+
+    bottom:20%;
+    
+  }
+  
   
   .minutes, .seconds {
     display: flex;
