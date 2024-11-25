@@ -1024,11 +1024,11 @@ let id = undefined;
 
         if (message.type === 'end_game') {
 
-            console.log(payload);
+            
 
         
             container.removeEventListener('mousedown', EventHear);
-            document.querySelector('.time_form .ID_letters h5').innerText = payload.currentplayer;
+            document.querySelector('.time_form .ID_letters h5').innerText = payload.winner;
             document.querySelector('.time_form').style.display = 'block'; return;
 
         

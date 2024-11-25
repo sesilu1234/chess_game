@@ -153,6 +153,34 @@
     
   }
   
+
+  .recover_game {
+    color: rgb(174, 171, 171); /* Initial text color */
+    position: absolute;
+    font-size: 0.7em;
+    padding: 13px;
+    left: 40px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.recover_game h3 {
+    border-bottom: 2px solid rgba(174, 171, 171, 0.6); /* Initial border color */
+    transition: border-color 0.3s;
+    cursor: pointer;
+}
+
+.recover_game:hover {
+    color: white; /* Change text color on hover */
+}
+
+.recover_game:hover h3 {
+    border-bottom: 2px solid white; /* Change border color on hover */
+}
+
+
+
+
   
   .minutes, .seconds {
     display: flex;
