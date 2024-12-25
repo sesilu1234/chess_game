@@ -286,6 +286,20 @@ element_min.addEventListener('mousedown', (event) => {
 
 
 
+document.querySelector('.GO').addEventListener('click', function() {
+
+    
+
+    const id_to_recover = document.querySelectorAll('.GO h3').textContent;
+
+    socket.send(JSON.stringify({type:"recover_game", payload: {type: "rg1", id_to_recover:id_to_recover}}));
+
+
+
+
+
+
+});
 
 
 
@@ -293,7 +307,11 @@ element_min.addEventListener('mousedown', (event) => {
 
 
 
+document.querySelector('.recover_game').addEventListener('click', function() {
 
+    document.querySelector('.recover_form').style.display = 'block';
+
+});
 
   
 
@@ -302,6 +320,7 @@ document.querySelector('.x_close').addEventListener('click', function() {
     console.log("eiii13");
     document.querySelector('.time_form').style.display = 'none';
     document.querySelector('.end_form').style.display = 'none';
+    document.querySelector('.recover_form').style.display = 'none';
 });
 
 
@@ -426,7 +445,7 @@ copySymbol.addEventListener('mouseleave', function() {
     }
 
     // Handle specific message types
-    if (message.type === 'start_game') {
+    else if (message.type === 'start_game') {
 
         document.querySelector('.form').style.display = "none";
 
@@ -440,6 +459,19 @@ copySymbol.addEventListener('mouseleave', function() {
         console.log(payload);
 
         chess_game(payload.id, payload.player, payload.color1, payload.color2, payload.round, payload.countdown_time, payload.time_modality) 
+
+    }
+
+
+
+
+    else if (message.type === "rg1") {
+
+
+        document.querySelector('.firstone p').innerText= message.payload.player1;
+        document.querySelector('.secondone p').innerText = message.payload.player2;
+
+
 
     }
 

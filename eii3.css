@@ -155,11 +155,12 @@
   
 
   .recover_game {
-    color: rgb(174, 171, 171); /* Initial text color */
+    color: rgba(174, 171, 171, 0.9); /* Initial text color */
     position: absolute;
     font-size: 0.7em;
-    padding: 13px;
-    left: 40px;
+    padding: 3px;
+    margin-top: 10px;
+    left: 50px;
     transition: color 0.3s;
     cursor: pointer;
 }
@@ -175,7 +176,7 @@
 }
 
 .recover_game:hover h3 {
-    border-bottom: 2px solid white; /* Change border color on hover */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.8); /* Change border color on hover */
 }
 
 
@@ -942,6 +943,110 @@ transform: translate(0px,6px);
    
   
   }
+
+  .enterid{
+
+    margin-top: 40px;
+
+    color: grey;
+    
+    font-family: "Jaro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+      
+
+
+  }
+
+  .recover_form{
+  
+    position:absolute;
+    width : 400px;
+    height: 300px;
+    background-color: #ECE6F0;
+    opacity: 0.95;
+    border-radius: 10%;
+    z-index: 1;
+    display: none;
+  } 
+  .separator_3 {
+    height: 0.1em; /* Adjust the height as needed */
+    background-color: #000000af; /* Change color as desired */
+    width: 60%; 
+    position: relative;
+    
+    left:20%;
+   
+   }
+
+  .go_code{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+
+  }
+
+  .firstone, .secondone{
+
+    background-color: grey;
+    padding:10px;
+    border-radius: 10%;
+
+    font-family: "Jaro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+   
+
+  }
+
+  .join_recover{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap:50px;
+
+
+  }
+
+  .waitingsecond{
+    margin-top: 30px;
+
+    font-family: "Jaro", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 0.8em;
+
+
+  }
+
+  .GO{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    padding: 5px;
+
+    height: 26px;
+    
+
+    font-family: "Saira Condensed", serif;
+    font-weight: 300;
+    font-style: normal;
+  
+    border-radius: 10%;
+
+
+  }
+  
 
   .time_form{
   
