@@ -52,9 +52,32 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Danfo:ELSH@100&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jaro:opsz@6..72&family=Press+Start+2P&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=list" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Danfo:ELSH@100&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jaro:opsz@6..72&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Press+Start+2P&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 
 </head>
 <body>
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
 
 
 
@@ -171,7 +194,7 @@
 
     <div class = "exclamation">new game</div>  
 
-    <div class = "x_close"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+    <div class = "x_close_1"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
     class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> </div>
 
 
@@ -184,6 +207,110 @@
     
 
     <div class = "grid_container" id ="grid_container">  
+
+
+        <div class = "menu_encapsu">
+
+        <div class = "menu_options">
+
+
+
+
+
+
+            <div class = "options">
+
+                <div>OPTIONS</div>
+
+                <div class = "menu_icon"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5">
+                    <path d="M280-600v-80h560v80H280Zm0 160v-80h560v80H280Zm0 160v-80h560v80H280ZM160-600q-17 0-28.5-11.5T120-640q0-17 11.5-28.5T160-680q17 0 28.5 11.5T200-640q0 17-11.5 28.5T160-600Zm0 160q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440Zm0 160q-17 0-28.5-11.5T120-320q0-17 11.5-28.5T160-360q17 0 28.5 11.5T200-320q0 17-11.5 28.5T160-280Z"/></svg>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+        <div class = "menu_panel">
+
+
+
+            <div  style="box-sizing: border-box;  margin-top: 55px;"  >Save and Resume Later</div>
+            <div style="box-sizing: border-box;  width: 159px; height: 3px; background: rgb(94, 59, 59); border-radius: 13px;"></div>
+
+
+            <div>Offer Draw</div>
+            <div style="box-sizing: border-box; width: 159px; height: 3px; background: rgb(94, 59, 59); border-radius: 13px;"></div>
+
+            <div>Resign</div>
+            <div style="box-sizing: border-box; width: 159px; height: 3px; background: rgba(146, 137, 137); border-radius: 13px;"></div>
+
+
+            <div  style = "transform: translate(5%); color: rgba(121, 114, 114, 0.696);"  >Messages </div>
+
+
+            <div class = "message_box" style = "overflow-y: auto;overflow-x: hidden; position:relative; width: 80%; height: 120px; background: rgba(121, 114, 114, 0.696);border-radius: 10%;     scrollbar-width: thin;"  > </div>
+
+
+            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#F0ABFC" class = "send_triangle"
+     style="position: absolute; bottom:10px;left:10px;padding:6px;background:rgba(103, 113, 87, 0.75);border-radius: 10%;padding-right:4px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.05);cursor:pointer;"> 
+  <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/>
+</svg>
+
+     
+            <textarea class = "text_area"
+            style="
+                transform: translate(35%);
+                width: 70%;
+                min-height: 35px;
+                max-height: 100px;
+                border: none;
+                background: rgba(245, 244, 244, 0.835);
+                border-radius: 7px;
+                padding: 5px 10px;
+                font-size: 12px;
+                line-height: 1.5;
+                resize: vertical;
+                overflow-y: auto;
+                box-sizing: border-box;
+               
+            " 
+            placeholder="Message"
+            oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"
+        ></textarea>
+        
+                   
+            
+            
+            
+            
+
+
+
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
 
         <div class = "PawnPromotion">    
 

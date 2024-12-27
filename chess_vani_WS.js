@@ -307,6 +307,111 @@ document.querySelector('.GO').addEventListener('click', function() {
 
 
 
+
+document.querySelector('.send_triangle').addEventListener('click', function() {
+    const messageBox = document.querySelector('.message_box');
+    const textValue = document.querySelector('.text_area');
+
+    // Create a container element (e.g., a div)
+    const messageContainer = document.createElement('p');
+    
+
+    // Create a paragraph element to hold the text
+    messageContainer.classList.add('text_sent');
+
+    messageContainer.innerText = textValue.value;
+
+    
+
+
+
+
+    
+
+    
+    messageBox.appendChild(messageContainer);
+
+    textValue.value = '';
+
+    messageContainer.style = `
+    
+   
+    max-width:60%;
+
+    word-wrap: break-word; 
+    
+    
+    
+     `;
+
+    const right_dist = `right: calc(-95% + ${messageContainer.offsetWidth}px );`;
+
+    console.log(right_dist);
+
+    messageContainer.style = `
+    position: relative;
+    
+   
+    padding : 5%;
+    padding-bottom: 0px;
+
+    max-width:60%;
+
+ 
+
+    word-wrap: break-word; 
+
+    
+
+    
+  
+    ${right_dist};
+    
+    
+    
+     `;
+
+     
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let menu_panel_active = false
+
+document.querySelector('.menu_icon').addEventListener('click', function() {
+
+
+    if (menu_panel_active) {
+
+    document.querySelector('.menu_panel').style.display = 'none'; 
+    menu_panel_active = false;
+}
+
+    else {
+
+        document.querySelector('.menu_panel').style.display = 'block';
+        menu_panel_active = true;
+    }
+
+});
+
+
 document.querySelector('.recover_game').addEventListener('click', function() {
 
     document.querySelector('.recover_form').style.display = 'block';
@@ -315,12 +420,20 @@ document.querySelector('.recover_game').addEventListener('click', function() {
 
   
 
-document.querySelector('.x_close').addEventListener('click', function() {
+document.querySelector('.feather-x-square').addEventListener('click', function() {
+
+    console.log("eiii13");
+    
+    document.querySelector('.end_form').style.display = 'none';
+    document.querySelector('.recover_form').style.display = 'none';
+});
+
+document.querySelector('.x_close_1').addEventListener('click', function() {
 
     console.log("eiii13");
     document.querySelector('.time_form').style.display = 'none';
     document.querySelector('.end_form').style.display = 'none';
-    document.querySelector('.recover_form').style.display = 'none';
+    
 });
 
 
@@ -1061,9 +1174,9 @@ let id = undefined;
         
             container.removeEventListener('mousedown', EventHear);
             document.querySelector('.time_form .ID_letters h5').innerText = payload.winner;
-            document.querySelector('.time_form').style.display = 'block'; return;
+            document.querySelector('.time_form').style.display = 'block'; 
 
-        
+            
         
         
         }
@@ -1071,7 +1184,6 @@ let id = undefined;
 
 
 
-        
 
 
 
