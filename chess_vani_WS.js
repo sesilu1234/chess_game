@@ -333,44 +333,55 @@ document.querySelector('.send_triangle').addEventListener('click', function() {
 
     textValue.value = '';
 
-    messageContainer.style = `
-    
    
-    max-width:60%;
-
-    word-wrap: break-word; 
-    
-    
-    
-     `;
-
-    const right_dist = `right: calc(-95% + ${messageContainer.offsetWidth}px );`;
-
-    console.log(right_dist);
 
     messageContainer.style = `
     position: relative;
     
    
-    padding : 5%;
-    padding-bottom: 0px;
+    padding : 5% 0%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-right: 5%;
 
     max-width:60%;
 
- 
+    background-color:rgba(99, 171, 114, 0.61);
 
     word-wrap: break-word; 
 
     
 
+    left: 35%;
     
-  
-    ${right_dist};
-    
-    
+    padding-left:5%;
+
+    padding-right:5%;
+
+    border-radius: 10px;
     
      `;
 
+     messageBox.scrollTop = messageBox.scrollHeight;
+
+
+
+     const message_text = {
+        type: 'talk',
+        payload : {
+            id: id,
+            text: textValue.value
+        
+        
+        } 
+        
+    };
+
+    
+
+    socket.send(JSON.stringify(message_text));
      
 
 
@@ -1183,7 +1194,77 @@ let id = undefined;
 
 
 
+        if (message.type === 'talk') {
 
+
+
+
+    const messageBox = document.querySelector('.message_box');
+    const textValue = document.querySelector('.text_area');
+
+    // Create a container element (e.g., a div)
+    const messageContainer = document.createElement('p');
+    
+
+    // Create a paragraph element to hold the text
+    messageContainer.classList.add('text_sent');
+
+    console.log(message);
+
+    messageContainer.innerText = payload.text;
+
+    
+
+
+
+
+    
+
+    
+    messageBox.appendChild(messageContainer);
+
+    textValue.value = '';
+
+   
+
+    messageContainer.style = `
+    position: relative;
+    
+   
+    padding : 5% 0%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-right: 5%;
+
+    max-width:60%;
+
+    background-color:rgba(189, 200, 205, 0.61);
+
+    word-wrap: break-word; 
+
+    
+
+    left: 0%;
+    
+    padding-left:5%;
+
+    padding-right:5%;
+
+    border-radius: 10px;
+    
+     `;
+
+     messageBox.scrollTop = messageBox.scrollHeight;
+
+
+
+
+
+
+
+        }
 
 
 
