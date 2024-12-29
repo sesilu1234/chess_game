@@ -308,84 +308,7 @@ document.querySelector('.GO').addEventListener('click', function() {
 
 
 
-document.querySelector('.send_triangle').addEventListener('click', function() {
-    const messageBox = document.querySelector('.message_box');
-    const textValue = document.querySelector('.text_area');
 
-    // Create a container element (e.g., a div)
-    const messageContainer = document.createElement('p');
-    
-
-    // Create a paragraph element to hold the text
-    messageContainer.classList.add('text_sent');
-
-    messageContainer.innerText = textValue.value;
-
-    
-
-
-
-
-    
-
-    
-    messageBox.appendChild(messageContainer);
-
-    textValue.value = '';
-
-   
-
-    messageContainer.style = `
-    position: relative;
-    
-   
-    padding : 5% 0%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    margin-right: 5%;
-
-    max-width:60%;
-
-    background-color:rgba(99, 171, 114, 0.61);
-
-    word-wrap: break-word; 
-
-    
-
-    left: 35%;
-    
-    padding-left:5%;
-
-    padding-right:5%;
-
-    border-radius: 10px;
-    
-     `;
-
-     messageBox.scrollTop = messageBox.scrollHeight;
-
-
-
-     const message_text = {
-        type: 'talk',
-        payload : {
-            id: id,
-            text: textValue.value
-        
-        
-        } 
-        
-    };
-
-    
-
-    socket.send(JSON.stringify(message_text));
-     
-
-
-});
 
 
 
@@ -1051,7 +974,84 @@ let id = undefined;
 
 
 
-
+    document.querySelector('.send_triangle').addEventListener('click', function() {
+        const messageBox = document.querySelector('.message_box');
+        const textValue = document.querySelector('.text_area');
+    
+        // Create a container element (e.g., a div)
+        const messageContainer = document.createElement('p');
+        
+    
+        // Create a paragraph element to hold the text
+        messageContainer.classList.add('text_sent');
+    
+        messageContainer.innerText = textValue.value;
+    
+        
+    
+        const message_text = {
+            type: 'talk',
+            payload : {
+                id: id,
+                text: textValue.value
+            
+            
+            } 
+            
+        };
+    
+        
+    
+        socket.send(JSON.stringify(message_text));
+    
+    
+        
+    
+        
+        messageBox.appendChild(messageContainer);
+    
+        textValue.value = '';
+    
+       
+    
+        messageContainer.style = `
+        position: relative;
+        
+       
+        padding : 5% 0%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        margin-right: 5%;
+    
+        max-width:60%;
+    
+        background-color:rgba(99, 171, 114, 0.61);
+    
+        word-wrap: break-word; 
+    
+        
+    
+        left: 35%;
+        
+        padding-left:5%;
+    
+        padding-right:5%;
+    
+        border-radius: 10px;
+        
+         `;
+    
+         messageBox.scrollTop = messageBox.scrollHeight;
+    
+    
+    
+         
+         
+    
+    
+    });
 
 
             
@@ -1211,7 +1211,7 @@ let id = undefined;
 
     console.log(message);
 
-    messageContainer.innerText = payload.text;
+    messageContainer.innerText = payload;
 
     
 
@@ -1253,6 +1253,8 @@ let id = undefined;
     padding-right:5%;
 
     border-radius: 10px;
+
+    left:5%;
     
      `;
 
