@@ -1060,6 +1060,81 @@ let id = undefined;
 
 
 
+
+
+
+
+
+
+
+    document.querySelector('.save').addEventListener('click', function() {
+
+
+        const save_form = document.querySelector('.saveandresume_form');
+        const draw_form = document.querySelector('.draw_form');
+        const resign_form = document.querySelector('.resign_form');
+
+        save_form.style.display = 'block';
+        draw_form.style.display = 'none';
+        resign_form.style.display = 'none';
+
+
+
+});
+
+document.querySelector('.draw').addEventListener('click', function() {
+
+
+    const save_form = document.querySelector('.saveandresume_form');
+    const draw_form = document.querySelector('.draw_form');
+    const resign_form = document.querySelector('.resign_form');
+
+    save_form.style.display = 'none';
+    draw_form.style.display = 'block';
+    resign_form.style.display = 'none';
+
+
+
+});
+
+document.querySelector('.resign').addEventListener('click', function() {
+
+
+    const save_form = document.querySelector('.saveandresume_form');
+    const draw_form = document.querySelector('.draw_form');
+    const resign_form = document.querySelector('.resign_form');
+
+    save_form.style.display = 'none';
+    draw_form.style.display = 'none';
+    resign_form.style.display = 'block';
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
      
 
