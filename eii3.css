@@ -1388,6 +1388,23 @@ font-family: 'Open Sans';
 
 }
 
+.menu_panel .p1 {
+  display: inline;
+  padding: 5%;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  cursor: pointer; /* Optional: makes it look clickable */
+}
+
+.menu_panel .p1:hover {
+  border-color: #23364d92; /* Change this color as needed */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #4c454394;
+}
+
+
+
 .menu_panel div {
 
 margin:10px;
