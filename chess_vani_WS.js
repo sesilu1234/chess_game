@@ -1186,7 +1186,7 @@ list_of_options[2].addEventListener('click', function() {
     socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"resign", winner: p2, looser: p1}    }));
 
     
-  
+    document.querySelector('.resign_form').style.display = 'none';
 
 });
 
@@ -1444,16 +1444,16 @@ list_of_options[2].addEventListener('click', function() {
 
         if (message.type === 'resign') {
 
+            
+
+            const resign_form_1 = document.querySelector('.resign_form');
+
+            resign_form_1.querySelector('.game_created h1').innerText = '${payload.looser} has resigned.'
+
+            resign_form_1.style.display = 'block';
 
 
-            const resign_form = document.querySelector('.resign_form');
-
-    resign_form.querySelector('.game_created h1').innerText = '${payload.looser} has resigned.'
-
-    resign_form.style.display = 'block';
-
-
-    document.querySelector('.end_form .ID_letters h5').innerText = payload.winner;
+            resign_form_1.querySelector('.end_form .ID_letters h5').innerText = payload.winner;
                 return;
 
 
