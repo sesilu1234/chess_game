@@ -610,7 +610,7 @@
 
     }
 
-    .simple-input, .simple-input_timer, .simple-input-join {
+    .simple-input, .simple-input_timer, .simple-input-join, .simple-input_3 {
         width: 120px; /* Set the desired width */
         padding: 5px 8px; /* Optional: Add some padding */
         font-size: 0.8em; /* Optional: Set the font size */
@@ -931,6 +931,20 @@ transform: translate(0px,6px);
   
   }
   .end_form{
+  
+    position:absolute;
+    width : 320px;
+    height: 320px;
+    background-color: #ECE6F0;
+    opacity: 0.9;
+    border-radius: 10%;
+    z-index: 1;
+    display: none;
+   
+  
+  }
+
+  .resign_form{
   
     position:absolute;
     width : 320px;
@@ -1361,7 +1375,7 @@ transform: translate(0px,6px);
 
 }
 
-.x_close_1{
+.x_close_1, .x_close_2{
 
   position:absolute;
   top:1%;

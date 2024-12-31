@@ -292,7 +292,7 @@ document.querySelector('.GO').addEventListener('click', function() {
 
     const id_to_recover = document.querySelectorAll('.GO h3').textContent;
 
-    socket.send(JSON.stringify({type:"recover_game", payload: {type: "rg1", id_to_recover:id_to_recover}}));
+    
 
 
 
@@ -499,6 +499,8 @@ copySymbol.addEventListener('mouseleave', function() {
         p1 = payload.player1;
         p2 = payload.player2;
 
+        
+
         document.querySelector('.user1 h5').textContent = payload.player2;
         document.querySelector('.user2 h5').textContent = payload.player1;
 
@@ -561,7 +563,7 @@ let id = undefined;
 
 
         
-        
+        console.log(inputs);
         
         
         
@@ -570,6 +572,8 @@ let id = undefined;
         // Function to generate game ID
         const player1 = inputs[0].value;
         const player2 = inputs[1].value;
+
+        
      // Replace with actual player 1 info
         const color1 = colorTexts[0].value;
         const color2 = colorTexts[1].value;
@@ -598,7 +602,7 @@ let id = undefined;
             
         };
 
-        
+       
 
         socket.send(JSON.stringify(gameData));
 
@@ -1121,6 +1125,98 @@ document.querySelector('.resign').addEventListener('click', function() {
 
 
 
+document.querySelectorAll('.x_close_2').forEach(function(element) {
+    element.addEventListener('click', function() {
+        const save_form = document.querySelector('.saveandresume_form');
+        const draw_form = document.querySelector('.draw_form');
+        const resign_form = document.querySelector('.resign_form');
+
+        save_form.style.display = 'none';
+        draw_form.style.display = 'none';
+        resign_form.style.display = 'none';
+    });
+});
+
+document.querySelectorAll('.firstone_1').forEach(function(element) {
+    element.addEventListener('click', function() {
+        const save_form = document.querySelector('.saveandresume_form');
+        const draw_form = document.querySelector('.draw_form');
+        const resign_form = document.querySelector('.resign_form');
+
+        save_form.style.display = 'none';
+        draw_form.style.display = 'none';
+        resign_form.style.display = 'none';
+    });
+});
+
+
+
+
+
+
+
+
+
+
+const list_of_options = document.querySelectorAll('.secondone_1')
+
+
+list_of_options[0].addEventListener('click', function() {
+    
+    
+    socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"save_and_resume"}      }));
+
+
+
+});
+
+list_of_options[1].addEventListener('click', function() {
+    
+    
+    socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"draw"}    }));
+
+
+
+});
+
+
+list_of_options[2].addEventListener('click', function() {
+    
+    
+    socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"resign", winner: p2, looser: p1}    }));
+
+    
+  
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1344,6 +1440,28 @@ document.querySelector('.resign').addEventListener('click', function() {
         }
 
 
+
+
+        if (message.type === 'resign') {
+
+
+
+            const resign_form = document.querySelector('.resign_form');
+
+    resign_form.querySelector('.game_created h1').innerText = '${payload.looser} has resigned.'
+
+    resign_form.style.display = 'block';
+
+
+    document.querySelector('.end_form .ID_letters h5').innerText = payload.winner;
+                return;
+
+
+
+
+
+
+        }
 
 
     };
