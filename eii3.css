@@ -944,19 +944,6 @@ transform: translate(0px,6px);
   
   }
 
-  .resign_form{
-  
-    position:absolute;
-    width : 320px;
-    height: 320px;
-    background-color: #ECE6F0;
-    opacity: 0.9;
-    border-radius: 10%;
-    z-index: 1;
-    display: none;
-   
-  
-  }
 
   .enterid{
 
@@ -987,6 +974,20 @@ transform: translate(0px,6px);
 
 
   .resign_form{
+  
+    position:absolute;
+    width : 400px;
+    height: 300px;
+    background-color: #ECE6F0;
+    opacity: 0.95;
+    border-radius: 10%;
+    z-index: 1;
+    display:none;
+    
+  } 
+
+
+  .resign_form_end{
   
     position:absolute;
     width : 400px;
@@ -1180,7 +1181,7 @@ transform: translate(0px,6px);
   
   }
 
-  .end_form .game_created, .time_form .game_created {
+  .end_form .game_created, .time_form .game_created, .resign_form_end .game_created {
   
     color: #1a1517;
     font-size: 0.8em;
@@ -1211,7 +1212,7 @@ transform: translate(0px,6px);
   
   }
 
-  .end_form .ID_copy, .time_form .ID_copy{
+  .end_form .ID_copy, .time_form .ID_copy, .resign_form_end .ID_copy{
   
     display:flex;
     justify-content: center;
@@ -1355,13 +1356,22 @@ transform: translate(0px,6px);
     animation: jumpBounce 1.2s infinite;
 }
 
-.end_form .exclamation, .time_form .exclamation {
+.end_form .exclamation, .time_form .exclamation{
   font-family: "Danfo", serif;
   margin-top:15% ;
   display: inline-block;
   font-size: 1.9em;
   animation: jumpBounce 1.2s infinite;
 }
+
+.resign_form_end .exclamation {
+  font-family: "Danfo", serif;
+  margin-top:3% ;
+  display: inline-block;
+  font-size: 1.9em;
+  animation: jumpBounce 1.2s infinite;
+}
+
 
 
 .x_close{

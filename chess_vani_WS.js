@@ -1237,6 +1237,10 @@ list_of_options[2].addEventListener('click', function() {
     socket.onmessage = function(event) {
         const message = JSON.parse(event.data);
         const payload = message.payload;
+
+        console.log(message);
+
+        console.log(payload);
     
        if (message.type === 'move') {
     
@@ -1445,15 +1449,17 @@ list_of_options[2].addEventListener('click', function() {
         if (message.type === 'resign') {
 
             
+            console.log("ieieieie");
 
-            const resign_form_1 = document.querySelector('.resign_form');
+            const resign_form_1 = document.querySelector('.resign_form_end');
 
-            resign_form_1.querySelector('.game_created h1').innerText = '${payload.looser} has resigned.'
+            resign_form_1.querySelector('.game_created h1').innerText = `${payload.looser} has resigned.`;
+
 
             resign_form_1.style.display = 'block';
 
 
-            resign_form_1.querySelector('.end_form .ID_letters h5').innerText = payload.winner;
+            resign_form_1.querySelector('.ID_letters h5').innerText = payload.winner;
                 return;
 
 
