@@ -420,7 +420,7 @@ socket.onmessage = function(event) {
         
         id = message.payload
 
-        document.querySelector('.ID_letters h5').textContent = `${id}`;
+        document.querySelector('.form .ID_letters h5').textContent = `${id}`;
 
         document.querySelector('.form').style.display = "block";
 
@@ -436,7 +436,7 @@ const warningBox = document.querySelector('.copied_alert');
 
 copySymbol.addEventListener('mousedown', function() {
     // Get the text to be copied
-    const copyText = document.querySelector('.ID_letters h5').innerText; 
+    const copyText = document.querySelector('.form .ID_letters h5').innerText; 
 
     // Show the warning box
     warningBox.classList.add('show');
@@ -1492,25 +1492,26 @@ list_of_options[2].addEventListener('click', function() {
                 draw_accept_form.style.display = 'block';
 
 
-                const firstone_3 = document.querySelector('.firstone_3');
+                const firstone_4 = document.querySelector('.firstone_4');
 
-                const secondone_3 = document.querySelector('.secondone_3');
+                const secondone_4 = document.querySelector('.secondone_4');
 
 
-                firstone_3.addEventListener('click', (event) => {
+                firstone_4.addEventListener('click', (event) => {
                    
 
-                    socket.send(JSON.stringify({type: 'draw', payload :   { id: id, way: "way_2", acctepted: false          }              }));
+                    socket.send(JSON.stringify({type: 'options', payload :   { id: id, type: "draw", way: "way_2", acctepted: false          }              }));
+                    draw_accept_form.style.display = 'none';
 
 
                 });
 
 
-                secondone_3.addEventListener('click', (event) => {
+                secondone_4.addEventListener('click', (event) => {
                    
 
-                    socket.send(JSON.stringify({type: 'draw', payload :   { id: id, way: "way_2", accepted: true          }              }));
-
+                    socket.send(JSON.stringify({type: 'options', payload :   { id: id, type: "draw", way: "way_2", accepted: true          }              }));
+                    draw_accept_form.style.display = 'none';
 
                 });
 
@@ -1538,6 +1539,21 @@ list_of_options[2].addEventListener('click', function() {
 
 
                     draw_end_form.style.display = 'block';
+
+
+                    const close_draw_end_form = document.querySelector('.x_close_4');
+
+                    close_draw_end_form.addEventListener('click', (event) => {
+                   
+
+                        
+                        draw_end_form.style.display = 'none';
+    
+                    });
+
+
+
+
 
 
 

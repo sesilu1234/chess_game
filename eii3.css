@@ -1079,7 +1079,7 @@ transform: translate(0px,6px);
 
   }
 
- .firstone_1, .firstone_3{
+ .firstone_1, .firstone_3, .firstone_4{
 
     background-color: rgba(112, 42, 42, 0.879);
     padding:10px;
@@ -1092,7 +1092,7 @@ transform: translate(0px,6px);
   cursor:pointer;
 
   }
- .secondone_1,  .secondone_3{
+ .secondone_1,  .secondone_3, .secondone_4{
 
     background-color: rgba(63, 90, 79, 0.706);
     padding:10px;
@@ -1105,6 +1105,8 @@ transform: translate(0px,6px);
    cursor:pointer;
 
   }
+
+  
 
   .options_info{
 
@@ -1402,7 +1404,7 @@ transform: translate(0px,6px);
 
 }
 
-.x_close_1, .x_close_2{
+.x_close_1, .x_close_2, .x_close_4{
 
   position:absolute;
   top:1%;
