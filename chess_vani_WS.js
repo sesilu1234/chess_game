@@ -1612,12 +1612,128 @@ list_of_options[2].addEventListener('click', function() {
 
 
 
+                const reject_save_and_resume_accept_form = document.querySelector('.firstone_5');
+
+                const accept_save_and_resume_accept_form = document.querySelector('.secondone_5');
+
+                reject_save_and_resume_accept_form.addEventListener('click', (event) => {
+               
+                    socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"save_and_resume", way: "way_2", accepted: false}      }));
+
+                    document.querySelector('.save_and_resume_accept_form').style.display = 'none';
+                    
+                    
+
+                });
+
+                accept_save_and_resume_accept_form.addEventListener('click', (event) => {
 
 
 
-                socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"save_and_resume", way: "way_2", accepted: true}      }));
+                    const GameState = {
+                        id: undefined, // Make sure to replace "gameId" with your actual game ID
+                        player1: {
+                          pieces: {
+                            king: [],
+                            queens: [],
+                            rooks: [],
+                            bishops: [],
+                            knights: [],
+                            pawns: [],
+                          },
+                          name: undefined,
+                          color: undefined,
+                          time: undefined,
+                          castling: true,
+                        },
+                        player2: {
+                          pieces: {
+                            king: [],
+                            queens: [],
+                            rooks: [],
+                            bishops: [],
+                            knights: [],
+                            pawns: [],
+                          },
+                          name: undefined,
+                          color: undefined,
+                          time: undefined,
+                        },
+                        currentplayer: undefined,
+                        time_modality: undefined,
+                        
+                      };
 
-                document.querySelector('.save_and_resume_accept_form').style.display = 'none';
+                    
+                      
+
+
+
+
+
+                                    whitePieces.forEach(piece => {
+                                    if (piece instanceof Pawn) {
+                                        GameState.player1.pieces.pawns.push(piece.position);
+                                    } else if (piece instanceof Knight) {
+                                        GameState.player1.pieces.knights.push(piece.position);
+                                    } else if (piece instanceof Bishop) {
+                                        GameState.player1.pieces.bishops.push(piece.position);
+                                    } else if (piece instanceof Rook) {
+                                        GameState.player1.pieces.rooks.push(piece.position);
+                                        if (piece.castling === false) {GameState.player1.castling = false}
+                                    } else if (piece instanceof Queen) {
+                                        GameState.player1.pieces.queens.push(piece.position);
+                                    } else if (piece instanceof King) {
+                                        GameState.player1.pieces.king.push(piece.position);
+                                    }
+                                    });
+
+
+
+                                    blackPieces.forEach(piece => {
+                                        if (piece instanceof Pawn) {
+                                            GameState.player2.pieces.pawns.push(piece.position);
+                                        } else if (piece instanceof Knight) {
+                                            GameState.player2.pieces.knights.push(piece.position);
+                                        } else if (piece instanceof Bishop) {
+                                            GameState.player2.pieces.bishops.push(piece.position);
+                                        } else if (piece instanceof Rook) {
+                                            GameState.player2.pieces.rooks.push(piece.position);
+                                            if (piece.castling === false) { GameState.player2.castling = false}
+                                        } else if (piece instanceof Queen) {
+                                            GameState.player2.pieces.queens.push(piece.position);
+                                        } else if (piece instanceof King) {
+                                            GameState.player2.pieces.king.push(piece.position);
+                                        }
+                                        });
+
+
+
+                      
+
+
+
+
+
+
+
+
+
+
+
+
+                    console.log(whitePieces,blackPieces);
+               
+                    socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"save_and_resume", way: "way_2", accepted: true, game_state: GameState}      }));
+
+                    document.querySelector('.save_and_resume_accept_form').style.display = 'none';
+                    
+                    
+
+                });
+
+
+                
 
 
 
@@ -1630,10 +1746,12 @@ list_of_options[2].addEventListener('click', function() {
 
             else if (payload.way === "way_2") {
 
+              
 
-                if (payload.action === true) {
 
-                    location.reload();
+                if (payload.accepted === true) {
+
+                    
 
 
                 }
