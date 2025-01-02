@@ -1658,6 +1658,7 @@ list_of_options[2].addEventListener('click', function() {
                           name: undefined,
                           color: undefined,
                           time: undefined,
+                          castling: true,
                         },
                         currentplayer: undefined,
                         time_modality: undefined,
@@ -1722,7 +1723,7 @@ list_of_options[2].addEventListener('click', function() {
 
 
 
-                    console.log(whitePieces,blackPieces);
+                    console.log(GameState);
                
                     socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"save_and_resume", way: "way_2", accepted: true, game_state: GameState}      }));
 
