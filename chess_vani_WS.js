@@ -1164,7 +1164,7 @@ const list_of_options = document.querySelectorAll('.secondone_1')
 list_of_options[0].addEventListener('click', function() {
     
     
-    socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"save_and_resume"}      }));
+    socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"save_and_resume", way: "way_1"}      }));
 
     document.querySelector('.saveandresume_form').style.display = 'none';
 
@@ -1593,6 +1593,68 @@ list_of_options[2].addEventListener('click', function() {
 
 
 
+
+        if (message.type === 'save_and_resume') {
+
+            
+           
+
+            if (payload.way === "way_1") {
+
+
+                const save_and_resume_accept_form = document.querySelector('.save_and_resume_accept_form');
+
+
+                save_and_resume_accept_form.style.display = 'block';
+
+
+
+
+
+
+
+
+
+                socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"save_and_resume", way: "way_2", accepted: true}      }));
+
+                document.querySelector('.save_and_resume_accept_form').style.display = 'none';
+
+
+
+
+
+
+
+
+            }
+
+            else if (payload.way === "way_2") {
+
+
+                if (payload.action === true) {
+
+                    location.reload();
+
+
+                }
+
+
+
+                else {
+
+
+
+
+
+
+                }
+
+
+
+            }
+
+
+        }
 
 
 
