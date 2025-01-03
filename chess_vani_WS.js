@@ -1630,42 +1630,29 @@ list_of_options[2].addEventListener('click', function() {
 
 
 
-                    const GameState = {
-                        id: undefined, // Make sure to replace "gameId" with your actual game ID
-                        player1: {
-                          pieces: {
+                    const pieces_state = {
+                        player1: { pieces: {
                             king: [],
                             queens: [],
                             rooks: [],
                             bishops: [],
                             knights: [],
-                            pawns: [],
-                          },
-                          name: undefined,
-                          color: undefined,
-                          time: undefined,
-                          castling: true,
-                        },
-                        player2: {
-                          pieces: {
+                            pawns: [] },
+                            castling: true,
+                            
+                        }, 
+                        player2: { pieces: {
                             king: [],
                             queens: [],
                             rooks: [],
                             bishops: [],
                             knights: [],
-                            pawns: [],
-                          },
-                          name: undefined,
-                          color: undefined,
-                          time: undefined,
-                          castling: true,
-                        },
-                        currentplayer: undefined,
-                        time_modality: undefined,
-                        
-                      };
+                            pawns: [] },
+                            castling: true,
+                        }
+                    }
 
-                    
+                   
                       
 
 
@@ -1673,38 +1660,43 @@ list_of_options[2].addEventListener('click', function() {
 
 
                                     whitePieces.forEach(piece => {
+
+                                        
                                     if (piece instanceof Pawn) {
-                                        GameState.player1.pieces.pawns.push(piece.position);
+                                        pieces_state.player1.pieces.pawns.push(piece.position);
                                     } else if (piece instanceof Knight) {
-                                        GameState.player1.pieces.knights.push(piece.position);
+                                        pieces_state.player1.pieces.knights.push(piece.position);
                                     } else if (piece instanceof Bishop) {
-                                        GameState.player1.pieces.bishops.push(piece.position);
+                                        pieces_state.player1.pieces.bishops.push(piece.position);
                                     } else if (piece instanceof Rook) {
-                                        GameState.player1.pieces.rooks.push(piece.position);
-                                        if (piece.castling === false) {GameState.player1.castling = false}
+                                        pieces_state.player1.pieces.rooks.push(piece.position);
+                                        if (piece.castling === false) {pieces_state.player1.castling = false}
                                     } else if (piece instanceof Queen) {
-                                        GameState.player1.pieces.queens.push(piece.position);
+                                        pieces_state.player1.pieces.queens.push(piece.position);
                                     } else if (piece instanceof King) {
-                                        GameState.player1.pieces.king.push(piece.position);
+                                        pieces_state.player1.pieces.king.push(piece.position);
                                     }
                                     });
 
 
 
                                     blackPieces.forEach(piece => {
+
+
+
                                         if (piece instanceof Pawn) {
-                                            GameState.player2.pieces.pawns.push(piece.position);
+                                            pieces_state.player2.pieces.pawns.push(piece.position);
                                         } else if (piece instanceof Knight) {
-                                            GameState.player2.pieces.knights.push(piece.position);
+                                            pieces_state.player2.pieces.knights.push(piece.position);
                                         } else if (piece instanceof Bishop) {
-                                            GameState.player2.pieces.bishops.push(piece.position);
+                                            pieces_state.player2.pieces.bishops.push(piece.position);
                                         } else if (piece instanceof Rook) {
-                                            GameState.player2.pieces.rooks.push(piece.position);
-                                            if (piece.castling === false) { GameState.player2.castling = false}
+                                            pieces_state.player2.pieces.rooks.push(piece.position);
+                                            if (piece.castling === false) { pieces_state.player2.castling = false}
                                         } else if (piece instanceof Queen) {
-                                            GameState.player2.pieces.queens.push(piece.position);
+                                            pieces_state.player2.pieces.queens.push(piece.position);
                                         } else if (piece instanceof King) {
-                                            GameState.player2.pieces.king.push(piece.position);
+                                            pieces_state.player2.pieces.king.push(piece.position);
                                         }
                                         });
 
@@ -1723,9 +1715,8 @@ list_of_options[2].addEventListener('click', function() {
 
 
 
-                    console.log(GameState);
                
-                    socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"save_and_resume", way: "way_2", accepted: true, game_state: GameState}      }));
+                    socket.send(JSON.stringify({    type:"options", payload: {id:id, type:"save_and_resume", way: "way_2", accepted: true, pieces_state: pieces_state}      }));
 
                     document.querySelector('.save_and_resume_accept_form').style.display = 'none';
                     
