@@ -1743,7 +1743,8 @@ list_of_options[2].addEventListener('click', function() {
 
                 if (payload.accepted === true) {
 
-                    
+                    location.reload();
+
 
 
                 }

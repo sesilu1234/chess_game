@@ -1,992 +1,599 @@
 <!DOCTYPE html>
-<html lang="en" class = "root_1">
-<head>
-    <meta charset="UTF-8">
-    <title>ChessBySesilu</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en" class="root_1">
+    <head>
+        <meta charset="UTF-8" />
+        <title>ChessBySesilu</title>
 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="eii3.css">
+        <link rel="stylesheet" href="eii3.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dangrek&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Dangrek&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet" />
 
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Danfo&display=swap" rel="stylesheet" />
 
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Danfo&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="icon" href="pieces_drawings/yellow_pawn1_3.png" type="image/png" />
 
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Danfo:ELSH@100&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Press+Start+2P&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Danfo&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=radio_button_unchecked" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Danfo&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Danfo:ELSH@100&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jaro:opsz@6..72&family=Press+Start+2P&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
 
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=list" />
 
-<link rel="icon" href="pieces_drawings/yellow_pawn1_3.png" type="image/png">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Danfo:ELSH@100&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jaro:opsz@6..72&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Press+Start+2P&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="saveandresume_form">
+            <div class="enterid">SAVE AND RESUME LATER</div>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Danfo:ELSH@100&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Press+Start+2P&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+            <div class="options_info">By saving the game, you can pause now and resume it later from where you left off. <br /></div>
 
+            <div class="separator_3"></div>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=radio_button_unchecked" />
+            <div class="waitingsecond">ARE YOU SURE YOU WANT TO PROCEED ?</div>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Danfo:ELSH@100&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jaro:opsz@6..72&family=Press+Start+2P&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=list" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Danfo:ELSH@100&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jaro:opsz@6..72&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Press+Start+2P&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-
-</head>
-<body>
-
-
-
-
-
-
-
-        
-
-
-
-
-    <div class = "saveandresume_form">
-
-        <div class = "enterid">SAVE AND RESUME LATER</div>  
-
-        <div class = "options_info">
-
-        
-            By saving the game, you can pause now and resume it later from where you left off. <br>
-    
-                        
-    
+            <div class="x_close_2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                </svg>
             </div>
-    
-    
-    
-    
-    
-        
-    
-        <div class = "separator_3"></div>  
 
-        
-
-        <div class = "waitingsecond">ARE YOU SURE YOU WANT TO PROCEED ?</div>
-    
-        <div class = "x_close_2"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-            class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> </div>
-    
-
-            <div class = "join_recover">
-    
-                <div class = "firstone_1">CANCEL</p></div>  
-                <div class = "secondone_1">ACCEPT</p></div>  
-        
-                    </div>
-    
-    </div>    
-
-
-
-    <div class = "draw_form">
-
-        <div class = "enterid">DRAW</div>  
-
-        <div class = "options_info">
-
-        
-            By offering a draw, you agree to end the game immediately with no winner. <br>
-    
-                        
-    
+            <div class="join_recover">
+                <div class="firstone_1">CANCEL</div>
+                <div class="secondone_1">ACCEPT</div>
             </div>
-    
-    
-    
-    
-    
-        
-    
-        <div class = "separator_3"></div>  
-
-        
-
-        <div class = "waitingsecond">ARE YOU SURE YOU WANT TO PROCEED ?</div>
-    
-        <div class = "x_close_2"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-            class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> </div>
-    
-
-            <div class = "join_recover">
-    
-                <div class = "firstone_1">CANCEL</p></div>  
-                <div class = "secondone_1">ACCEPT</p></div>  
-        
-                    </div>
-    
-    </div>    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class = "draw_accept_form">
-
-        <div class = "enterid">DRAW</div>  
-
-        <div class = "options_info">
-
-        
-            Your opponent is offering a draw. <br>
-    
-                        
-    
-            </div>
-    
-    
-    
-    
-    
-        
-    
-        <div class = "separator_3"></div>  
-
-        
-
-        <div class = "waitingsecond">DO YOU ACCEPT THE OFFER ?</div>
-    
-        
-    
-
-            <div class = "join_recover">
-    
-                <div class = "firstone_4">CANCEL</p></div>  
-                <div class = "secondone_4">ACCEPT</p></div>  
-        
-                    </div>
-    
-    </div> 
-
-
-
-
-
-
-
-    <div class = "draw_end_form">
-
-        <div class = "game_created">  <h1>END OF GAME</h1> </div>
-        <div class = "waiting_2nd">  <h3>It´s a draw.</h3> </div>
-        <div class = "ID_copy">      
-             
-            <div class = "ID_letters">  <h5>No winner. <br>  No looser.  </h5> </div>  
-                        
-    
-    
-    
-    
-    
-    
-    
         </div>
-    
-        <div class = "separator_2"></div>  
-    
-        <div class = "exclamation">new game</div>  
-    
-        <div class = "x_close_4"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-            class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> </div>
-    
-    
-    </div>    
 
+        <div class="draw_form">
+            <div class="enterid">DRAW</div>
 
+            <div class="options_info">By offering a draw, you agree to end the game immediately with no winner. <br /></div>
 
+            <div class="separator_3"></div>
 
-    
+            <div class="waitingsecond">ARE YOU SURE YOU WANT TO PROCEED ?</div>
 
-
-
-
-
-
-    <div class = "save_and_resume_accept_form">
-
-        <div class = "enterid">SAVE AND RESUME LATER</div>  
-
-        <div class = "options_info">
-
-        
-            Your opponent is offering to save the game a resume it later. <br>
-    
-                        
-    
-            </div>
-    
-    
-    
-    
-    
-        
-    
-        <div class = "separator_3"></div>  
-
-        
-
-        <div class = "waitingsecond">DO YOU ACCEPT THE OFFER ?</div>
-    
-        
-    
-
-            <div class = "join_recover">
-    
-                <div class = "firstone_5">CANCEL</p></div>  
-                <div class = "secondone_5">ACCEPT</p></div>  
-        
-                    </div>
-    
-    </div> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class = "resign_form">
-
-        <div class = "enterid">RESIGN</div>  
-
-        <div class = "options_info">
-
-        
-            By resigning, you will concede the game to your opponent, and the game will end immediately. <br>
-    
-                        
-    
-            </div>
-    
-    
-    
-    
-    
-        
-    
-        <div class = "separator_3"></div>  
-
-        
-
-        <div class = "waitingsecond">ARE YOU SURE YOU WANT TO RESIGN ?</div>
-    
-        <div class = "x_close_2"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-            class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> </div>
-    
-
-            <div class = "join_recover">
-    
-                <div class = "firstone_1">CANCEL</p></div>  
-                <div class = "secondone_1">ACCEPT</p></div>  
-        
-                    </div>
-    
-    </div>    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class = "recover_form">
-
-        <div class = "enterid">ENTER GAME CODE</div>  
-
-        <div class = "go_code">
-
-        <input type="text" class="simple-input_3" placeholder="">
-        <div class = "GO">  <h3>GO</h3> </div>
-        
-                        
-    
-            </div>
-    
-    
-    
-    
-    
-        
-    
-        <div class = "separator_3"></div>  
-
-        <div class = "join_recover">
-    
-        <div class = "firstone">JOIN AS <br> <p>PLAYER 1</p></div>  
-        <div class = "secondone">JOIN AS <br> <p>PLAYER 2</p></div>  
-
+            <div class="x_close_2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                </svg>
             </div>
 
-        <div class = "waitingsecond">WAITING FOR 2nd PLAYER...</div>
-    
-        <div class = "x_close"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-            class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> </div>
-    
-    
-    </div>    
-
-
-    
-<div class = "form">
-
-    <div class = "game_created">  <h1>GAME CREATED</h1> </div>
-    <div class = "waiting_2nd">  <h3>Waitin for 2nd player ...</h3> </div>
-    <div class = "ID_copy">      
-        <div class = "ID_symbol">  ID  </div>  
-        <div class = "ID_letters">  <h5>F6H-ghfy-am83</h5> </div>  
-        <div class  = "copy_symbol"><i class="fa-solid fa-copy"></i>  <div class = "copied_alert" >Copied!</div>  </div>               
-
-
-
-
-
-
-
-    </div>
-
-    <div class = "separator_2"></div>  
-
-    <div class = "exclamation">Invite</div>  
-
-   
-
-
-</div> 
-
-
-
-
-
-
-
-
-
-
-<div class = "resign_form_end">
-
-    <div class = "game_created">  <h1></h1> </div>
-    <div class = "waiting_2nd">  <h3>The winner is</h3> </div>
-    <div class = "ID_copy">      
-         
-        <div class = "ID_letters">  <h5></h5> </div>  
-                    
-
-
-
-
-
-
-
-    </div>
-
-    <div class = "separator_2"></div>  
-
-    <div class = "exclamation">new game</div>  
-
-    <div class = "x_close"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-        class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> </div>
-
-
-</div>   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class = "end_form">
-
-    <div class = "game_created">  <h1>END OF GAME</h1> </div>
-    <div class = "waiting_2nd">  <h3>The winner is</h3> </div>
-    <div class = "ID_copy">      
-         
-        <div class = "ID_letters">  <h5></h5> </div>  
-                    
-
-
-
-
-
-
-
-    </div>
-
-    <div class = "separator_2"></div>  
-
-    <div class = "exclamation">new game</div>  
-
-    <div class = "x_close"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-        class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> </div>
-
-
-</div>    
-
-<div class = "time_form">
-
-    <div class = "game_created">  <h1>OUT OF TIME</h1> </div>
-    <div class = "waiting_2nd">  <h3>The winner is</h3> </div>
-    <div class = "ID_copy">      
-         
-        <div class = "ID_letters">  <h5>BBBBBBB</h5> </div>  
-                    
-
-
-
-
-
-
-
-    </div>
-
-    <div class = "separator_2"></div>  
-
-    <div class = "exclamation">new game</div>  
-
-    <div class = "x_close_1"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-    class="feather feather-x-square"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line></svg> </div>
-
-
-</div> 
-    
-
-<div class="screen_1" id = "screen_1">
-
-    
-    
-
-    <div class = "grid_container" id ="grid_container">  
-
-
-        <div class = "menu_encapsu">
-
-        <div class = "menu_options">
-
-
-
-
-
-
-            <div class = "options">
-
-                <div>OPTIONS</div>
-
-                <div class = "menu_icon"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5">
-                    <path d="M280-600v-80h560v80H280Zm0 160v-80h560v80H280Zm0 160v-80h560v80H280ZM160-600q-17 0-28.5-11.5T120-640q0-17 11.5-28.5T160-680q17 0 28.5 11.5T200-640q0 17-11.5 28.5T160-600Zm0 160q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440Zm0 160q-17 0-28.5-11.5T120-320q0-17 11.5-28.5T160-360q17 0 28.5 11.5T200-320q0 17-11.5 28.5T160-280Z"/></svg>
+            <div class="join_recover">
+                <div class="firstone_1">CANCEL</div>
+                <div class="secondone_1">ACCEPT</div>
+            </div>
+        </div>
+
+        <div class="draw_accept_form">
+            <div class="enterid">DRAW</div>
+
+            <div class="options_info">Your opponent is offering a draw. <br /></div>
+
+            <div class="separator_3"></div>
+
+            <div class="waitingsecond">DO YOU ACCEPT THE OFFER ?</div>
+
+            <div class="join_recover">
+                <div class="firstone_4">CANCEL</div>
+                <div class="secondone_4">ACCEPT</div>
+            </div>
+        </div>
+
+        <div class="draw_end_form">
+            <div class="game_created"><h1>END OF GAME</h1></div>
+            <div class="waiting_2nd"><h3>It´s a draw.</h3></div>
+            <div class="ID_copy">
+                <div class="ID_letters">
+                    <h5>
+                        No winner. <br />
+                        No looser.
+                    </h5>
                 </div>
             </div>
 
+            <div class="separator_2"></div>
 
+            <div class="exclamation">new game</div>
 
-
-
-
-
-
-
+            <div class="x_close_4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                </svg>
+            </div>
         </div>
 
+        <div class="save_and_resume_accept_form">
+            <div class="enterid">SAVE AND RESUME LATER</div>
 
+            <div class="options_info">Your opponent is offering to save the game a resume it later. <br /></div>
 
+            <div class="separator_3"></div>
 
+            <div class="waitingsecond">DO YOU ACCEPT THE OFFER ?</div>
 
-        <div class = "menu_panel">
-
-
-
-            <div  style="box-sizing: border-box;  margin-top: 55px;"  >   <p class = "p1 save">Save and Resume Later</p>  </div>
-            <div style="box-sizing: border-box;  width: 159px; height: 3px; background: rgb(94, 59, 59); border-radius: 13px;"></div>
-
-
-            <div><p class = "p1 draw">Offer Draw</p></div>
-            <div style="box-sizing: border-box; width: 159px; height: 3px; background: rgb(94, 59, 59); border-radius: 13px;"></div>
-
-            <div><p class = "p1 resign">Resign</p></div>
-            <div style="box-sizing: border-box; width: 159px; height: 3px; background: rgba(146, 137, 137); border-radius: 13px;"></div>
-
-
-            <div  style = "transform: translate(5%); color: rgba(121, 114, 114, 0.696);"  >Messages </div>
-
-
-            <div class = "message_box" style = "overflow-y: auto;overflow-x: hidden; position:relative; width: 80%; height: 120px; background: rgba(121, 114, 114, 0.696);border-radius: 10%;     scrollbar-width: thin;"  > </div>
-
-
-            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#F0ABFC" class = "send_triangle"
-     style="position: absolute; bottom:10px;left:10px;padding:6px;background:rgba(103, 113, 87, 0.75);border-radius: 10%;padding-right:4px; 
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.05);cursor:pointer;"> 
-  <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/>
-</svg>
-
-     
-            <textarea class = "text_area"
-            style="
-                transform: translate(35%);
-                width: 70%;
-                min-height: 35px;
-                max-height: 100px;
-                border: none;
-                background: rgba(245, 244, 244, 0.835);
-                border-radius: 7px;
-                padding: 5px 10px;
-                font-size: 12px;
-                line-height: 1.5;
-                resize: vertical;
-                overflow-y: auto;
-                box-sizing: border-box;
-               
-            " 
-            placeholder="Message"
-            oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"
-        ></textarea>
-        
-                   
-            
-            
-            
-            
-
-
-
-
-
-
-
-
+            <div class="join_recover">
+                <div class="firstone_5">CANCEL</div>
+                <div class="secondone_5">ACCEPT</div>
+            </div>
         </div>
 
+        <div class="resign_form">
+            <div class="enterid">RESIGN</div>
 
-    </div>
+            <div class="options_info">By resigning, you will concede the game to your opponent, and the game will end immediately. <br /></div>
 
+            <div class="separator_3"></div>
 
+            <div class="waitingsecond">ARE YOU SURE YOU WANT TO RESIGN ?</div>
 
+            <div class="x_close_2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                </svg>
+            </div>
 
-
-        <div class = "PawnPromotion">    
-
-
-            <div class = "Queen">Queen</div>
-
-            <div class = "Knight">Knight</div>
-
-
-
-    </div>
-
-
-    <div class = "user1">    <i class="fa-solid fa-user"></i>  <h5>User1</h5> <h6>CHECKED</h6> </div>
-
-    <div class = "user2">    <i class="fa-solid fa-user"></i>  <h5>User1</h5> <h6>CHECKED</h6> </div>
-
-    <div class = "timer">     <div class = "minutes"> 00</div>     <div class = "seconds">59</div>             </div>
-
-
-    <div class = "timer_1">     <div class = "minutes"> 00</div>     <div class = "seconds">59</div>             </div>
-    <div class = "timer_2">     <div class = "minutes"> 00</div>     <div class = "seconds">59</div>             </div>
-
-    </div>
-    
-    
-    <div class = "left_column" >
-        
-        <h1>QUICK CHESS</h1>
-
-        <div class="container">
-            <img src="pieces_drawings/red_pawn.png" alt="Description of image" class="red_pawn">
+            <div class="join_recover">
+                <div class="firstone_1">CANCEL</div>
+                <div class="secondone_1">ACCEPT</div>
+            </div>
         </div>
 
-       
-        <div class="github_icon">
-            <a href="https://github.com/sesilu1234" target="_blank">
-                <i class="fa-brands fa-github"></i>
-            </a>
-        </div>
-        
-        
+        <div class="recover_form">
+            <div class="enterid">ENTER GAME CODE</div>
 
+            <div class="go_code">
+                <input type="text" class="simple-input_3" placeholder="" />
+                <div class="GO"><h3>GO</h3></div>
+            </div>
 
-    </div>
+            <div class="separator_3"></div>
 
-
-
-
-
-    <div class = "right_column" >
-
-
-        <div class = "recover_game"> <h3>RECOVER GAME</h3> </div>
-
-
-
-        <div class = "theme">
-
-            <i class="fa-solid fa-sun"></i>
-            <i class="fa-solid fa-moon"></i>
-    
-        </div>
-        <div class = "info_box">
-
-            <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-    class="feather feather-help-circle info"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-
-        </div>
-        
-    
-
-        <div class = "info_div">  <div class = "number_ob">  <div class = "nu"> 1 </div>     <h5>Create a Game:</h5>  </div>    <p>Pick a color, name, time per round and click Start to get a Game Code.</p>
-        <div class = "number_ob">  <div class = "nu"> 2 </div>      <h5>Invite Your Friend: </h5>     </div>  <p>Share the code with them; they can enter it and click Join.  </p>       </div>
-
-        <div class="presented_1"> 
-
-
-
-            <div class="presented_2">  
-
-                <div class = "presented_3"> <h1>PRESENTED BY</h1>
-                                            <h2>U. Pla Rocher</h2>
-
-
-
+            <div class="join_recover">
+                <div class="firstone">
+                    JOIN AS <br />
+                    <p>PLAYER 1</p>
                 </div>
-                <div class = "linkedin_icon">
-                    <a href="https://www.linkedin.com/in/ulises-pla-rocher-942804236" target="_blank">
-                    <i class="fa-brands fa-linkedin"></i>
+                <div class="secondone">
+                    JOIN AS <br />
+                    <p>PLAYER 2</p>
+                </div>
+            </div>
+
+            <div class="waitingsecond">WAITING FOR 2nd PLAYER...</div>
+
+            <div class="x_close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                </svg>
+            </div>
+        </div>
+
+        <div class="form">
+            <div class="game_created"><h1>GAME CREATED</h1></div>
+            <div class="waiting_2nd"><h3>Waitin for 2nd player ...</h3></div>
+            <div class="ID_copy">
+                <div class="ID_symbol">ID</div>
+                <div class="ID_letters"><h5>F6H-ghfy-am83</h5></div>
+                <div class="copy_symbol">
+                    <i class="fa-solid fa-copy"></i>
+                    <div class="copied_alert">Copied!</div>
+                </div>
+            </div>
+
+            <div class="separator_2"></div>
+
+            <div class="exclamation">Invite</div>
+        </div>
+
+        <div class="resign_form_end">
+            <div class="game_created"><h1></h1></div>
+            <div class="waiting_2nd"><h3>The winner is</h3></div>
+            <div class="ID_copy">
+                <div class="ID_letters"><h5></h5></div>
+            </div>
+
+            <div class="separator_2"></div>
+
+            <div class="exclamation">new game</div>
+
+            <div class="x_close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                </svg>
+            </div>
+        </div>
+
+        <div class="end_form">
+            <div class="game_created"><h1>END OF GAME</h1></div>
+            <div class="waiting_2nd"><h3>The winner is</h3></div>
+            <div class="ID_copy">
+                <div class="ID_letters"><h5></h5></div>
+            </div>
+
+            <div class="separator_2"></div>
+
+            <div class="exclamation">new game</div>
+
+            <div class="x_close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                </svg>
+            </div>
+        </div>
+
+        <div class="time_form">
+            <div class="game_created"><h1>OUT OF TIME</h1></div>
+            <div class="waiting_2nd"><h3>The winner is</h3></div>
+            <div class="ID_copy">
+                <div class="ID_letters"><h5>BBBBBBB</h5></div>
+            </div>
+
+            <div class="separator_2"></div>
+
+            <div class="exclamation">new game</div>
+
+            <div class="x_close_1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-square">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                </svg>
+            </div>
+        </div>
+
+        <div class="screen_1" id="screen_1">
+            <div class="grid_container" id="grid_container">
+                <div class="menu_encapsu">
+                    <div class="menu_options">
+                        <div class="options">
+                            <div>OPTIONS</div>
+
+                            <div class="menu_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5">
+                                    <path
+                                        d="M280-600v-80h560v80H280Zm0 160v-80h560v80H280Zm0 160v-80h560v80H280ZM160-600q-17 0-28.5-11.5T120-640q0-17 11.5-28.5T160-680q17 0 28.5 11.5T200-640q0 17-11.5 28.5T160-600Zm0 160q-17 0-28.5-11.5T120-480q0-17 11.5-28.5T160-520q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440Zm0 160q-17 0-28.5-11.5T120-320q0-17 11.5-28.5T160-360q17 0 28.5 11.5T200-320q0 17-11.5 28.5T160-280Z"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu_panel">
+                        <div style="box-sizing: border-box; margin-top: 55px;"><p class="p1 save">Save and Resume Later</p></div>
+                        <div style="box-sizing: border-box; width: 159px; height: 3px; background: rgb(94, 59, 59); border-radius: 13px;"></div>
+
+                        <div><p class="p1 draw">Offer Draw</p></div>
+                        <div style="box-sizing: border-box; width: 159px; height: 3px; background: rgb(94, 59, 59); border-radius: 13px;"></div>
+
+                        <div><p class="p1 resign">Resign</p></div>
+                        <div style="box-sizing: border-box; width: 159px; height: 3px; background: rgba(146, 137, 137); border-radius: 13px;"></div>
+
+                        <div style="transform: translate(5%); color: rgba(121, 114, 114, 0.696);">Messages</div>
+
+                        <div class="message_box" style="overflow-y: auto; overflow-x: hidden; position: relative; width: 80%; height: 120px; background: rgba(121, 114, 114, 0.696); border-radius: 10%; scrollbar-width: thin;"></div>
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="30px"
+                            viewBox="0 -960 960 960"
+                            width="30px"
+                            fill="#F0ABFC"
+                            class="send_triangle"
+                            style="
+                                position: absolute;
+                                bottom: 10px;
+                                left: 10px;
+                                padding: 6px;
+                                background: rgba(103, 113, 87, 0.75);
+                                border-radius: 10%;
+                                padding-right: 4px;
+                                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.05);
+                                cursor: pointer;
+                            "
+                        >
+                            <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" />
+                        </svg>
+
+                        <textarea
+                            class="text_area"
+                            style="
+                                transform: translate(35%);
+                                width: 70%;
+                                min-height: 35px;
+                                max-height: 100px;
+                                border: none;
+                                background: rgba(245, 244, 244, 0.835);
+                                border-radius: 7px;
+                                padding: 5px 10px;
+                                font-size: 12px;
+                                line-height: 1.5;
+                                resize: vertical;
+                                overflow-y: auto;
+                                box-sizing: border-box;
+                            "
+                            placeholder="Message"
+                            oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="PawnPromotion">
+                    <div class="Queen">Queen</div>
+
+                    <div class="Knight">Knight</div>
+                </div>
+
+                <div class="user1">
+                    <i class="fa-solid fa-user"></i>
+                    <h5>User1</h5>
+                    <h6>CHECKED</h6>
+                </div>
+
+                <div class="user2">
+                    <i class="fa-solid fa-user"></i>
+                    <h5>User1</h5>
+                    <h6>CHECKED</h6>
+                </div>
+
+                <div class="timer">
+                    <div class="minutes">00</div>
+                    <div class="seconds">59</div>
+                </div>
+
+                <div class="timer_1">
+                    <div class="minutes">00</div>
+                    <div class="seconds">59</div>
+                </div>
+                <div class="timer_2">
+                    <div class="minutes">00</div>
+                    <div class="seconds">59</div>
+                </div>
+            </div>
+
+            <div class="left_column">
+                <h1>QUICK CHESS</h1>
+
+                <div class="container">
+                    <img src="pieces_drawings/red_pawn.png" alt="Description of image" class="red_pawn" />
+                </div>
+
+                <div class="github_icon">
+                    <a href="https://github.com/sesilu1234" target="_blank">
+                        <i class="fa-brands fa-github"></i>
                     </a>
-
-
                 </div>
-
-
             </div>
 
+            <div class="right_column">
+                <div class="recover_game"><h3>RECOVER GAME</h3></div>
 
-        </div>
+                <div class="theme">
+                    <i class="fa-solid fa-sun"></i>
+                    <i class="fa-solid fa-moon"></i>
+                </div>
+                <div class="info_box">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="52"
+                        height="52"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-help-circle info"
+                    >
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                </div>
 
-        
-        
-        
-        
-        <div class="input">
+                <div class="info_div">
+                    <div class="number_ob">
+                        <div class="nu">1</div>
+                        <h5>Create a Game:</h5>
+                    </div>
+                    <p>Pick a color, name, time per round and click Start to get a Game Code.</p>
+                    <div class="number_ob">
+                        <div class="nu">2</div>
+                        <h5>Invite Your Friend:</h5>
+                    </div>
+                    <p>Share the code with them; they can enter it and click Join.</p>
+                </div>
 
-            <div class = "input_1">
+                <div class="presented_1">
+                    <div class="presented_2">
+                        <div class="presented_3">
+                            <h1>PRESENTED BY</h1>
+                            <h2>U. Pla Rocher</h2>
+                        </div>
+                        <div class="linkedin_icon">
+                            <a href="https://www.linkedin.com/in/ulises-pla-rocher-942804236" target="_blank">
+                                <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-                <h1>CREATE GAME</h1>
+                <div class="input">
+                    <div class="input_1">
+                        <h1>CREATE GAME</h1>
 
-                <div class = "create_inputs">
+                        <div class="create_inputs">
+                            <div class="row_1">
+                                <input type="text" class="simple-input" placeholder="player1" />
 
-                    <div class = "row_1" >
+                                <div class="dropdown_1">
+                                    <div class="drop_1">
+                                        <div class="drop_11">white<img src="pieces_drawings/alfil_1.png" alt="Chess piece pawn" width="24" height="24" class="refpiece1" /></div>
+                                        <i class="fa-solid fa-check d11"></i>
+                                    </div>
 
-                        
-                            
-                            
-                            
-                            <input type="text" class="simple-input" placeholder="player1">
+                                    <div class="drop_2">
+                                        <div class="drop_21">black<img src="pieces_drawings/alfil_2.png" alt="Chess piece pawn" width="20" height="20" class="refpiece2" /></div>
+                                        <i class="fa-solid fa-check d12"></i>
+                                    </div>
 
+                                    <div class="drop_3">
+                                        <div class="drop_31">green<img src="pieces_drawings/alfil_3.png" alt="Chess piece pawn" width="20" height="20" class="refpiece3" /></div>
+                                        <i class="fa-solid fa-check d13"></i>
+                                    </div>
+                                </div>
 
-                        
-                        
-                            <div class = "dropdown_1">
+                                <div class="dropdown_2">
+                                    <div class="drop_1">
+                                        <div class="drop_11">white<img src="pieces_drawings/alfil_1.png" alt="Chess piece pawn" width="24" height="24" class="refpiece1" /></div>
+                                        <i class="fa-solid fa-check d21"></i>
+                                    </div>
 
-                            <div class = "drop_1"> <div class = "drop_11">white<img src="pieces_drawings/alfil_1.png" alt="Chess piece pawn" width="24" height="24" class = "refpiece1"> </div> <i class="fa-solid fa-check d11"></i></div>    
+                                    <div class="drop_2">
+                                        <div class="drop_21">black<img src="pieces_drawings/alfil_2.png" alt="Chess piece pawn" width="20" height="20" class="refpiece2" /></div>
+                                        <i class="fa-solid fa-check d22"></i>
+                                    </div>
 
-                            <div class = "drop_2"> <div class = "drop_21">black<img src="pieces_drawings/alfil_2.png" alt="Chess piece pawn" width="20" height="20" class = "refpiece2"> </div> <i class="fa-solid fa-check d12"></i></div>    
+                                    <div class="drop_3">
+                                        <div class="drop_31">green<img src="pieces_drawings/alfil_3.png" alt="Chess piece pawn" width="20" height="20" class="refpiece3" /></div>
+                                        <i class="fa-solid fa-check d23"></i>
+                                    </div>
+                                </div>
 
-                            <div class = "drop_3"> <div class = "drop_31">green<img src="pieces_drawings/alfil_3.png" alt="Chess piece pawn" width="20" height="20" class = "refpiece3"> </div> <i class="fa-solid fa-check d13"></i> </div>    
-
-
-
+                                <input type="text" class="simple-input2" value="white" readonly />
+                                <i id="drop_icon" class="fa-solid fa-caret-down"></i>
                             </div>
 
+                            <div class="row_2">
+                                <input type="text" class="simple-input" placeholder="player2" />
 
-                            <div class = "dropdown_2">
-
-                                <div class = "drop_1"> <div class = "drop_11">white<img src="pieces_drawings/alfil_1.png" alt="Chess piece pawn" width="24" height="24" class = "refpiece1"> </div> <i class="fa-solid fa-check d21"></i></div>    
-    
-                                <div class = "drop_2"> <div class = "drop_21">black<img src="pieces_drawings/alfil_2.png" alt="Chess piece pawn" width="20" height="20" class = "refpiece2"> </div> <i class="fa-solid fa-check d22"></i></div>    
-    
-                                <div class = "drop_3"> <div class = "drop_31">green<img src="pieces_drawings/alfil_3.png" alt="Chess piece pawn" width="20" height="20" class = "refpiece3"> </div> <i class="fa-solid fa-check d23"></i> </div>    
-    
-    
-    
+                                <input type="text" class="simple-input2" value="black" readonly />
+                                <i id="drop_icon" class="fa-solid fa-caret-down"></i>
+                            </div>
+                            <div class="row_3">
+                                <div class="clock">
+                                    <input type="text" class="simple-input_timer hour" value="00" readonly />
+                                    <input type="text" class="simple-input_timer minute" value="59" readonly />
                                 </div>
 
+                                <div class="clock_modality">
+                                    <div class="time_per_round">
+                                        <h3>per Round</h3>
 
-                            <input type="text" class="simple-input2" value="white" readonly>
-                            <i id = "drop_icon" class="fa-solid fa-caret-down"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px" fill="#B7B7B7" class="timer_check1">
+                                            <path
+                                                d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                                            />
+                                        </svg>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5" class="timer_check21">
+                                            <path
+                                                d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                                            />
+                                        </svg>
+                                    </div>
+
+                                    <div class="timer_total">
+                                        <h3>per Player</h3>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px" fill="#B7B7B7" class="timer_check2">
+                                            <path
+                                                d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                                            />
+                                        </svg>
+
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5" class="timer_check22">
+                                            <path
+                                                d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                                            />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="create_button">
+                                <button class="create-button">Create</button>
+                            </div>
                         </div>
-                        
-
-                    <div class = "row_2" >
-
-
-                        <input type="text" class="simple-input" placeholder="player2">
-
-
-                        
-                        
-                       
-
-
-                            <input type="text" class="simple-input2" value="black" readonly>
-                            <i id = "drop_icon" class="fa-solid fa-caret-down"></i>
-
                     </div>
-                    <div class = "row_3" >
 
-                        
-                        
-                        <div class = "clock">
+                    <div class="separator"></div>
 
-                            <input type="text" class="simple-input_timer hour" value="00" readonly>
-                        <input type="text" class="simple-input_timer minute" value="59" readonly>
+                    <div class="input_2">
+                        <h1>JOIN GAME</h1>
 
+                        <div class="create_inputs">
+                            <div class="row_1">
+                                <img src="pieces_drawings/yellow_pawn1.png" alt="Description of image" class="yellow_pawn" />
+                            </div>
 
+                            <div class="row_2">
+                                <input type="text" class="simple-input-join" placeholder="Shared ID" />
+                            </div>
+
+                            <div class="create_button">
+                                <button class="join-button">Join</button>
+                            </div>
                         </div>
-                        
-                        
-
-                        <div class = "clock_modality">
-
-                                <div class = "time_per_round"> <h3>per Round</h3> 
-                                    
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px" fill="#B7B7B7" class = "timer_check1">
-                                        <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
-                                
-
-                                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5" class = "timer_check21">
-                                            <path d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
-
-                                        
-                                </div>
-
-                                <div class = "timer_total"> <h3>per Player</h3> 
-                                
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px" fill="#B7B7B7" class = "timer_check2">
-                                        <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
-                                      </svg>
-
-                                      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#789DE5" class = "timer_check22">
-                                        <path d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg>
-
-                                  
-                                      
-                                
-                                </div>
-
-
-                        </div>
-
-
-                        
-                       
-
-
-                            
-                    
-
-
-                </div>
-
-                <div class = "create_button">
-
-                    <button class="create-button">Create</button>
-
-
-
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-        <div class = "separator"></div>
-
-            <div class = "input_2">
-
-                <h1>JOIN GAME</h1>
-
-
-
-                <div class = "create_inputs">
-
-                    <div class = "row_1" >
-
-                        
-                            
-                            
-                            
-                       
-                            <img src="pieces_drawings/yellow_pawn1.png" alt="Description of image" class="yellow_pawn">
-                        
-
-
-                        
-                        
-                       
-
-
-                           
-
-                        </div>
-                        
-
-                    <div class = "row_2" >
-
-
-                        <input type="text" class="simple-input-join" placeholder="Shared ID">
-
                     </div>
-                    
-
-                <div class = "create_button">
-
-                    <button class="join-button">Join</button>
-
-
-
-
                 </div>
 
-
+                <div class="how_to"></div>
             </div>
-
-
-
-
-
-
-
-            </div>
-
-
-
-
         </div>
+    </body>
 
-
-        <div class="how_to"> </div>
-
-    </div>
-
-
-
-
-
-
-</div>
-
-
-
-    
-</body>
-
-
-<script src="chess_vani_WS.js"></script>
+    <script src="chess_vani_WS.js"></script>
 </html>
