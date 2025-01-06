@@ -290,10 +290,25 @@ document.querySelector('.GO').addEventListener('click', function() {
 
     
 
-    const id_to_recover = document.querySelectorAll('.GO h3').textContent;
+    const id_to_recover = document.querySelector('.simple-input_3').value
+
+    console.log(id_to_recover);
 
     
+    const game_recover = {
+        type: 'recover_game',
+        payload : {
+            type: "rg1",
+            id: id_to_recover
+        
+        
+        } 
+        
+    };
 
+   
+
+    socket.send(JSON.stringify(game_recover));
 
 
 
@@ -517,8 +532,17 @@ copySymbol.addEventListener('mouseleave', function() {
     else if (message.type === "rg1") {
 
 
-        document.querySelector('.firstone p').innerText= message.payload.player1;
-        document.querySelector('.secondone p').innerText = message.payload.player2;
+        document.querySelector('.join_recover_1 .firstone p').innerText = payload.player1;
+        document.querySelector('.join_recover_1 .secondone p').innerText = payload.player2;
+
+
+        console.log(payload);
+
+        const name_match = document.querySelector('.join_recover_1');
+
+        name_match.style.display = "flex";
+
+
 
 
 

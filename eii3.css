@@ -905,13 +905,25 @@ body {
   margin-top: 5%;
 }
 
-.join_recover {
+.join_recover{
   margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
   gap: 50px;
+  
+}
+
+.join_recover_1 {
+  margin-top: 20px;
+ 
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 50px;
+  display: none;
+  
 }
 
 .waitingsecond {
@@ -938,6 +950,8 @@ body {
   font-style: normal;
 
   border-radius: 10%;
+
+  cursor: pointer;
 }
 
 .time_form {
