@@ -492,6 +492,7 @@ copySymbol.addEventListener('mousedown', function() {
 
 
 
+
 copySymbol.addEventListener('mouseup', function() {
     // Revert background color when the mouse leaves
     copySymbol.style.backgroundColor = ''; // Reset to original color
@@ -549,6 +550,10 @@ copySymbol.addEventListener('mouseleave', function() {
     }
 
 };
+
+
+
+
 
 
 
@@ -798,7 +803,62 @@ let id = undefined;
 
 
 
+    document.querySelector('.join_recover_1 .firstone').addEventListener('click', function() {
 
+
+     
+    
+    
+        const recover_game_2 = {
+            type: 'recover_game',
+            payload : {
+                
+                type: "rg2",
+                id: document.querySelector('.simple-input_3').value,
+                ws_client_name: document.querySelector('.join_recover_1 .firstone p').innerText
+                
+            
+            
+            } 
+            
+        };
+    
+       
+    
+        socket.send(JSON.stringify(recover_game_2));
+        
+        document.querySelector('.waitingsecond_1').style.display = "block";
+    
+        
+    
+    });
+    
+    document.querySelector('.join_recover_1 .secondone').addEventListener('click', function() {
+    
+    
+       
+        
+        const recover_game_2 = {
+            type: 'recover_game',
+            payload : {
+                
+                type: "rg2",
+                id: document.querySelector('.simple-input_3').value,
+                ws_client_name: document.querySelector('.join_recover_1 .secondone p').innerText
+                
+            
+            
+            } 
+            
+        };
+        
+       
+    
+        socket.send(JSON.stringify(recover_game_2));
+    
+        document.querySelector('.waitingsecond_1').style.display = "block";
+    
+    });
 
 
 
