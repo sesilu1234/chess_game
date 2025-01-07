@@ -1874,13 +1874,37 @@ list_of_options[2].addEventListener('click', function() {
 
 
 
+        else if (message.type === 'rg_ping') {
+
+
+            if (recover_host) {
+
+                socket.send(JSON.stringify({    type:"rg_pong", payload: {id:id, recover_host:true, ws_opponent: payload. ws_opponent}      }));
+
+            }
+
+
+
+            else {
+
+
+                socket.send(JSON.stringify({    type:"rg_pong", payload: {id:id, recover_host:false, ws_opponent: payload. ws_opponent}      }));
+
+
+            }
+
+        }
+
+        else if (message.type === 'recovering_game') {
 
 
 
 
+            console.log("yep,recovering game");
 
 
 
+        }
 
 
     };
