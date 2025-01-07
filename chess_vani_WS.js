@@ -561,7 +561,7 @@ copySymbol.addEventListener('mouseleave', function() {
     else if (message.type === 'rg_ping') {
 
 
-        console.log("LLLL0088");
+       
 
 
         if (recover_host) {
