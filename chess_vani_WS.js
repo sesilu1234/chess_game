@@ -555,6 +555,46 @@ copySymbol.addEventListener('mouseleave', function() {
 
     }
 
+
+
+    
+    else if (message.type === 'rg_ping') {
+
+
+        console.log("LLLL0088");
+
+
+        if (recover_host) {
+
+            socket.send(JSON.stringify({    type:"recover_game", payload: {id: payload.id, recover_host: true, ws_opponent: payload.ws_opponent, type:"rg_pong"}      }));
+
+        }
+
+
+
+        else {
+
+
+            socket.send(JSON.stringify({    type:"recover_game", payload: {id: payload.id, recover_host:false, ws_opponent: payload.ws_opponent, type:"rg_pong"}      }));
+
+
+        }
+
+    }
+
+    else if (message.type === 'recovering_game') {
+
+
+
+
+        console.log("yep,recovering game");
+
+
+
+    }
+
+
+
 };
 
 
@@ -1346,6 +1386,8 @@ list_of_options[2].addEventListener('click', function() {
         console.log(message);
 
         console.log(payload);
+
+        
     
        if (message.type === 'move') {
     
@@ -1446,7 +1488,7 @@ list_of_options[2].addEventListener('click', function() {
         }
 
 
-        if (message.type === 'time_left') {
+       else if (message.type === 'time_left') {
 
         
             console.log(payload);
@@ -1458,7 +1500,7 @@ list_of_options[2].addEventListener('click', function() {
         }
 
 
-        if (message.type === 'end_game') {
+        else if (message.type === 'end_game') {
 
             
 
@@ -1474,7 +1516,7 @@ list_of_options[2].addEventListener('click', function() {
 
 
 
-        if (message.type === 'talk') {
+        else if (message.type === 'talk') {
 
 
 
@@ -1551,7 +1593,7 @@ list_of_options[2].addEventListener('click', function() {
 
 
 
-        if (message.type === 'resign') {
+        else if (message.type === 'resign') {
 
             
             
@@ -1583,7 +1625,7 @@ list_of_options[2].addEventListener('click', function() {
 
 
 
-        if (message.type === 'draw') {
+        else if (message.type === 'draw') {
 
             
            
@@ -1699,7 +1741,7 @@ list_of_options[2].addEventListener('click', function() {
 
 
 
-        if (message.type === 'save_and_resume') {
+        else if (message.type === 'save_and_resume') {
 
             
            
@@ -1872,39 +1914,9 @@ list_of_options[2].addEventListener('click', function() {
 
         }
 
+        
 
-
-        else if (message.type === 'rg_ping') {
-
-
-            if (recover_host) {
-
-                socket.send(JSON.stringify({    type:"rg_pong", payload: {id:id, recover_host:true, ws_opponent: payload. ws_opponent}      }));
-
-            }
-
-
-
-            else {
-
-
-                socket.send(JSON.stringify({    type:"rg_pong", payload: {id:id, recover_host:false, ws_opponent: payload. ws_opponent}      }));
-
-
-            }
-
-        }
-
-        else if (message.type === 'recovering_game') {
-
-
-
-
-            console.log("yep,recovering game");
-
-
-
-        }
+        
 
 
     };
