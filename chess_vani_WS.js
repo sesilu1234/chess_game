@@ -537,7 +537,13 @@ copySymbol.addEventListener('mouseleave', function() {
         document.querySelector('.join_recover_1 .secondone p').innerText = payload.player2;
 
 
-        console.log(payload);
+        const separator_4 = document.querySelector('.separator_4');
+
+        separator_4.style.display = "block";
+
+        const recover_form = document.querySelector('.recover_form');
+
+        recover_form.style.height = "300px";
 
         const name_match = document.querySelector('.join_recover_1');
 
@@ -800,7 +806,7 @@ let id = undefined;
         
 
 
-
+    let recover_host = false;
 
 
     document.querySelector('.join_recover_1 .firstone').addEventListener('click', function() {
@@ -829,7 +835,7 @@ let id = undefined;
         
         document.querySelector('.waitingsecond_1').style.display = "block";
     
-        
+        recover_host = true;
     
     });
     
@@ -857,13 +863,28 @@ let id = undefined;
         socket.send(JSON.stringify(recover_game_2));
     
         document.querySelector('.waitingsecond_1').style.display = "block";
+
+        recover_host = true;
+
     
     });
 
 
 
 
+    document.querySelector('.x_close_6').addEventListener('click', function() {
 
+
+        document.querySelector('.recover_form').style.display = 'none';
+
+
+        recover_host = false;
+
+
+
+        
+
+    });
 
 
 

@@ -756,7 +756,7 @@ body {
 .recover_form {
   position: absolute;
   width: 400px;
-  height: 300px;
+  height: 200px;
   background-color: #ece6f0;
   opacity: 0.95;
   border-radius: 10%;
@@ -837,6 +837,17 @@ body {
   position: relative;
 
   left: 20%;
+}
+
+.separator_4 {
+  height: 0.1em; /* Adjust the height as needed */
+  background-color: #000000af; /* Change color as desired */
+  width: 60%;
+  position: relative;
+
+  left: 20%;
+
+  display: none;
 }
 
 .go_code {
@@ -1176,7 +1187,7 @@ body {
 
 .x_close_1,
 .x_close_2,
-.x_close_4 {
+.x_close_4, .x_close_6 {
   position: absolute;
   top: 1%;
   right: 3%;
