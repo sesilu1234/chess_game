@@ -585,7 +585,7 @@ copySymbol.addEventListener('mouseleave', function() {
     else if (message.type === 'recovering_game') {
 
 
-        console.log(payload.id);
+        console.log(payload);
 
         console.log("yep,recovering game");
 
