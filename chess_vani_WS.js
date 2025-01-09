@@ -607,7 +607,7 @@ copySymbol.addEventListener('mouseleave', function() {
         const ronda = player_data.turn === true ? 1 : 2;
 
 
-        chess_game(player_data.id, player_data.player1.name, player_data.player1.color, player_data.player2.color, ronda, player_data.player1.time, player_data.time_modality, true) 
+        chess_game(player_data.id, player_data.player1.name, player_data.player1.color, player_data.player2.color, ronda, player_data.player1.time, player_data.time_modality, true, playerdata = player_data) 
 
 
 
@@ -1066,7 +1066,7 @@ let id = undefined;
 
 
 
-    function chess_game(id, player,color1, color2, ronda, countime, time_modality, recover = false) {
+    function chess_game(id, player,color1, color2, ronda, countime, time_modality, recover = false, playerdata = undefined) {
 
 
         console.log(time_modality, "eiei");
@@ -2871,8 +2871,10 @@ list_of_options[2].addEventListener('click', function() {
     if (recover) {
 
 
-    whitePieces = generate_recoverPieces(player_data.player1.pieces, player_data.player1.color);
-    blackPieces = generate_recoverPieces(player_data.player2.pieces, player_data.player2.color);
+    whitePieces = generate_recoverPieces(playerdata.player1.pieces, playerdata.player1.color);
+    blackPieces = generate_recoverPieces(playerdata.player2.pieces, playerdata.player2.color);
+
+    
 
     }
 
