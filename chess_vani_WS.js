@@ -591,6 +591,26 @@ copySymbol.addEventListener('mouseleave', function() {
 
 
 
+
+        document.querySelector('.recover_form').style.display = "none";
+
+        const player_data = payload.player_data;
+
+        p1 = player_data.player1.name;
+        p2 = player_data.player2.name;
+
+        
+
+        document.querySelector('.user1 h5').textContent = p1;
+        document.querySelector('.user2 h5').textContent = p2;
+
+        const ronda = player_data.turn === true ? 1 : 2;
+
+
+        chess_game(player_data.id, player_data.player1.name, player_data.player1.color, player_data.player2.color, ronda, player_data.player1.time, player_data.time_modality, true) 
+
+
+
     }
 
 
@@ -1046,7 +1066,7 @@ let id = undefined;
 
 
 
-    function chess_game(id, player,color1, color2, ronda, countime, time_modality) {
+    function chess_game(id, player,color1, color2, ronda, countime, time_modality, recover = false) {
 
 
         console.log(time_modality, "eiei");
@@ -2710,7 +2730,7 @@ list_of_options[2].addEventListener('click', function() {
     
         for (let j of [2, 7]) {
             const knight = new Knight(color1, i * 10 + j);
-            whitePieces.push(knight);
+            whitePieces.push(knight);   
         }
     
         for (let j of [3, 6]) {
@@ -2770,6 +2790,57 @@ list_of_options[2].addEventListener('click', function() {
     
         return blackPieces;
     }
+
+
+
+
+
+
+    function generate_recoverPieces(pieces, color) {
+        const piecesList = []; // Array to store the generated pieces
+    
+        // Loop through each type of piece
+        Object.keys(pieces).forEach(key => {
+            pieces[key].forEach(position => { // Loop through positions for the current piece type
+                if (key === "bishops") { 
+                    piecesList.push(new Bishop(color, position)); 
+                } else if (key === "king") { 
+                    piecesList.push(new King(color, position)); 
+                } else if (key === "knights") { 
+                    piecesList.push(new Knight(color, position)); 
+                } else if (key === "pawns") { 
+                    piecesList.push(new Pawn(color, position)); 
+                } else if (key === "queens") { 
+                    piecesList.push(new Queen(color, position)); 
+                } else if (key === "rooks") { 
+                    piecesList.push(new Rook(color, position)); 
+                }
+            });
+        });
+    
+        return piecesList; // Return the list of generated pieces
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     // Paint pieces
     function paintPieces(pieces) {
@@ -2791,9 +2862,29 @@ list_of_options[2].addEventListener('click', function() {
         }
     }
     
-    // Generate and paint pieces
-    let whitePieces = generateWhitePieces();
-    let blackPieces = generateBlackPieces();
+    
+
+    let whitePieces;
+    let blackPieces;
+
+
+    if (recover) {
+
+
+    whitePieces = generate_recoverPieces(player_data.player1.pieces, player_data.player1.color);
+    blackPieces = generate_recoverPieces(player_data.player2.pieces, player_data.player2.color);
+
+    }
+
+    else {
+
+    whitePieces = generateWhitePieces();
+    blackPieces = generateBlackPieces();
+
+
+    }
+    
+    
     
     paintPieces(whitePieces.concat(blackPieces));
     
