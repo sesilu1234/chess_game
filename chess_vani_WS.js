@@ -796,7 +796,10 @@ let id = undefined;
     let opendrop = false;
 
 
-    dropdowns1.addEventListener('click', function() {
+    
+        
+        
+        const colourChange1 = function() {
 
         if (dropgen1_1 === false) {return;}
 
@@ -836,10 +839,14 @@ let id = undefined;
 
     opendrop = true;
 
-    });
+    };
     
-   
 
+    const arrow1_colours = document.querySelector('.drop_icon1');
+
+    arrow1_colours.addEventListener('click', colourChange1);
+   
+    dropdowns1.addEventListener('click', colourChange1);
 
     document.addEventListener('click', function(event) {
 
@@ -992,7 +999,10 @@ let id = undefined;
     let opendrop_2 = false;
 
 
-    dropdowns2.addEventListener('click', function() {
+    
+        
+        
+        const colourChange2 = function() {
 
         if (dropgen1_2 === false) {return;}
 
@@ -1032,7 +1042,13 @@ let id = undefined;
 
     opendrop_2 = true;
 
-    });
+    };
+
+
+    const arrow2_colours = document.querySelector('.drop_icon2');
+
+    arrow2_colours.addEventListener('click', colourChange2);
+    dropdowns2.addEventListener('click', colourChange2);
     
    
 
@@ -1383,7 +1399,7 @@ let id = undefined;
     
         max-width:60%;
     
-        background-color:rgba(99, 171, 114, 0.61);
+        background-color:rgba(99, 169, 171, 0.61);
     
         word-wrap: break-word; 
     
@@ -1395,7 +1411,7 @@ let id = undefined;
     
         padding-right:5%;
     
-        border-radius: 10px;
+        border-radius: 5px;
         
          `;
     
@@ -1781,7 +1797,7 @@ list_of_options[2].addEventListener('click', function() {
 
     padding-right:5%;
 
-    border-radius: 10px;
+    border-radius: 5px;
 
     left:5%;
     

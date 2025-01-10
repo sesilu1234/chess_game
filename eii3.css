@@ -547,7 +547,7 @@ body {
   padding: 5px 8px; /* Optional: Add some padding */
   font-size: 0.8em; /* Optional: Set the font size */
   border: 1px solid #ccc; /* Optional: Customize the border */
-  border-radius: 1px;
+  border-radius: 3px;
 
   margin: 7px; /* Optional: Rounded corners */
 }
@@ -563,7 +563,7 @@ body {
   /* Prevent text selection */
 }
 
-#drop_icon {
+.drop_icon1, .drop_icon2 {
   position: absolute;
   right: 20px;
   top: 30%;
@@ -606,7 +606,7 @@ body {
 }
 
 .create-button {
-  margin-top: 5%;
+  margin-top: 25%;
   background-color: #d3d3d3; /* Bright yellow */
   color: black; /* White text */
   border: none; /* No border */
@@ -618,10 +618,17 @@ body {
 
   font-family: "Lato"; /* Fallback to sans-serif if Lato is unavailable */
   font-weight: 400; /* Regular weight */
+  
+}
+
+.create-button:active {
+ 
+  
+  transform: translateY(2px); /* Button moves down to simulate pressing */
 }
 
 .join-button {
-  margin-top: 5%;
+  margin-top: 20%;
   background-color: #d3d3d3; /* Bright yellow */
   color: black; /* White text */
   border: none; /* No border */
@@ -637,6 +644,12 @@ body {
 
 .join-button:hover {
   background-color: #ffc300; /* Darker yellow on hover */
+}
+
+.join-button:active {
+ 
+  
+  transform: translateY(2px); /* Button moves down to simulate pressing */
 }
 
 .separator {
@@ -1357,6 +1370,26 @@ body {
 .info {
   color: var(--info_color);
   cursor: pointer;
+}
+
+
+.send_triangle {
+  
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        padding: 6px;
+        background: rgba(103, 113, 87, 0.75);
+        border-radius: 10%;
+        padding-right: 4px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+    
+        transition: background-color 0.1s ease;
+}
+
+.send_triangle:hover {
+  background: rgba(68, 76, 55, 0.9); /* Darker shade */
 }
 
 /* Initial hidden state for .info_div */
