@@ -1102,8 +1102,8 @@ let id = undefined;
         
         
         
+    let turn = ronda;
 
-        let turn = ronda;
     let turno; // Declare turno here
 
     if (ronda === 1) {
@@ -1115,12 +1115,199 @@ let id = undefined;
         document.querySelector('.user1').classList.add('active-turn');
     }
 
- 
-    if (turno === true) {timer_update(countime, 1);
+
+    if (recover)    {
+
+
+                if (time_modality == "perPlayer") {
+
+
+
+
+                    if (turno === true) {
+                        
+
+                        timer_update(playerdata.player1.time, 1);
+
+
+                        minutes_timer = document.querySelector('.timer_1 .minutes'); 
+                        seconds_timer = document.querySelector('.timer_1 .seconds'); 
+
+
+                const timeLeft = Math.floor((playerdata.player2.time) / 1000) ;
+        
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60; 
+                
+                let st_minutes = '';
+                let st_seconds = '';
+        
+                if (minutes < 10) {
+                    st_minutes = '0' + String(minutes);
+                } else {
+                    st_minutes = String(minutes);
+                }
+        
+                if (seconds < 10) {
+                    st_seconds = '0' + String(seconds);
+                } else {
+                    st_seconds = String(seconds);
+                }
+        
+                minutes_timer.innerHTML = st_minutes;
+                seconds_timer.innerHTML = st_seconds;
+
+
+
+                    }
+
+                    else {
+                        
+                        timer_update(playerdata.player2.time, 0);
+
+                        minutes_timer = document.querySelector('.timer_2 .minutes'); 
+                        seconds_timer = document.querySelector('.timer_2 .seconds'); 
+
+
+                const timeLeft = Math.floor((playerdata.player1.time) / 1000) ;
+        
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60; 
+                
+                let st_minutes = '';
+                let st_seconds = '';
+        
+                if (minutes < 10) {
+                    st_minutes = '0' + String(minutes);
+                } else {
+                    st_minutes = String(minutes);
+                }
+        
+                if (seconds < 10) {
+                    st_seconds = '0' + String(seconds);
+                } else {
+                    st_seconds = String(seconds);
+                }
+        
+                minutes_timer.innerHTML = st_minutes;
+                seconds_timer.innerHTML = st_seconds;
+
+
+                    }
+
+
+
+                }
+
+
+                else {
+
+
+                    if (turno === true) {timer_update(playerdata.player1.time, 1);}
+
+                    else {timer_update(playerdata.player2.time, 1);}
+
+
+
+
+
+
+
+                }
+
+
+
+
     }
 
-    else {timer_update(countime, 0);
+
+
+
+    else {
+ 
+    if (turno === true) {
+
+
+        
+        timer_update(countime, 1);
+
+
+
+        if (time_modality == "perPlayer"){
+
+        minutes_timer = document.querySelector('.timer_1 .minutes'); 
+        seconds_timer = document.querySelector('.timer_1 .seconds'); 
+
+
+                const timeLeft = Math.floor((countime) / 1000) ;
+        
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60; 
+                
+                let st_minutes = '';
+                let st_seconds = '';
+        
+                if (minutes < 10) {
+                    st_minutes = '0' + String(minutes);
+                } else {
+                    st_minutes = String(minutes);
+                }
+        
+                if (seconds < 10) {
+                    st_seconds = '0' + String(seconds);
+                } else {
+                    st_seconds = String(seconds);
+                }
+        
+                minutes_timer.innerHTML = st_minutes;
+                seconds_timer.innerHTML = st_seconds; }
+
+
+
+
+
+
+
+
     }
+
+    else {
+        
+        
+        timer_update(countime, 0)
+
+        if (time_modality == "perPlayer"){
+
+            minutes_timer = document.querySelector('.timer_2 .minutes'); 
+            seconds_timer = document.querySelector('.timer_2 .seconds'); 
+    
+    
+                    const timeLeft = Math.floor((countime) / 1000) ;
+            
+                    const minutes = Math.floor(timeLeft / 60);
+                    const seconds = timeLeft % 60; 
+                    
+                    let st_minutes = '';
+                    let st_seconds = '';
+            
+                    if (minutes < 10) {
+                        st_minutes = '0' + String(minutes);
+                    } else {
+                        st_minutes = String(minutes);
+                    }
+            
+                    if (seconds < 10) {
+                        st_seconds = '0' + String(seconds);
+                    } else {
+                        st_seconds = String(seconds);
+                    }
+            
+                    minutes_timer.innerHTML = st_minutes;
+                    seconds_timer.innerHTML = st_seconds; }
+
+
+    } 
+}
 
 
 
@@ -2029,7 +2216,7 @@ list_of_options[2].addEventListener('click', function() {
         
             window.timerId = setInterval(() => {
                 const elapsed = Date.now() - startTime;
-                const timeLeft = Math.floor((countdownDuration - elapsed) / 1000);
+                const timeLeft = Math.floor((countdownDuration - elapsed) / 1000) + 1;
         
                 const minutes = Math.floor(timeLeft / 60);
                 const seconds = timeLeft % 60; 

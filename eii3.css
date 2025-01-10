@@ -230,9 +230,30 @@ body {
   font-family: "Dangrek";
   font-style: normal;
   font-weight: 400;
-  font-size: 5em;
-  line-height: 100px;
-  color: var(--left_column-color);
+  font-size: 50px;
+  
+  transform: translate(-2%, 10%);
+  animation: colorChange 2s infinite alternate;
+}
+
+
+
+@keyframes colorChange {
+  0% {
+    color: var(--left_column-color); /* Original color */
+  }
+  100% {
+    color: black;
+  }
+}
+
+.left_column h4 {
+  font-family: "Dangrek";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.5em;
+  line-height: 0px;
+  color: #0e0804;
   transform: translate(-2%, 10%);
 }
 
@@ -247,7 +268,7 @@ body {
   left: 1.5%; /* Makes the container fit the size of the icon */
   font-size: 1.5em; /* Sets the size of the icon */
   margin: 0; /* Remove margin if it exists */
-  padding: 5px 7px; /* Add padding for a nicer click area */
+  padding: 5px 7px 1px; /* Add padding for a nicer click area */
   border-radius: 15px; /* Optional: round corners */
   transition: background-color 0.4s ease, opacity 0.4s ease; /* Smooth transition for background and transform */
   cursor: pointer;
@@ -283,10 +304,10 @@ body {
   justify-content: center;
   align-items: center; /* Center icons vertically */
   font-size: 1.3em;
-  right: 1.4%;
-  top: 15%;
+  right: 3%;
+  top: 3%;
   background-color: var(--theme_back-color);
-  border-radius: 15%;
+  border-radius: 15px;
   padding: 1% 0%; /* Add padding to create spacing */
   cursor: pointer;
 }
@@ -311,6 +332,10 @@ body {
 .presented_1 {
   display: flex;
   justify-content: flex-end;
+  position : absolute;
+  bottom:0px;
+  right:0px;
+  
 }
 
 .presented_2 {
@@ -319,6 +344,7 @@ body {
 
 .presented_3 {
   padding: 10px 5px 10px 10px;
+  display:none;
 }
 
 .presented_3 h1 {
@@ -351,6 +377,9 @@ body {
 
   font-size: 1.3em; /* Sets the size of the icon */
   margin: 5px 10px 5px 3px; /* Remove margin if it exists */
+  
+
+
 
   border-radius: 15px; /* Optional: round corners */
   transition: background-color 0.4s ease, opacity 0.4s ease; /* Smooth transition for background and transform */
@@ -358,13 +387,14 @@ body {
 .fa-linkedin {
   cursor: pointer;
   color: rgb(32, 160, 168, 0.7);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .fa-brands.fa-linkedin.fa-linkedin:hover {
   color: rgba(69, 88, 132, 0.7); /* Change to a deeper blue on hover */
   opacity: 1; /* Full opacity on hover */
   transform: scale(1.1); /* Slightly scale the icon up */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a glowing effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Add a glowing effect */
 }
 
 .left_column,
@@ -394,7 +424,7 @@ body {
 }
 
 .input {
-  margin-top: 15%;
+  margin-top: 21%;
 
   display: flex;
 
@@ -1301,8 +1331,8 @@ body {
 
 .info_box {
   position: absolute;
-  right: 14%;
-  top: 12.5%;
+  right: 12%;
+  top: 14%;
 
   /* Use flexbox to center the SVG inside the box */
   display: flex;
@@ -1420,6 +1450,7 @@ body {
       bottom: 0px;
 
       padding: 1%;
+      
   }
   .left_column {
       border: 1px dashed #ac8740;
