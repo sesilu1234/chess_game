@@ -3004,6 +3004,14 @@ list_of_options[2].addEventListener('click', function() {
                 }
             });
         });
+
+
+        if (playerdata.player1.castling === false){
+
+            whitePieces.filter(piece => piece instanceof King)[0].castling = false;
+
+
+        }
     
         return piecesList; // Return the list of generated pieces
     }
