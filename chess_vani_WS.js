@@ -1626,7 +1626,10 @@ list_of_options[2].addEventListener('click', function() {
                 
                 container.removeEventListener('mousedown', EventHear);
                 document.querySelector('.end_form .ID_letters h5').innerText = p1;
-                document.querySelector('.end_form').style.display = 'block'; return;
+                document.querySelector('.end_form').style.display = 'block'; 
+                
+                turno = false;
+                    clearInterval(timerId);
             
             }
             
@@ -1731,8 +1734,10 @@ list_of_options[2].addEventListener('click', function() {
             container.removeEventListener('mousedown', EventHear);
             document.querySelector('.time_form .ID_letters h5').innerText = payload.winner;
             document.querySelector('.time_form').style.display = 'block'; 
+            document.querySelector('.menu_panel .p1').style.display = 'none';
 
-            
+            turno = false;
+                    clearInterval(timerId);
         
         
         }
@@ -1827,13 +1832,15 @@ list_of_options[2].addEventListener('click', function() {
 
 
             resign_form_1.style.display = 'block';
+            document.querySelector('.menu_panel .p1').style.display = 'none';
 
 
             resign_form_1.querySelector('.ID_letters h5').innerText = payload.winner;
-                return;
+                
 
 
-
+                turno = false;
+                clearInterval(timerId);
 
 
 
@@ -1860,6 +1867,7 @@ list_of_options[2].addEventListener('click', function() {
 
 
                 draw_accept_form.style.display = 'block';
+                
 
 
                 const firstone_4 = document.querySelector('.firstone_4');
@@ -1909,6 +1917,7 @@ list_of_options[2].addEventListener('click', function() {
 
 
                     draw_end_form.style.display = 'block';
+                    document.querySelector('.menu_panel .p1').style.display = 'none';
 
 
                     const close_draw_end_form = document.querySelector('.x_close_4');
@@ -1922,7 +1931,8 @@ list_of_options[2].addEventListener('click', function() {
                     });
 
 
-
+                    turno = false;
+                    clearInterval(timerId);
 
 
 
