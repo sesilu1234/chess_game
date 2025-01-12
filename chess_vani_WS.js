@@ -419,6 +419,102 @@ socket.onopen = function() {
 
 };
 
+
+const firstone_6 = document.querySelector('.firstone_6');
+
+
+const close_feedback = document.querySelector('.x_close_7');
+const feedback_form = document.querySelector('.feedback_form');
+
+close_feedback.addEventListener('click', (event) => {
+                   
+
+                        
+            feedback_form.style.display = 'none';
+    
+                    });
+
+                    firstone_6.addEventListener('click', (event) => {
+                   
+
+                        
+                        feedback_form.style.display = 'none';
+                
+                                });
+
+
+
+                    const feedbkack = document.querySelector('.feedback_1');
+                  
+                    
+                    feedbkack.addEventListener('click', (event) => {
+                                       
+                    
+                                            
+                        feedback_form.style.display = 'block';
+                        
+                                        });
+
+
+
+
+
+
+
+    document.querySelector('.secondone_6').addEventListener('click', function() {
+
+
+        
+        const textValue = document.querySelector('.text_area_1');
+    
+      
+        
+    
+        
+    
+        
+    
+        const message_feedback = {
+            type: 'feedback',
+            payload : {
+                
+                text: textValue.value
+            
+            
+            } 
+            
+        };
+    
+        
+    
+        socket.send(JSON.stringify(message_feedback));
+    
+    
+        feedback_form.style.display = 'none';
+
+    
+    
+    
+            
+            
+    
+    
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let p1 = undefined;
 let p2 = undefined;
 
@@ -2043,7 +2139,7 @@ list_of_options[2].addEventListener('click', function() {
 
                                         
                                     if (piece instanceof Pawn) {
-                                        pieces_state.player1.pieces.pawns.push(piece.position);
+                                        pieces_state.player1.pieces.pawns.push([piece.position, piece.moved]);
                                     } else if (piece instanceof Knight) {
                                         pieces_state.player1.pieces.knights.push(piece.position);
                                     } else if (piece instanceof Bishop) {
@@ -2696,6 +2792,14 @@ list_of_options[2].addEventListener('click', function() {
     window.ChessPiece = ChessPiece;
     // Pawn class
     class Pawn extends ChessPiece {
+
+
+        constructor(color, position) {
+            super(color, position);      
+            this.moved = false;        
+        }
+
+
         getImage() {
             if (this.color === 'white')
                 {return "pieces_drawings/pawn_1.png";}
@@ -2714,7 +2818,7 @@ list_of_options[2].addEventListener('click', function() {
                 }
             }
             
-            if (turn === 1 || turn === 2) {
+            if (!this.moved) {
             for (let j of [20]) {
                 if (ChessPiece.isValidBoundary(this.position - j) && !ChessPiece.isOccupied(this.position - j)) {
                     valid_moves.push(this.position - j);
@@ -2822,8 +2926,8 @@ list_of_options[2].addEventListener('click', function() {
 
 
         constructor(color, position) {
-            super(color, position);      // Call parent class constructor
-            this.castling = true;        // Specific attribute for Rook
+            super(color, position);      
+            this.castling = true;        
         }
 
 
@@ -3022,7 +3126,7 @@ list_of_options[2].addEventListener('click', function() {
                 } else if (key === "knights") { 
                     piecesList.push(new Knight(color, position)); 
                 } else if (key === "pawns") { 
-                    piecesList.push(new Pawn(color, position)); 
+                    piecesList.push(new Pawn(color, position[0], position[1])); 
                 } else if (key === "queens") { 
                     piecesList.push(new Queen(color, position)); 
                 } else if (key === "rooks") { 
@@ -3364,7 +3468,10 @@ list_of_options[2].addEventListener('click', function() {
                 }
                 
                 
+                
                 await upgradePawn();
+
+                if (currentPiece instanceof Pawn) {currentPiece.moved = true;}
                 
 
                 socket.send(JSON.stringify({type: 'move', payload : {id, player, moveA, moveB, turn, pawn_promotion, castle}}));

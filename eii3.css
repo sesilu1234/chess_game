@@ -382,7 +382,7 @@ body {
   text-align: center;
 }
 
-.linkedin_icon {
+.feedback {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -396,10 +396,33 @@ body {
   border-radius: 15px; /* Optional: round corners */
   transition: background-color 0.4s ease, opacity 0.4s ease; /* Smooth transition for background and transform */
 }
-.fa-linkedin {
+.linkedin_icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.3em; /* Sets the size of the icon */
+  margin: 5px 10px 5px 3px; /* Remove margin if it exists */
+  
+
+
+
+  border-radius: 15px; /* Optional: round corners */
+  transition: background-color 0.4s ease, opacity 0.4s ease; /* Smooth transition for background and transform */
+}
+.fa-linkedin, .feedback_1 {
   cursor: pointer;
   color: rgb(32, 160, 168, 0.7);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.feedback_1:hover{
+
+  
+  opacity: 1; /* Full opacity on hover */
+  transform: scale(1.1); /* Slightly scale the icon up */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Add a glowing effect */
+
 }
 
 .fa-brands.fa-linkedin.fa-linkedin:hover {
@@ -604,6 +627,9 @@ body {
 
   margin: 7px; /* Optional: Rounded corners */
 }
+
+
+
 
 .create-button {
   margin-top: 25%;
@@ -819,6 +845,19 @@ body {
   display: none;
 }
 
+
+.feedback_form {
+  position: absolute;
+  width: 360px;
+  height: auto;
+  background-color: #ece6f0;
+  opacity: 0.95;
+  border-radius: 10%;
+  z-index: 1;
+  display: none;
+  
+}
+
 .resign_form {
   position: absolute;
   width: 360px;
@@ -942,7 +981,8 @@ body {
 .firstone_1,
 .firstone_3,
 .firstone_4,
-.firstone_5 {
+.firstone_5,
+.firstone_6 {
   background-color: rgba(112, 42, 42, 0.879);
   padding: 10px;
   border-radius: 10%;
@@ -956,7 +996,8 @@ body {
 .secondone_1,
 .secondone_3,
 .secondone_4,
-.secondone_5 {
+.secondone_5,
+.secondone_6 {
   background-color: rgba(63, 90, 79, 0.706);
   padding: 10px;
   border-radius: 10%;
@@ -1006,6 +1047,16 @@ body {
   
 }
 
+.join_recover_2{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  gap: 50px;
+  
+  
+}
 .waitingsecond {
   margin-top: 30px;
 
@@ -1232,6 +1283,19 @@ body {
   animation: jumpBounce 1.2s infinite;
 }
 
+
+
+.feedback_text{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+
+}
+
 .x_close {
   position: absolute;
   top: 1%;
@@ -1242,7 +1306,7 @@ body {
 
 .x_close_1,
 .x_close_2,
-.x_close_4, .x_close_6 {
+.x_close_4, .x_close_6, .x_close_7 {
   position: absolute;
   top: 1%;
   right: 3%;
