@@ -1740,10 +1740,20 @@ list_of_options[2].addEventListener('click', function() {
                 if (payload.moveA < payload.moveB) {if (ronda === 2){moveBlack(88,86)} else {moveBlack(88,85)}}
                 else {if (ronda === 2){{moveBlack(81,84)}} else {moveBlack(81,83)}}
     
+
+
+                blackPieces.find(piece => piece instanceof King).castling = false;
+
     
             }
     
-    
+            
+            const pawn_piece = blackPieces.find(piece => piece.position == (99 - payload.moveA));
+
+            if (pawn_piece instanceof Pawn) {
+                pawn_piece.moved = true;
+            }
+
     
     
     
@@ -2161,7 +2171,7 @@ list_of_options[2].addEventListener('click', function() {
 
 
                                         if (piece instanceof Pawn) {
-                                            pieces_state.player2.pieces.pawns.push(piece.position);
+                                            pieces_state.player2.pieces.pawns.push([piece.position, piece.moved]);
                                         } else if (piece instanceof Knight) {
                                             pieces_state.player2.pieces.knights.push(piece.position);
                                         } else if (piece instanceof Bishop) {
@@ -2187,7 +2197,7 @@ list_of_options[2].addEventListener('click', function() {
 
 
 
-
+                                     
 
 
 
@@ -3115,6 +3125,8 @@ list_of_options[2].addEventListener('click', function() {
 
     function generate_recoverPieces(pieces, color) {
         const piecesList = []; // Array to store the generated pieces
+
+        console.log(pieces);
     
         // Loop through each type of piece
         Object.keys(pieces).forEach(key => {
