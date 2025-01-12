@@ -2804,11 +2804,10 @@ list_of_options[2].addEventListener('click', function() {
     class Pawn extends ChessPiece {
 
 
-        constructor(color, position) {
-            super(color, position);      
-            this.moved = false;        
+        constructor(color, position, moved = false) {
+            super(color, position);
+            this.moved = moved; // Set the value based on the constructor argument
         }
-
 
         getImage() {
             if (this.color === 'white')
@@ -3131,6 +3130,9 @@ list_of_options[2].addEventListener('click', function() {
         // Loop through each type of piece
         Object.keys(pieces).forEach(key => {
             pieces[key].forEach(position => { // Loop through positions for the current piece type
+
+
+                
                 if (key === "bishops") { 
                     piecesList.push(new Bishop(color, position)); 
                 } else if (key === "king") { 
@@ -3154,6 +3156,8 @@ list_of_options[2].addEventListener('click', function() {
 
 
         }
+
+        console.log(piecesList);
     
         return piecesList; // Return the list of generated pieces
     }
