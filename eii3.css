@@ -320,7 +320,7 @@ body {
   right: 3%;
   top: 3%;
   background-color: var(--theme_back-color);
-  border-radius: 15px;
+  border-radius: 9px;
   padding: 1% 0%; /* Add padding to create spacing */
   cursor: pointer;
 }
@@ -1670,6 +1670,15 @@ font-family: "Danfo", sans-serif;
   .create_inputs {
       transform: translateY(-10%) scale(0.8);
   }
+
+.info_box{
+
+  bottom: 19%;
+  right:26%;
+
+
+}
+
   .screen_1 {
       width: 430px;
       height: auto;
@@ -1699,15 +1708,35 @@ font-family: "Danfo", sans-serif;
 }
 
 @media (max-width: 500px) {
+.recover_game{
+
+  bottom: 5px;
+
+}
+
   .screen_1 {
       width: 310px;
       margin-top: 50px;
   }
 
   .info_box {
-      right: 1%;
-      bottom: -75%;
+    bottom: 19%;
+    right:19%;
   }
+
+  .theme {
+    top: 88%;
+    left: 4%;
+    width: 20%;
+    height: 30px;
+}
+
+.screen_1 {
+ 
+  margin-top: 30px;
+}
+
+
 }
 
 @media (max-width: 480px) {
@@ -1722,9 +1751,18 @@ font-family: "Danfo", sans-serif;
   .left_column h1 {
       font-size: 2.9em;
   }
+
+  
+
 }
 
 @media (max-width: 380px) {
+
+
+  .info_box {
+    bottom: 19%;
+    right:10%;
+  }
   .left_column h1 {
       font-size: 1.8em;
       margin: 0;
@@ -1742,4 +1780,19 @@ font-family: "Danfo", sans-serif;
   .presented_2 {
       transform: scale(0.8) translate(-10%, 0%);
   }
+
+
+  .recover_game{
+
+    left: 10px;
+  
+  }
+
+  .theme {
+   
+    width: 25%;
+    height: 30px;
+}
+
+
 }
