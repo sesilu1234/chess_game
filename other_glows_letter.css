@@ -1,0 +1,50 @@
+
+
+
+
+@keyframes colorChange {
+    0% {
+      color: var(--left_column-color); /* Original color */
+    }
+    100% {
+      color: black;
+    }
+  }
+
+
+  
+
+@keyframes colorChange {
+  0% {
+    color: #4A90E2; /* Soft blue */
+  }
+  100% {
+    color: #FF6F61; /* Warm coral */
+  }
+}
+
+
+
+
+
+@keyframes colorChange {
+    0% {
+      color: #008080; /* Teal */
+    }
+    100% {
+      color: #FFDAB9; /* Soft Peach */
+    }
+  }
+  
+
+
+
+  @keyframes colorChange {
+    0% {
+      color: #9370DB; /* Lavender Purple */
+    }
+    100% {
+      color: #FFD700; /* Light Gold */
+    }
+  }
+  
