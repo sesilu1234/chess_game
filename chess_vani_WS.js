@@ -238,6 +238,8 @@ function moveTimer(event) {
         }
         baseY = event.clientY;
     }
+
+    if (element.value === '00' && parseInt(element_min.value) < 6) {element_min.value = '05'}
 }
 
 function moveTimer_min(event) {
@@ -251,6 +253,13 @@ function moveTimer_min(event) {
         }
         baseY = event.clientY;
     } else if ((baseY - mouseY) < -10 && element_min.value > 0) {
+
+   
+
+        if (element.value === '00' && parseInt(element_min.value) < 6) {
+            return;
+        }
+
         if (element_min.value < 11) {
             element_min.value = "0" + (parseInt(element_min.value) - 1);
         } else {
