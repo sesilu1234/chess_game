@@ -223,7 +223,7 @@ let baseY;
 function moveTimer(event) {
     mouseY = event.clientY;
 
-    if ((baseY - mouseY) > 10) {
+    if ((baseY - mouseY) > 10 && element.value < 119) {
         if (element.value < 9) {
             element.value = "0" + (parseInt(element.value) + 1);
         } else {
@@ -616,6 +616,11 @@ copySymbol.addEventListener('mouseleave', function() {
     // Handle specific message types
     else if (message.type === 'start_game') {
 
+      
+
+
+        if (message.found) {
+
         document.querySelector('.form').style.display = "none";
 
         p1 = payload.player1;
@@ -629,7 +634,39 @@ copySymbol.addEventListener('mouseleave', function() {
 
         console.log(payload);
 
-        chess_game(payload.id, payload.player, payload.color1, payload.color2, payload.round, payload.countdown_time, payload.time_modality) 
+        chess_game(payload.id, payload.player, payload.color1, payload.color2, payload.round, payload.countdown_time, payload.time_modality) }
+
+
+        else {
+
+            
+            
+            const not_found = document.querySelector('.not_found');
+            
+           
+               
+            not_found.classList.add('show');
+            not_found.classList.add('show_1');
+            
+              
+                
+            
+                // Start fading out the warning box after 1 second
+                setTimeout(() => {
+                    not_found.classList.add('fade-out');
+                }, 1000); 
+            
+                // Reset the warning box after the fade-out animation completes
+                setTimeout(() => {
+                    not_found.classList.remove('show', 'fade-out');
+                   
+                }, 1500); 
+            
+               
+
+
+
+        }
 
     }
 
@@ -637,6 +674,9 @@ copySymbol.addEventListener('mouseleave', function() {
 
 
     else if (message.type === "rg1") {
+
+
+        if (payload.found) {
 
 
         document.querySelector('.join_recover_1 .firstone p').innerText = payload.player1;
@@ -653,7 +693,38 @@ copySymbol.addEventListener('mouseleave', function() {
 
         const name_match = document.querySelector('.join_recover_1');
 
-        name_match.style.display = "flex";
+        name_match.style.display = "flex"; }
+
+
+        else {
+
+
+
+            const not_found_1 = document.querySelector('.not_found_1');
+            
+           
+               
+            not_found_1.classList.add('show');
+            not_found_1.classList.add('show_1');
+            
+              
+                
+            
+                // Start fading out the warning box after 1 second
+                setTimeout(() => {
+                    not_found_1.classList.add('fade-out');
+                }, 1000); 
+            
+                // Reset the warning box after the fade-out animation completes
+                setTimeout(() => {
+                    not_found_1.classList.remove('show', 'fade-out');
+                   
+                }, 1500); 
+
+
+
+
+        }
 
 
 

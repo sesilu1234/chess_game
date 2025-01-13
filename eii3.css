@@ -1200,6 +1200,40 @@ body {
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
+
+.not_found {
+
+  font-family: "Bebas Neue", sans-serif;
+  position: absolute;
+  top: -45%;
+  font-size: 0.9em;
+  right:-40px;
+  
+  color: rgb(185, 146, 146);
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-20px); /* Initial position */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.not_found_1 {
+
+  font-family: "Bebas Neue", sans-serif;
+  position: absolute;
+  top: 65%;
+  font-size: 1.1em;
+  right:150px;
+  font-weight: 500;
+  
+  color: rgb(178, 63, 63);
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-20px); /* Initial position */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+
+
+
+
 .show {
   opacity: 1; /* Fully visible */
   transform: translateY(0); /* Move to original position */
