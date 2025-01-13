@@ -355,6 +355,7 @@ document.querySelector('.menu_icon').addEventListener('click', function() {
     else {
 
         document.querySelector('.menu_panel').style.display = 'block';
+        document.querySelector('.puntito').style.display = 'none';
         menu_panel_active = true;
     }
 
@@ -1869,7 +1870,7 @@ list_of_options[2].addEventListener('click', function() {
 
     messageContainer.innerText = payload;
 
-    
+    if (!menu_panel_active) {document.querySelector('.puntito').style.display = 'block';}
 
 
 

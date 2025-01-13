@@ -1371,6 +1371,21 @@ font-family: "Danfo", sans-serif;
   color: #aca6a6;
 }
 
+.puntito{
+
+  position:absolute;
+  border-radius: 50%;
+
+  width:10px;
+  height: 10px;
+  background-color: rgb(63, 114, 196);
+  top:-5%;
+  left:-5%;
+  display: none;
+
+
+}
+
 .menu_icon {
   background-color: rgba(86, 80, 80, 0.728);
 
@@ -1383,7 +1398,11 @@ font-family: "Danfo", sans-serif;
   height: 35px;
 
   cursor: pointer;
+
+  position: relative;
 }
+
+
 
 .menu_panel {
   position: absolute;
