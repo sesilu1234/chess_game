@@ -221,7 +221,7 @@ theme.addEventListener('click', function() {
 
 
 
-let socket = new WebSocket("wss://chessbysesilu.com:8080");
+let socket = new WebSocket("wss://chessbysesilu.com/ws/");
 
  
    
