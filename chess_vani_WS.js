@@ -625,6 +625,14 @@ copySymbol.addEventListener('mouseleave', function() {
 
     }
 
+    else if (message.type === 'ping_alive') {
+
+
+        socket.send(JSON.stringify({    type:"alive_pong", payload: {}      }));
+
+
+    }
+
     // Handle specific message types
     else if (message.type === 'start_game') {
 
