@@ -6,6 +6,8 @@ const sound_click = new Audio('sounds/click_or_movepiece.mp3');
 
 const sound_send_message = new Audio('sounds/send_message.mp3'); 
 
+sound_send_message.volume = 0.2;
+
 const sound_receive_message = new Audio('sounds/receive_message.mp3'); 
 
 
