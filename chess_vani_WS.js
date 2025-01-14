@@ -627,6 +627,8 @@ copySymbol.addEventListener('mouseleave', function() {
 
     else if (message.type === 'ping_alive') {
 
+        console.log('Alive and Well')
+
 
         socket.send(JSON.stringify({    type:"alive_pong", payload: {}      }));
 
