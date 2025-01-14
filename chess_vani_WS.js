@@ -2,6 +2,16 @@
 
 
 
+const sound_click = new Audio('sounds/click_or_movepiece.mp3'); 
+
+const sound_send_message = new Audio('sounds/send_message.mp3'); 
+
+const sound_receive_message = new Audio('sounds/receive_message.mp3'); 
+
+
+
+
+
 const container = document.getElementById('grid_container');
 
 for (let row = 1; row <= 8; row++) {
@@ -825,7 +835,11 @@ let id = undefined;
 
     // Function to handle button click
     function handleClickCreate(event) {
-        // replace with your actual endpoint
+        
+
+        sound_click.play();
+
+
         let colorTexts = document.querySelectorAll('.simple-input2');
         const inputs = document.querySelectorAll('.simple-input');
         
@@ -833,9 +847,11 @@ let id = undefined;
 
         
 
+        console.log("sadd");
+
 
         
-        console.log(inputs);
+       
         
         
         
@@ -911,7 +927,7 @@ let id = undefined;
     function handleClickJoin(event) {
       
 
-
+        sound_click.play();
 
         const join = document.querySelectorAll('.simple-input-join');
         const id1 = join[0].value;
@@ -1524,6 +1540,10 @@ let id = undefined;
 
 
     document.querySelector('.send_triangle').addEventListener('click', function() {
+
+
+        sound_send_message.play();
+
         const messageBox = document.querySelector('.message_box');
         const textValue = document.querySelector('.text_area');
     
@@ -1791,7 +1811,8 @@ list_of_options[2].addEventListener('click', function() {
     
        if (message.type === 'move') {
     
-        
+        sound_click.play();
+
 
             if (payload.moveA === 101) {
                 
@@ -1934,7 +1955,7 @@ list_of_options[2].addEventListener('click', function() {
         else if (message.type === 'talk') {
 
 
-
+            sound_receive_message.play();
 
     const messageBox = document.querySelector('.message_box');
     const textValue = document.querySelector('.text_area');
@@ -3412,7 +3433,7 @@ list_of_options[2].addEventListener('click', function() {
             if (currentPiece.canMoveTo().includes(pos)) {
 
 
-
+                sound_click.play();
 
 
                 for (let i in availableCells) {
