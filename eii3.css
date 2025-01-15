@@ -51,6 +51,8 @@ body {
   margin: auto;
   box-sizing: border-box;
   display: flex;
+  transition: filter 0.5s ease;
+ 
 
   width: 840px;
   height: 440px;
@@ -808,7 +810,7 @@ body {
   height: 320px;
   background-color: #ece6f0;
   opacity: 0.97;
-  border-radius: 10%;
+  border-radius: 20px;
   z-index: 1;
   display: none;
 }
@@ -819,7 +821,7 @@ body {
   height: 320px;
   background-color: #ece6f0;
   opacity: 0.9;
-  border-radius: 10%;
+  border-radius: 20px;
   z-index: 1;
   display: none;
 }
@@ -841,7 +843,7 @@ body {
   height: 200px;
   background-color: #ece6f0;
   opacity: 0.95;
-  border-radius: 10%;
+  border-radius: 20px;
   z-index: 1;
   display: none;
 }
@@ -853,7 +855,7 @@ body {
   height: auto;
   background-color: #ece6f0;
   opacity: 0.95;
-  border-radius: 10%;
+  border-radius: 15px;
   z-index: 1;
   display: none;
   
@@ -865,7 +867,7 @@ body {
   height: 300px;
   background-color: #ece6f0;
   opacity: 0.95;
-  border-radius: 10%;
+  border-radius: 20px;
   z-index: 1;
   display: none;
 }
@@ -876,7 +878,7 @@ body {
   height: 300px;
   background-color: #ece6f0;
   opacity: 0.95;
-  border-radius: 10%;
+  border-radius: 20px;
   z-index: 1;
   display: none;
 }
@@ -887,7 +889,7 @@ body {
   height: 300px;
   background-color: #ece6f0;
   opacity: 0.95;
-  border-radius: 10%;
+  border-radius: 20px;
   z-index: 1;
   display: none;
 }
@@ -898,7 +900,7 @@ body {
   height: 300px;
   background-color: #ece6f0;
   opacity: 0.95;
-  border-radius: 10%;
+  border-radius: 20px;
   z-index: 1;
   display: none;
 }
@@ -909,7 +911,7 @@ body {
   height: 300px;
   background-color: #ece6f0;
   opacity: 0.95;
-  border-radius: 10%;
+  border-radius: 20px;
   z-index: 1;
   display: none;
 }
@@ -920,7 +922,7 @@ body {
   height: 300px;
   background-color: #ece6f0;
   opacity: 0.95;
-  border-radius: 10%;
+  border-radius: 20px;
   z-index: 1;
   display: none;
 }
@@ -1213,6 +1215,8 @@ body {
   opacity: 0; /* Initially hidden */
   transform: translateY(-20px); /* Initial position */
   transition: transform 0.5s ease, opacity 0.5s ease;
+ 
+  display: none;
 }
 
 .not_found_1 {
@@ -1228,6 +1232,10 @@ body {
   opacity: 0; /* Initially hidden */
   transform: translateY(-20px); /* Initial position */
   transition: transform 0.5s ease, opacity 0.5s ease;
+  
+display: none;
+  
+
 }
 
 
@@ -1235,11 +1243,13 @@ body {
 
 
 .show {
+  
   opacity: 1; /* Fully visible */
   transform: translateY(0); /* Move to original position */
 }
 
 .fade-out {
+ 
   opacity: 0; /* Fade to transparent */
   transform: translateY(-40px); /* Move up a bit more */
 }
@@ -1293,7 +1303,8 @@ body {
 }
 
 .exclamation {
-  font-family: "Danfo", serif;
+  font-family: "Exo 2", serif;
+  font-weight: 600;
   margin-top: 12%;
   display: inline-block;
   font-size: 2em;

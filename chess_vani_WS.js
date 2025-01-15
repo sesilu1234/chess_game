@@ -309,7 +309,7 @@ element_min.addEventListener('mousedown', (event) => {
 
 document.querySelector('.GO').addEventListener('click', function() {
 
-    
+    sound_click.play();    
 
     const id_to_recover = document.querySelector('.simple-input_3').value
 
@@ -573,7 +573,7 @@ copySymbol.addEventListener('mousedown', function() {
 
     // Show the warning box
     warningBox.classList.add('show');
-    warningBox.classList.add('show_1');
+   
 
     // Change background color of the copy symbol
     copySymbol.style.backgroundColor = '#d3d3d3'; 
@@ -654,7 +654,8 @@ copySymbol.addEventListener('mouseleave', function() {
         document.querySelector('.user2 h5').textContent = payload.player1;
 
 
-        console.log(payload);
+        const screen_back = document.querySelector('.screen_1');
+        screen_back.style.filter = 'brightness(1)';
 
         chess_game(payload.id, payload.player, payload.color1, payload.color2, payload.round, payload.countdown_time, payload.time_modality) }
 
@@ -666,9 +667,9 @@ copySymbol.addEventListener('mouseleave', function() {
             const not_found = document.querySelector('.not_found');
             
            
-               
+            not_found.style.display = 'block';  
             not_found.classList.add('show');
-            not_found.classList.add('show_1');
+            
             
               
                 
@@ -681,10 +682,11 @@ copySymbol.addEventListener('mouseleave', function() {
                 // Reset the warning box after the fade-out animation completes
                 setTimeout(() => {
                     not_found.classList.remove('show', 'fade-out');
+                    not_found.style.display = '';  
                    
                 }, 1500); 
             
-               
+                
 
 
 
@@ -721,14 +723,15 @@ copySymbol.addEventListener('mouseleave', function() {
         else {
 
 
-
+            
             const not_found_1 = document.querySelector('.not_found_1');
             
-           
-               
-            not_found_1.classList.add('show');
-            not_found_1.classList.add('show_1');
             
+            not_found_1.style.display = 'block';    
+            
+           
+                not_found_1.classList.add('show');
+          
               
                 
             
@@ -740,11 +743,13 @@ copySymbol.addEventListener('mouseleave', function() {
                 // Reset the warning box after the fade-out animation completes
                 setTimeout(() => {
                     not_found_1.classList.remove('show', 'fade-out');
+
+                    not_found_1.style.display = '';  
                    
                 }, 1500); 
 
 
-
+               
 
         }
 
@@ -798,7 +803,8 @@ copySymbol.addEventListener('mouseleave', function() {
         p1 = player_data.player1.name;
         p2 = player_data.player2.name;
 
-        
+        const screen_back = document.querySelector('.screen_1');
+        screen_back.style.filter = 'brightness(1)';
 
         document.querySelector('.user1 h5').textContent = p1;
         document.querySelector('.user2 h5').textContent = p2;
@@ -907,8 +913,8 @@ let id = undefined;
         socket.send(JSON.stringify(gameData));
 
         
-
-       
+        const screen_back = document.querySelector('.screen_1');
+       screen_back.style.filter = 'brightness(0.3)';
 
 
 
@@ -1108,6 +1114,9 @@ let id = undefined;
         document.querySelector('.waitingsecond_1').style.display = "block";
     
         recover_host = true;
+
+        const screen_back = document.querySelector('.screen_1');
+       screen_back.style.filter = 'brightness(0.3)';
     
     });
     
@@ -1137,6 +1146,9 @@ let id = undefined;
         document.querySelector('.waitingsecond_1').style.display = "block";
 
         recover_host = true;
+
+        const screen_back = document.querySelector('.screen_1');
+       screen_back.style.filter = 'brightness(0.3)';
 
     
     });
