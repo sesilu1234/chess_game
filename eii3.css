@@ -1106,7 +1106,7 @@ body {
   height: 320px;
   background-color: #ece6f0;
   opacity: 0.9;
-  border-radius: 10%;
+  border-radius: 5px;
   z-index: 1;
   display: none;
 }
