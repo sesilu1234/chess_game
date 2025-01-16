@@ -721,6 +721,43 @@ copySymbol.addEventListener('mouseleave', function() {
     }
 
 
+    else if (message.type === 'recover_click'){
+
+
+
+
+        const click_recover = document.querySelector('.click_recover');
+            
+           
+        click_recover.style.display = 'block';  
+           
+            
+            
+            setTimeout(() => {
+                click_recover.classList.add('show');
+            }, 100); 
+                
+            
+                // Start fading out the warning box after 1 second
+                setTimeout(() => {
+                    click_recover.classList.add('fade-out');
+                }, 1500); 
+            
+                // Reset the warning box after the fade-out animation completes
+                setTimeout(() => {
+                    click_recover.classList.remove('show', 'fade-out');
+                    click_recover.style.display = '';  
+                   
+                }, 2000); 
+
+
+
+
+
+
+    }
+
+
 
 
     else if (message.type === "rg1") {

@@ -1212,7 +1212,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds depth */
 }
 
 
-.not_found {
+.not_found, .click_recover {
 
   font-family: "Bebas Neue", sans-serif;
   position: absolute;
