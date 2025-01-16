@@ -11,7 +11,11 @@ sound_send_message.volume = 0.2;
 const sound_receive_message = new Audio('sounds/receive_message.mp3'); 
 
 
+const inputs = document.querySelectorAll('.simple-input_timer');
 
+if (window.innerWidth <= 930) {
+    inputs.forEach(input => input.removeAttribute('readonly'));
+}
 
 
 const container = document.getElementById('grid_container');
