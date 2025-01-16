@@ -741,14 +741,14 @@ copySymbol.addEventListener('mouseleave', function() {
                 // Start fading out the warning box after 1 second
                 setTimeout(() => {
                     click_recover.classList.add('fade-out');
-                }, 1500); 
+                }, 2500); 
             
                 // Reset the warning box after the fade-out animation completes
                 setTimeout(() => {
                     click_recover.classList.remove('show', 'fade-out');
                     click_recover.style.display = '';  
                    
-                }, 2000); 
+                }, 3000); 
 
 
 

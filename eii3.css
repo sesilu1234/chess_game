@@ -1220,10 +1220,12 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds depth */
   font-size: 0.9em;
   right:-40px;
   
-  color: rgb(185, 146, 146);
+  color: rgb(189, 95, 136);
   opacity: 0; /* Initially hidden */
   transform: translateY(-20px); /* Initial position */
   transition: transform 0.5s ease, opacity 0.5s ease;
+
+  background-color: grey;
  
   display: none;
 }
