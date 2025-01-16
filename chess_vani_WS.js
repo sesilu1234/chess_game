@@ -668,26 +668,27 @@ copySymbol.addEventListener('mouseleave', function() {
             
            
             not_found.style.display = 'block';  
-            not_found.classList.add('show');
+           
             
             
-              
+            setTimeout(() => {
+                not_found.classList.add('show');
+            }, 100); 
                 
             
                 // Start fading out the warning box after 1 second
                 setTimeout(() => {
                     not_found.classList.add('fade-out');
-                }, 1000); 
+                }, 1500); 
             
                 // Reset the warning box after the fade-out animation completes
                 setTimeout(() => {
                     not_found.classList.remove('show', 'fade-out');
                     not_found.style.display = '';  
                    
-                }, 1500); 
+                }, 2000); 
             
                 
-
 
 
         }
@@ -727,27 +728,26 @@ copySymbol.addEventListener('mouseleave', function() {
             const not_found_1 = document.querySelector('.not_found_1');
             
             
-            not_found_1.style.display = 'block';    
-            
+            not_found_1.style.display = 'block';  
            
+            
+            
+            setTimeout(() => {
                 not_found_1.classList.add('show');
-          
-              
+            }, 100); 
                 
             
                 // Start fading out the warning box after 1 second
                 setTimeout(() => {
                     not_found_1.classList.add('fade-out');
-                }, 1000); 
+                }, 1500); 
             
                 // Reset the warning box after the fade-out animation completes
                 setTimeout(() => {
                     not_found_1.classList.remove('show', 'fade-out');
-
                     not_found_1.style.display = '';  
                    
-                }, 1500); 
-
+                }, 2000); 
 
                
 
