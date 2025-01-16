@@ -24,7 +24,7 @@ if (window.innerWidth <= 930) {
         if (event.target.value > 119) {event.target.value = '119'}
         else if (event.target.value < 0) {event.target.value = '00'}
 
-        if (event.target.value == '00' && inputs[1] < 5) { inputs[1] = '05'}
+        if (parseInt(event.target.value) == 0 && inputs[1].value < 5) { inputs[1].value = '05'}
 
     });
 
@@ -34,7 +34,7 @@ if (window.innerWidth <= 930) {
         if (event.target.value > 59) {event.target.value = '59'}
         else if (event.target.value < 0) {event.target.value = '00'}
 
-        if (event.target.value < 5 && inputs[0] == '00') { inputs[1] = '05'}
+        if (event.target.value < 5 && parseInt(inputs[0].value) == 0) { inputs[1].value = '05'}
     });
 
 
