@@ -21,20 +21,20 @@ if (window.innerWidth <= 930) {
     inputs[0].addEventListener('input', (event) => {
         console.log(`Value changed to: ${event.target.value}`);
 
-        if (event.target.value > 119) {event.target.value = 119}
-        else if (event.target.value < 0) {event.target.value = 0}
+        if (event.target.value > 119) {event.target.value = '119'}
+        else if (event.target.value < 0) {event.target.value = '00'}
 
-        if (event.target.value == 0 && inputs[1] < 5) { inputs[1] = 5}
+        if (event.target.value == '00' && inputs[1] < 5) { inputs[1] = '05'}
 
     });
 
 
     inputs[1].addEventListener('input', (event) => {
         console.log(`Value changed to: ${event.target.value}`);
-        if (event.target.value > 59) {event.target.value = 59}
-        else if (event.target.value < 0) {event.target.value = 0}
+        if (event.target.value > 59) {event.target.value = '59'}
+        else if (event.target.value < 0) {event.target.value = '00'}
 
-        if (event.target.value < 5 && inputs[0] == 0) { inputs[1] = 5}
+        if (event.target.value < 5 && inputs[0] == '00') { inputs[1] = '05'}
     });
 
 
