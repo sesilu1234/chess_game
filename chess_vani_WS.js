@@ -611,6 +611,8 @@ const copySymbol = document.querySelector('.copy_symbol');
 const warningBox = document.querySelector('.copied_alert');
 
 copySymbol.addEventListener('mousedown', function() {
+
+    warningBox.style.display = 'block';
     // Get the text to be copied
     const copyText = document.querySelector('.form .ID_letters h5').innerText; 
 
@@ -637,6 +639,7 @@ copySymbol.addEventListener('mousedown', function() {
     setTimeout(() => {
         warningBox.classList.remove('show', 'fade-out');
         copySymbol.style.backgroundColor = ''; // Reset background color
+        warningBox.style.display = '';
     }, 1500); 
 
     // Copy text to clipboard
@@ -692,7 +695,11 @@ copySymbol.addEventListener('mouseleave', function() {
         p2 = payload.player2;
 
 
-        clearInterval(intervalId);
+        if (payload.round === 1) {
+
+
+
+        clearInterval(intervalId);}
         
 
         document.querySelector('.user1 h5').textContent = payload.player2;
@@ -888,8 +895,8 @@ copySymbol.addEventListener('mouseleave', function() {
         const screen_back = document.querySelector('.screen_1');
         screen_back.style.filter = 'brightness(1)';
 
-        document.querySelector('.user1 h5').textContent = p1;
-        document.querySelector('.user2 h5').textContent = p2;
+        document.querySelector('.user1 h5').textContent = p2;
+        document.querySelector('.user2 h5').textContent = p1;
 
         const ronda = player_data.turn === true ? 1 : 2;
 
@@ -927,7 +934,7 @@ socket.onerror = function(error) {
 
 
 let id = undefined;
-
+let intervalId;
 
 
 // Example usage:
@@ -964,7 +971,7 @@ function waiting_game() {
 
 waiting_game();
 
-const intervalId = setInterval(waiting_game, 3000);
+         intervalId = setInterval(waiting_game, 3000);
 
 
 
