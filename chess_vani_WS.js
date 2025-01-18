@@ -58,6 +58,24 @@ for (let row = 1; row <= 8; row++) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
        
 
@@ -673,6 +691,8 @@ copySymbol.addEventListener('mouseleave', function() {
         p1 = payload.player1;
         p2 = payload.player2;
 
+
+        clearInterval(intervalId);
         
 
         document.querySelector('.user1 h5').textContent = payload.player2;
@@ -930,7 +950,25 @@ let id = undefined;
         console.log("sadd");
 
 
-        
+        const waiting_etc = document.querySelector('.form .waiting_2nd h3');
+
+function waiting_game() {
+    setTimeout(() => { waiting_etc.textContent = 'Waiting for 2nd player'; }, 1000);
+
+    setTimeout(() => { waiting_etc.textContent = 'Waiting for 2nd player .'; }, 1500);
+
+    setTimeout(() => { waiting_etc.textContent = 'Waiting for 2nd player . .'; }, 2000);
+
+    setTimeout(() => { waiting_etc.textContent = 'Waiting for 2nd player . . .'; }, 2500);
+}
+
+waiting_game();
+
+const intervalId = setInterval(waiting_game, 3000);
+
+
+
+
        
         
         
@@ -2578,7 +2616,7 @@ list_of_options[2].addEventListener('click', function() {
         
                 }
         
-            }, 500);
+            }, 200);
         }
         
 

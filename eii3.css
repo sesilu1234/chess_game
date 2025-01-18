@@ -131,6 +131,7 @@ body {
   border-radius: 5%;
   background-color: rgba(104, 93, 93, 0.567);
   padding: 2%;
+  
 }
 
 .timer_1 {
@@ -177,8 +178,9 @@ body {
   font-weight: 600;
   background-color: #504d4a;
   padding: 0.1em 0.3em; /* Minimal padding to reduce height */
-  margin: 0; /* Ensures no extra spacing */
+  margin: auto; /* Ensures no extra spacing */
   text-align: center;
+  width:50px;
 }
 
 .user1 h5,
@@ -819,12 +821,24 @@ body {
   position: absolute;
   width: 320px;
   height: 320px;
-  background-color: #ece6f0;
+  background-color: rgba(236, 230, 240, 1); /* Softer background */
   opacity: 0.9;
   border-radius: 20px;
+  background-image: linear-gradient(135deg, #d1c8b1 55%, transparent 85%, transparent 70%, #e1d1a0 80%, #e1d1a0 65%, transparent 65%, transparent); /* Lighter gradient */
+  background-size: 10px 10px; /* Subtle pattern */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Adds depth */
   z-index: 1;
   display: none;
+  color: #333; /* Dark text color for better contrast */
+  padding: 10px; /* Adds space between text and edges */
 }
+
+.end_form *,
+.draw_end_form * {
+  color: #000; /* Black text for better readability */
+ 
+}
+
 
 .enterid {
   margin-top: 40px;
@@ -870,16 +884,50 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds depth */
   
 }
 
+
+
 .resign_form {
   position: absolute;
   width: 360px;
   height: 300px;
-  background-color: #ece6f0;
+  background-color: rgba(236, 230, 240, 1); /* Softer background */
   opacity: 0.95;
   border-radius: 20px;
+  background-image: linear-gradient(135deg, #d1c8b1 55%, transparent 85%, transparent 70%, #e1d1a0 80%, #e1d1a0 65%, transparent 65%, transparent); /* Lighter gradient */
+  background-size: 10px 10px; /* Subtle pattern */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Adds depth */
   z-index: 1;
   display: none;
+  color: #333; /* Dark text color for better contrast */
+/* Adds space between text and edges */
 }
+
+.resign_form * {
+  color: #000; /* Black text for better readability */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.1); /* Slight white shadow to enhance text contrast */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .resign_form_end {
   position: absolute;
@@ -1113,12 +1161,28 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds depth */
   position: absolute;
   width: 320px;
   height: 320px;
-  background-color: #ece6f0;
+  background-color: rgba(236, 230, 240, 1); /* Softer background */
   opacity: 0.9;
-  border-radius: 5px;
+  border-radius: 8px;
+  border: 8px solid #8b5e3c; /* Wood brown color */
+  background-image: linear-gradient(135deg, #d1c8b1 55%, transparent 85%, transparent 70%, #e1d1a0 80%, #e1d1a0 65%, transparent 65%, transparent); /* Lighter, more neutral gradient */
+  background-size: 10px 10px; /* Larger grain pattern for subtlety */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Adds realistic wood depth */
   z-index: 1;
   display: none;
+  color: #333; /* Dark text color for better contrast */
+  padding: 10px; /* Ensures some space between text and edges */
 }
+
+.time_form * {
+  color: #000; /* Black text for better contrast */
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7); /* Slight shadow to enhance text readability */
+}
+
+
+
+
+
 
 .game_created {
   color: #7c6b6b;
@@ -1212,7 +1276,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds depth */
 }
 
 
-.not_found, .click_recover {
+.not_found {
 
   font-family: "Bebas Neue", sans-serif;
   position: absolute;
@@ -1220,12 +1284,31 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds depth */
   font-size: 0.9em;
   right:-40px;
   
-  color: rgb(189, 95, 136);
+  color: rgb(185, 146, 146);
   opacity: 0; /* Initially hidden */
   transform: translateY(-20px); /* Initial position */
   transition: transform 0.5s ease, opacity 0.5s ease;
+ 
+  display: none;
+}
 
-  background-color: grey;
+.click_recover {
+
+  font-family: "Bebas Neue", sans-serif;
+  position: absolute;
+  top: -45%;
+  font-size: 1.2em;
+  right:-25px;
+  
+  color: rgb(27, 7, 16);
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-20px) translateX(50px); /* Initial position */
+  transition: transform 0.5s ease, opacity 0.5s ease;
+
+  background-color: rgba(159, 148, 148, 0.95);
+
+  padding: 20px;
+  border-radius: 20px;
  
   display: none;
 }
@@ -1547,6 +1630,17 @@ font-family: "Danfo", sans-serif;
   background: rgba(68, 76, 55, 0.9); /* Darker shade */
 }
 
+
+.form .waiting_2nd h3{
+
+  text-align: left;
+position: relative;
+left:25%;
+
+
+}
+
+
 /* Initial hidden state for .info_div */
 .info_div {
   position: absolute;
@@ -1557,7 +1651,7 @@ font-family: "Danfo", sans-serif;
   opacity: 0; /* Start fully transparent */
   z-index: 5;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
-  border-radius: 10%; /* Rounded corners */
+  border-radius: 20px; /* Rounded corners */
   transform: translate(40%, -40%); /* Initial position from top-right */
   transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
   pointer-events: none; /* Prevent interaction when hidden */
@@ -1689,6 +1783,7 @@ opacity:2;
 .grid_container {
   position: relative;
   transform: scale(0.9);
+  margin-top: 90px;
 }
 
 
@@ -1706,7 +1801,7 @@ opacity:2;
 
   .timer{
 
-    right: 37.5%;
+    right: 35.5%;
     bottom: -20%;
 
   }
@@ -1736,6 +1831,19 @@ opacity:2;
       margin-top: 3%;
   }
 
+  .timer_2{
+
+    bottom:-45%;
+    right:-2%; 
+
+  }
+
+  .timer_1{
+    bottom:-45%;
+    right:73%; 
+
+  }
+
  
 }
 
@@ -1744,7 +1852,7 @@ opacity:2;
 
   .grid_container{
 
-    margin-top: 0%;
+    margin-top: 80px;
   
   }
 
@@ -1929,7 +2037,55 @@ opacity:2;
 
   .feedback_form {
    
-    width: 300px;}
+    width: 260px;}
+
+    .draw_form{
+
+      width:220px;
+    }
+
+    .draw_accept_form{
+
+      width:220px;
+
+    }
+
+    .resign_form{
+      width:220px;
+    }
+    
+    .saveandresume_form{
+      width:220px;
+    }
+
+    .save_and_resume_accept_form{
+      width:220px;
+
+
+    }
+
+  }
+    @media (max-width: 340px) {
+
+    body > *:not(.screen_1) {
+      transform: scale(0.8);
+    }
+
+
+}
+
+
+
+
+@media (max-width: 300px) {
+
+
+  body{
+
+    transform: scale(0.8);
+
+
+  }
 
 
 }
