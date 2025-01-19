@@ -19,7 +19,7 @@ if (window.innerWidth <= 930) {
 
 
     inputs[0].addEventListener('input', (event) => {
-        console.log(`Value changed to: ${event.target.value}`);
+        
 
         if (event.target.value > 119) {event.target.value = '119'}
         else if (event.target.value < 0) {event.target.value = '00'}
@@ -30,7 +30,7 @@ if (window.innerWidth <= 930) {
 
 
     inputs[1].addEventListener('input', (event) => {
-        console.log(`Value changed to: ${event.target.value}`);
+       
         if (event.target.value > 59) {event.target.value = '59'}
         else if (event.target.value < 0) {event.target.value = '00'}
 
@@ -185,7 +185,7 @@ timerChecks_empty[0].addEventListener('click', () => {
 
     time_modality = "perRound";
 
-    console.log(time_modality);
+   
 
 });
 
@@ -199,7 +199,7 @@ timerChecks_empty[1].addEventListener('click', () => {
 
     time_modality = "perPlayer";
 
-    console.log(time_modality);
+
 });
 
 
@@ -356,7 +356,7 @@ document.querySelector('.GO').addEventListener('click', function() {
 
     const id_to_recover = document.querySelector('.simple-input_3').value
 
-    console.log(id_to_recover);
+    
 
     
     const game_recover = {
@@ -436,15 +436,14 @@ document.querySelector('.recover_game').addEventListener('click', function() {
 
 document.querySelector('.feather-x-square').addEventListener('click', function() {
 
-    console.log("eiii13");
-    
+   
     document.querySelector('.end_form').style.display = 'none';
     document.querySelector('.recover_form').style.display = 'none';
 });
 
 document.querySelector('.x_close_1').addEventListener('click', function() {
 
-    console.log("eiii13");
+
     document.querySelector('.time_form').style.display = 'none';
     document.querySelector('.end_form').style.display = 'none';
     
@@ -587,6 +586,10 @@ let p2 = undefined;
 socket.onmessage = function(event) {
     const message = JSON.parse(event.data);
     const payload = message.payload;
+    console.log(message);
+
+        console.log(payload);
+
 
     if (message.type === "ID") {
 
@@ -624,10 +627,10 @@ copySymbol.addEventListener('mousedown', function() {
     copySymbol.style.backgroundColor = '#d3d3d3'; 
     navigator.clipboard.writeText(copyText)
         .then(() => {
-            console.log('Text copied to clipboard successfully!');
+         
         })
         .catch(err => {
-            console.error('Could not copy text: ', err);
+           
         });
 
     // Start fading out the warning box after 1 second
@@ -878,9 +881,7 @@ copySymbol.addEventListener('mouseleave', function() {
     else if (message.type === 'recovering_game') {
 
 
-        console.log(payload);
-
-        console.log("yep,recovering game");
+      
 
 
 
@@ -954,7 +955,7 @@ let intervalId;
 
         
 
-        console.log("sadd");
+  
 
 
         const waiting_etc = document.querySelector('.form .waiting_2nd h3');
@@ -1193,11 +1194,13 @@ waiting_game();
 
     let recover_host = false;
 
+    const reco_first = document.querySelector('.join_recover_1 .firstone')
 
-    document.querySelector('.join_recover_1 .firstone').addEventListener('click', function() {
+    reco_first.addEventListener('click', function() {
 
 
-     
+        reco_first.style.backgroundColor = '#7f7c39';
+        reco_second.style.backgroundColor = '';
     
     
         const recover_game_2 = {
@@ -1227,9 +1230,12 @@ waiting_game();
     
     });
     
-    document.querySelector('.join_recover_1 .secondone').addEventListener('click', function() {
+    const reco_second = document.querySelector('.join_recover_1 .secondone');
+
+    reco_second.addEventListener('click', function() {
     
-    
+        reco_second.style.backgroundColor = '#1f7080';
+        reco_first.style.backgroundColor = '';
        
         
         const recover_game_2 = {
@@ -1409,7 +1415,7 @@ waiting_game();
     function chess_game(id, player,color1, color2, ronda, countime, time_modality, recover = false, playerdata = undefined) {
 
 
-        console.log(time_modality, "eiei");
+
 
         if (time_modality == "perRound") {
             
@@ -1944,6 +1950,8 @@ list_of_options[2].addEventListener('click', function() {
     
         sound_click.play();
 
+        document.querySelector('.user1 h6').style.display = 'none';
+
 
             if (payload.moveA === 101) {
                 
@@ -2030,7 +2038,7 @@ list_of_options[2].addEventListener('click', function() {
 
                 if (ChessPiece.check(whitePieces.filter(piece => piece instanceof King)[0].position)) {  
 
-                    console.log(ChessPiece.mate());
+                  
 
                     if (ChessPiece.mate()) {
 
@@ -2056,9 +2064,7 @@ list_of_options[2].addEventListener('click', function() {
        else if (message.type === 'time_left') {
 
         
-            console.log(payload);
-
-            timer_update(payload,0); 
+       
         
         
         
@@ -2098,7 +2104,7 @@ list_of_options[2].addEventListener('click', function() {
     // Create a paragraph element to hold the text
     messageContainer.classList.add('text_sent');
 
-    console.log(message);
+ 
 
     messageContainer.innerText = payload;
 
@@ -2507,7 +2513,7 @@ list_of_options[2].addEventListener('click', function() {
             const element = document.getElementById(`${perspectiveA}`);
             const element1 = document.getElementById(`${perspectiveB}`);
 
-            console.log(perspectiveA,perspectiveA);
+          
             
     
             if (whitePieces.map(i => i.position).includes(perspectiveB)) {
@@ -3358,7 +3364,7 @@ list_of_options[2].addEventListener('click', function() {
     function generate_recoverPieces(pieces, color) {
         const piecesList = []; // Array to store the generated pieces
 
-        console.log(pieces);
+     
     
         // Loop through each type of piece
         Object.keys(pieces).forEach(key => {
@@ -3390,7 +3396,7 @@ list_of_options[2].addEventListener('click', function() {
 
         }
 
-        console.log(piecesList);
+       
     
         return piecesList; // Return the list of generated pieces
     }
@@ -3537,7 +3543,7 @@ list_of_options[2].addEventListener('click', function() {
             if (whitePieces.map(i => i.position).includes(pos)) {
                 whitePieces.forEach(piece => {
                     if (piece.position === pos) {
-                        console.log(piece);
+                    
                         piece.canMoveTo().forEach(i => {
                             const element = document.getElementById(`${Math.floor(i / 10)}${i % 10}`);
                             const currentColor = window.getComputedStyle(element).backgroundColor;
@@ -3558,8 +3564,7 @@ list_of_options[2].addEventListener('click', function() {
             
             let element = document.getElementById(`${posSelected}`);
             let element1 = document.getElementById(`${pos}`);
-            console.log(element);
-            console.log(element1);
+         
     
             if (currentPiece.canMoveTo().includes(pos)) {
 
@@ -3591,15 +3596,14 @@ list_of_options[2].addEventListener('click', function() {
                         
                         blackPieces = blackPieces.concat(recover_if_check);
                         currentPiece.position=posSelected;
-                        console.log("Your King is in danger!");
+                       
                         return;}
 
                     
                     let image = element.querySelector('img');
                     let image1 = element1.querySelector('img');
 
-                    console.log(image);
-                    console.log(image1);
+                
                     element.removeChild(image);
                     element1.removeChild(image1);
                     element1.appendChild(image);
@@ -3613,7 +3617,7 @@ list_of_options[2].addEventListener('click', function() {
                     if (ChessPiece.check(whitePieces.filter(piece => piece instanceof King)[0].position)) {
                         
                         currentPiece.position=posSelected;
-                        console.log("Your King is in danger!");
+                      
                         return;}
 
 
@@ -3684,7 +3688,7 @@ list_of_options[2].addEventListener('click', function() {
                 
                             // Add click event listeners
                             queenDiv.addEventListener('click', () => {
-                                console.log('Queen clicked!');
+                            
                                 PawnPromotion.style.display = "none";
                                 pawn_promotion = "Queen";
                                 upgradePiece = new Queen(color1, pos);
@@ -3692,7 +3696,7 @@ list_of_options[2].addEventListener('click', function() {
                             });
                 
                             knightDiv.addEventListener('click', () => {
-                                console.log('Knight clicked!');
+                              
                                 PawnPromotion.style.display = "none";
                                 pawn_promotion = "Knight";
                                 upgradePiece = new Knight(color1, pos);
@@ -3726,6 +3730,7 @@ list_of_options[2].addEventListener('click', function() {
                 socket.send(JSON.stringify({type: 'move', payload : {id, player, moveA, moveB, turn, pawn_promotion, castle}}));
                 clearInterval(timerId);
                 
+                document.querySelector('.user2 h6').style.display = 'none'; 
 
                 pawn_promotion = null;
                 
@@ -3760,7 +3765,7 @@ list_of_options[2].addEventListener('click', function() {
         
                 whitePieces.forEach(piece => {
                     if (piece.position === posSelected) {
-                        console.log(piece);
+                
                         piece.canMoveTo().forEach(i => {
                             const element = document.getElementById(`${Math.floor(i / 10)}${i % 10}`);
                             const currentColor = window.getComputedStyle(element).backgroundColor;

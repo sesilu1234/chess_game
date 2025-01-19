@@ -1034,7 +1034,7 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds depth */
 }
 
 .secondone:hover {
-  background-color: #676161;  /* Darker shade for hover */
+  background-color: #616667;  /* Darker shade for hover */
   transform: scale(1.05);   /* Slight zoom effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
