@@ -1,0 +1,14 @@
+{
+  "name": "chess_game",
+  "version": "1.0.0",
+  "description": "Simple chess app built with vanilla JS, HTML and CSS.",
+  "main": "index.html",
+  "scripts": {},
+  "keywords": [
+    "chess",
+    "vanilla-js",
+    "web-app"
+  ],
+  "author": "Ulises",
+  "license": "MIT"
+}
