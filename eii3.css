@@ -17,7 +17,7 @@
 }
 
 .root_2 {
-  --body-back_color: #3c393ae8; /* Dark, but a bit lighter than the original for better readability */
+  --body-back_color: #3d453eb0; /* Dark, but a bit lighter than the original for better readability */
   --left_column-back_color: #4a3c36d6; /* A lighter brown, still earthy but with a softer touch */
   --right_column-back_color: #3e3838c5; /* A softer, slightly lighter charcoal for the right column */
 
