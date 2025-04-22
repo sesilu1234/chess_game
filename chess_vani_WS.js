@@ -2023,10 +2023,13 @@ list_of_options[2].addEventListener('click', function() {
                 paintPieces([promo]);
     
                 }
+                
     
-            
+                clearInterval(timerId);
                 turno = true;
     
+
+
                 timer_update(payload.time_left,1); 
 
 
@@ -2065,7 +2068,8 @@ list_of_options[2].addEventListener('click', function() {
 
         
        
-        
+                clearInterval(timerId);
+                timer_update(message.payload,0); 
         
         
         }
@@ -3728,7 +3732,7 @@ list_of_options[2].addEventListener('click', function() {
                 
 
                 socket.send(JSON.stringify({type: 'move', payload : {id, player, moveA, moveB, turn, pawn_promotion, castle}}));
-                clearInterval(timerId);
+                
                 
                 document.querySelector('.user2 h6').style.display = 'none'; 
 
