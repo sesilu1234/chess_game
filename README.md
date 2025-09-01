@@ -1,3 +1,8 @@
+
+<img width="1090" height="623" alt="image" src="https://github.com/user-attachments/assets/f8e79fd4-cca4-45b8-a034-d27bf2c49f90" />
+
+
+
 # ♟️ WS Server Chess
 
 A lightweight **WebSocket chess server** built in Node.js.  
